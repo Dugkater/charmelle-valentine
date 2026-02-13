@@ -6,7 +6,7 @@
     <title>Charmelle's Enchanted Garden ✨</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Italiana&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Italiana&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Allura&family=Lovers+Quarrel&family=Tangerine:wght@400;700&family=Alex+Brush&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         *, *::after, *::before { padding:0; margin:0; box-sizing:border-box; }
         :root { --dark-color:#0a0014; --night-purple:#1a0a2e; }
@@ -123,17 +123,23 @@
             align-items:center; gap:6px;
             opacity:0; animation:fadeInHint 1.5s 5.5s ease-out forwards;
             cursor:pointer;
+            padding:15px 30px;
+            background:linear-gradient(135deg, rgba(255,20,147,0.15), rgba(255,105,180,0.15));
+            border:2px solid rgba(212,0,110,0.3);
+            border-radius:50px;
+            backdrop-filter:blur(10px);
+            transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes fadeInHint { to{opacity:1} }
+        .scroll-hint:hover {
+            background:linear-gradient(135deg, rgba(255,20,147,0.25), rgba(255,105,180,0.25));
+            border-color:rgba(212,0,110,0.5);
+            transform:translateX(-50%) translateY(-5px) scale(1.05);
+            box-shadow:0 10px 30px rgba(255,105,180,0.3);
+        }
         .scroll-hint span {
             font-family:'Cormorant Garamond',serif; font-style:italic;
             font-size:0.85rem; letter-spacing:2px; color:#d4006e; opacity:0.9;
-        }
-        .scroll-hint__arrow {
-            width:20px; height:20px;
-            border-right:1.5px solid #d4006e; border-bottom:1.5px solid #d4006e;
-            transform:rotate(45deg);
-            animation:bounce-down 1.6s ease-in-out infinite;
         }
         @keyframes bounce-down {
             0%,100%{transform:rotate(45deg) translateY(0)} 50%{transform:rotate(45deg) translateY(5px)}
@@ -308,339 +314,895 @@
         @keyframes grow-ans{0%{transform:scale(0);opacity:0}}
 
         /* ══════════════════════════════════
-           LOVE LETTER SECTION
+           ENHANCED ENVELOPE ANIMATION
         ══════════════════════════════════ */
-        .letter-section {
-            position:relative; z-index:10; width:100%;
-            padding:80px 20px 100px;
-            display:flex; justify-content:center; align-items:flex-start;
-            background:linear-gradient(to bottom,#ffe0f0 0%,#ffc0e0 50%,#ffb0d8 100%);
+        .envelope-container {
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+            pointer-events:none;
+            opacity:0;
+            transition:opacity 0.8s ease-in-out;
         }
-        .letter-section::before {
-            content:''; position:absolute; top:0; left:0; right:0; height:80px;
-            background:linear-gradient(to bottom,transparent,#ffe0f0);
-            pointer-events:none; z-index:1;
-        }
-
-        /* Floating hearts background */
-        .hearts-bg {
-            position:absolute; top:0; left:0; right:0; bottom:0;
-            pointer-events:none; overflow:hidden; z-index:1;
-        }
-        .heart-float {
-            position:absolute; font-size:var(--size,1rem); opacity:0;
-            animation:heart-rise var(--dur,8s) var(--delay,0s) ease-in infinite; bottom:-20px;
-        }
-        @keyframes heart-rise {
-            0%  {opacity:0;  transform:translateY(0) scale(0.6) rotate(var(--rot,0deg))}
-            15% {opacity:0.35}
-            85% {opacity:0.15}
-            100%{opacity:0;  transform:translateY(-80vh) scale(1) rotate(calc(var(--rot,0deg) + 30deg))}
+        .envelope-container.active {
+            pointer-events:all;
+            opacity:1;
         }
         
-        /* Animated heart shapes in background */
-        .heart-shape {
+        .envelope-backdrop {
             position:absolute;
-            width:var(--size, 20px);
-            height:var(--size, 20px);
-            animation:heart-float var(--duration, 10s) var(--delay, 0s) ease-in-out infinite;
-            opacity:0;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0);
+            backdrop-filter:blur(0px);
+            transition:all 1s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
-        .heart-shape::before,
-        .heart-shape::after {
+        .envelope-container.active .envelope-backdrop {
+            background:rgba(0,0,0,0.8);
+            backdrop-filter:blur(15px);
+        }
+
+        /* Floating sparkles around envelope */
+        .envelope-sparkles {
+            position:absolute;
+            width:100%;
+            height:100%;
+            pointer-events:none;
+            opacity:0;
+            transition:opacity 1s ease-in-out;
+        }
+        .envelope-container.active .envelope-sparkles {
+            opacity:1;
+            transition-delay:0.5s;
+        }
+        .sparkle {
+            position:absolute;
+            width:4px;
+            height:4px;
+            background:#ffd700;
+            border-radius:50%;
+            box-shadow:0 0 10px #ffd700;
+            animation:sparkle-float var(--duration) ease-in-out infinite;
+            animation-delay:var(--delay);
+        }
+        @keyframes sparkle-float {
+            0%, 100% {
+                opacity:0;
+                transform:translateY(0) scale(0);
+            }
+            10% {
+                opacity:1;
+                transform:translateY(-10px) scale(1);
+            }
+            90% {
+                opacity:1;
+            }
+            100% {
+                opacity:0;
+                transform:translateY(-50px) scale(0);
+            }
+        }
+
+        .envelope-wrapper {
+            position:relative;
+            width:500px;
+            height:350px;
+            z-index:10;
+            transform:scale(0) rotateY(-180deg) translateZ(-200px);
+            opacity:0;
+            transition:all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transform-style:preserve-3d;
+        }
+        .envelope-container.active .envelope-wrapper {
+            transform:scale(1) rotateY(0deg) translateZ(0);
+            opacity:1;
+            transition-delay:0.3s;
+        }
+
+        .envelope {
+            position:relative;
+            width:100%;
+            height:100%;
+            transform-style:preserve-3d;
+            filter:drop-shadow(0 25px 60px rgba(0,0,0,0.4));
+        }
+        
+        /* Elegant cream envelope design with enhanced 3D effect */
+        .envelope__back {
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:linear-gradient(135deg, #f8f6f0 0%, #fefdfb 50%, #f5f3ed 100%);
+            border:2.5px solid #d4c5a9;
+            border-radius:15px;
+            box-shadow:
+                0 20px 60px rgba(139,69,19,0.3),
+                inset 0 3px 6px rgba(255,255,255,0.6),
+                inset 0 -3px 6px rgba(139,69,19,0.15);
+            z-index:1;
+            transform:translateZ(-5px);
+        }
+        .envelope__back::before {
             content:'';
             position:absolute;
-            width:var(--size, 20px);
-            height:var(--size, 20px);
-            background:var(--color, #ff69b4);
-            border-radius:50% 50% 0 0;
+            top:20px;
+            left:20px;
+            right:20px;
+            bottom:20px;
+            border:1.5px solid rgba(212,197,169,0.4);
+            border-radius:10px;
+            pointer-events:none;
         }
-        .heart-shape::before {
-            left:50%;
-            transform:translateX(-50%) rotate(-45deg);
-            transform-origin:0 100%;
-        }
-        .heart-shape::after {
+        /* Decorative pattern */
+        .envelope__back::after {
+            content:'';
+            position:absolute;
+            top:0;
             left:0;
-            transform:rotate(45deg);
-            transform-origin:100% 100%;
+            right:0;
+            bottom:0;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(212,197,169,0.05) 15px, rgba(212,197,169,0.05) 30px),
+                repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(212,197,169,0.05) 15px, rgba(212,197,169,0.05) 30px);
+            opacity:0.5;
+            border-radius:15px;
+            pointer-events:none;
         }
-        @keyframes heart-float {
+        
+        .envelope__front {
+            position:absolute;
+            width:100%;
+            height:52%;
+            bottom:0;
+            background:linear-gradient(180deg, #fefdfb 0%, #f8f6f0 100%);
+            border:2.5px solid #d4c5a9;
+            border-top:none;
+            border-radius:0 0 15px 15px;
+            z-index:9;
+            box-shadow:
+                inset 0 3px 10px rgba(139,69,19,0.1),
+                0 -2px 10px rgba(0,0,0,0.05);
+            transform:translateZ(2px);
+        }
+        
+        .envelope__flap {
+            position:absolute;
+            width:100%;
+            height:54%;
+            top:0;
+            left:0;
+            background:linear-gradient(180deg, #f5f3ed 0%, #fefdfb 100%);
+            border:2.5px solid #d4c5a9;
+            border-bottom:none;
+            border-radius:15px 15px 0 0;
+            transform-origin:top center;
+            transition:transform 1.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index:10;
+            box-shadow:
+                0 10px 35px rgba(139,69,19,0.25),
+                inset 0 -3px 8px rgba(139,69,19,0.12);
+        }
+        
+        /* Enhanced wax seal with glow effect */
+        .envelope__flap::before {
+            content:'';
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            width:70px;
+            height:70px;
+            background:radial-gradient(circle at 30% 30%, #e8c47c 0%, #d4af37 30%, #b8941f 60%, #9a7d1a 100%);
+            border-radius:50%;
+            border:4px solid #8b6914;
+            box-shadow:
+                0 6px 20px rgba(139,105,20,0.6),
+                inset 0 3px 6px rgba(255,255,255,0.4),
+                inset 0 -3px 6px rgba(0,0,0,0.4),
+                0 0 30px rgba(212,175,55,0.3);
+            transition:all 0.4s ease;
+            animation:seal-glow 3s ease-in-out infinite;
+        }
+        @keyframes seal-glow {
+            0%, 100% {
+                box-shadow:
+                    0 6px 20px rgba(139,105,20,0.6),
+                    inset 0 3px 6px rgba(255,255,255,0.4),
+                    inset 0 -3px 6px rgba(0,0,0,0.4),
+                    0 0 30px rgba(212,175,55,0.3);
+            }
+            50% {
+                box-shadow:
+                    0 6px 25px rgba(139,105,20,0.8),
+                    inset 0 3px 6px rgba(255,255,255,0.5),
+                    inset 0 -3px 6px rgba(0,0,0,0.4),
+                    0 0 50px rgba(212,175,55,0.5);
+            }
+        }
+        .envelope__flap::after {
+            content:'💌';
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            font-size:2.5rem;
+            filter:drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+            transition:all 0.4s ease;
+            z-index:1;
+            animation:heart-pulse 2s ease-in-out infinite;
+        }
+        @keyframes heart-pulse {
+            0%, 100% {
+                transform:translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform:translate(-50%, -50%) scale(1.1);
+            }
+        }
+        
+        /* OPENING ANIMATION */
+        .envelope.opening .envelope__flap {
+            transform:rotateX(-180deg);
+            transition:transform 1.8s 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .envelope.opening .envelope__flap::before,
+        .envelope.opening .envelope__flap::after {
+            opacity:0;
+            transform:translate(-50%, -50%) scale(0);
+            transition:all 0.6s ease;
+        }
+        
+        /* CLOSING ANIMATION - Reverse of opening */
+        .envelope.closing .letter-paper {
+            bottom:-150%;
+            transform:scale(0.85) translateY(20px);
+            opacity:0;
+            z-index:2;
+            transition:
+                bottom 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                z-index 0s 2.2s;
+        }
+        .envelope.closing .envelope__flap {
+            transform:rotateX(0deg);
+            transition:transform 1.8s 2.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .envelope.closing .envelope__flap::before,
+        .envelope.closing .envelope__flap::after {
+            opacity:1;
+            transform:translate(-50%, -50%) scale(1);
+            transition:all 0.6s 3.4s ease;
+        }
+        
+        /* Enhanced paper texture */
+        .envelope__pattern {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            width:85%;
+            height:75%;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(212,197,169,0.12) 12px, rgba(212,197,169,0.12) 24px),
+                repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(212,197,169,0.12) 12px, rgba(212,197,169,0.12) 24px);
+            opacity:0.25;
+            pointer-events:none;
+            z-index:1;
+        }
+        
+        /* PREMIUM LUXURY LETTER PAPER */
+        .letter-paper {
+            position:absolute;
+            width:94%;
+            height:240%;
+            left:3%;
+            bottom:-150%;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(255,182,193,0.12) 0%, transparent 30%),
+                radial-gradient(circle at 85% 15%, rgba(255,192,203,0.1) 0%, transparent 25%),
+                radial-gradient(circle at 10% 85%, rgba(221,160,221,0.08) 0%, transparent 28%),
+                radial-gradient(circle at 90% 75%, rgba(255,215,0,0.06) 0%, transparent 30%),
+                radial-gradient(ellipse at 50% 0%, rgba(255,105,180,0.05) 0%, transparent 40%),
+                linear-gradient(135deg, #fffef9 0%, #ffffff 50%, #fffef5 100%);
+            border:3px solid transparent;
+            border-radius:12px;
+            box-shadow:
+                0 35px 120px rgba(0,0,0,0.5),
+                0 20px 60px rgba(139,69,19,0.35),
+                0 10px 30px rgba(255,105,180,0.15),
+                inset 0 3px 10px rgba(255,255,255,0.95),
+                inset 0 -3px 10px rgba(255,215,0,0.08),
+                0 0 0 1px rgba(212,175,55,0.2),
+                0 0 40px rgba(255,105,180,0.1);
+            transform:scale(0.85) translateY(20px);
+            opacity:0;
+            transition:
+                bottom 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 2.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+                z-index 0s;
+            z-index:2;
+            overflow:hidden;
+            transform-style:preserve-3d;
+        }
+        .envelope.opening .letter-paper {
+            bottom:50%;
+            transform:translateY(50%) scale(1);
+            opacity:1;
+            transition:
+                bottom 2.2s 2.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 2.2s 2.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 2.2s 2.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+                z-index 0s 2.8s;
+            z-index:15;
+            animation:letter-float 3s ease-in-out infinite 5.3s;
+        }
+        @keyframes letter-float {
+            0%, 100% {
+                transform:translateY(50%) scale(1);
+            }
+            50% {
+                transform:translateY(calc(50% - 8px)) scale(1);
+            }
+        }
+        
+        /* Vintage paper texture with fibers */
+        .letter-paper::before {
+            content:'';
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            background-image:
+                repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(230,220,210,0.15) 31px, rgba(230,220,210,0.15) 32px, transparent 32px, transparent 63px),
+                repeating-linear-gradient(90deg, transparent 0px, rgba(212,197,169,0.03) 1px, transparent 2px, transparent 100%),
+                radial-gradient(circle at 20% 30%, rgba(139,69,19,0.015) 0%, transparent 3%),
+                radial-gradient(circle at 80% 70%, rgba(139,69,19,0.015) 0%, transparent 3%),
+                radial-gradient(circle at 45% 55%, rgba(139,69,19,0.015) 0%, transparent 3%),
+                radial-gradient(circle at 65% 25%, rgba(139,69,19,0.015) 0%, transparent 3%);
+            background-size: 100% 100%, 100% 100%, 800px 800px, 600px 600px, 700px 700px, 500px 500px;
+            pointer-events:none;
+            z-index:0;
+            opacity:0.7;
+            mix-blend-mode:multiply;
+        }
+        
+        /* Ornate watercolor border */
+        .letter-paper::after {
+            content:'';
+            position:absolute;
+            top:22px;
+            left:22px;
+            right:22px;
+            bottom:22px;
+            border:4px solid transparent;
+            border-image:linear-gradient(135deg, 
+                #ffd700 0%, 
+                #ff69b4 8%, 
+                #ffc0cb 16%,
+                #dda0dd 24%,
+                #d4af37 32%, 
+                #ff1493 40%,
+                #ffb6c1 48%,
+                #ffd700 56%,
+                #ff69b4 64%,
+                #dda0dd 72%,
+                #d4af37 80%,
+                #ff1493 88%,
+                #ffd700 100%) 1;
+            border-radius:8px;
+            pointer-events:none;
+            z-index:0;
+            opacity:0.35;
+            filter:blur(0.3px);
+            animation:border-shimmer-luxury 12s linear infinite;
+        }
+        @keyframes border-shimmer-luxury {
             0% {
-                bottom:-30px;
-                left:var(--start-x, 0%);
+                border-image-source:linear-gradient(135deg, 
+                    #ffd700 0%, #ff69b4 8%, #ffc0cb 16%, #dda0dd 24%,
+                    #d4af37 32%, #ff1493 40%, #ffb6c1 48%, #ffd700 56%,
+                    #ff69b4 64%, #dda0dd 72%, #d4af37 80%, #ff1493 88%, #ffd700 100%);
+                opacity:0.35;
+            }
+            25% {
+                opacity:0.5;
+            }
+            50% {
+                border-image-source:linear-gradient(135deg, 
+                    #ff69b4 0%, #dda0dd 8%, #d4af37 16%, #ff1493 24%,
+                    #ffd700 32%, #ff69b4 40%, #ffc0cb 48%, #dda0dd 56%,
+                    #d4af37 64%, #ffd700 72%, #ff1493 80%, #ffb6c1 88%, #ff69b4 100%);
+                opacity:0.35;
+            }
+            75% {
+                opacity:0.5;
+            }
+            100% {
+                border-image-source:linear-gradient(135deg, 
+                    #ffd700 0%, #ff69b4 8%, #ffc0cb 16%, #dda0dd 24%,
+                    #d4af37 32%, #ff1493 40%, #ffb6c1 48%, #ffd700 56%,
+                    #ff69b4 64%, #dda0dd 72%, #d4af37 80%, #ff1493 88%, #ffd700 100%);
+                opacity:0.35;
+            }
+        }
+        
+        /* Ornate corner decorations with roses */
+        .letter-paper-flourish {
+            position:absolute;
+            width:80px;
+            height:80px;
+            pointer-events:none;
+            z-index:1;
+            opacity:0.8;
+        }
+        .letter-paper-flourish::before,
+        .letter-paper-flourish::after {
+            content:'';
+            position:absolute;
+            background:linear-gradient(135deg, #ffd700 0%, #ff69b4 50%, #ffc0cb 100%);
+            box-shadow:
+                0 0 15px rgba(255,215,0,0.5),
+                0 0 8px rgba(255,105,180,0.4);
+            border-radius:2px;
+        }
+        
+        /* Top-left ornate corner */
+        .letter-paper-flourish--tl {
+            top:10px;
+            left:10px;
+        }
+        .letter-paper-flourish--tl::before {
+            top:0;
+            left:0;
+            width:100%;
+            height:4px;
+            background:linear-gradient(90deg, 
+                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
+            box-shadow:
+                0 2px 10px rgba(255,215,0,0.6),
+                0 0 20px rgba(255,105,180,0.3);
+        }
+        .letter-paper-flourish--tl::after {
+            top:0;
+            left:0;
+            width:4px;
+            height:100%;
+            background:linear-gradient(180deg, 
+                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
+            box-shadow:
+                2px 0 10px rgba(255,215,0,0.6),
+                0 0 20px rgba(255,105,180,0.3);
+        }
+        
+        /* Rose decoration for top-left */
+        .letter-paper-flourish--tl::after {
+            content:'🌹';
+            width:auto;
+            height:auto;
+            background:none;
+            box-shadow:none;
+            font-size:1.8rem;
+            top:-8px;
+            left:-8px;
+            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
+            animation:rose-glow 3s ease-in-out infinite;
+        }
+        @keyframes rose-glow {
+            0%, 100% {
+                filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
+            }
+            50% {
+                filter:drop-shadow(0 2px 12px rgba(255,105,180,0.8)) drop-shadow(0 0 20px rgba(255,215,0,0.6));
+            }
+        }
+        
+        /* Top-right */
+        .letter-paper-flourish--tr {
+            top:10px;
+            right:10px;
+        }
+        .letter-paper-flourish--tr::before {
+            top:0;
+            right:0;
+            width:100%;
+            height:4px;
+            background:linear-gradient(270deg, 
+                #ffd700 0%, #dda0dd 30%, #ffc0cb 50%, #ff69b4 70%, #ffd700 100%);
+            box-shadow:
+                0 2px 10px rgba(255,215,0,0.6),
+                0 0 20px rgba(255,105,180,0.3);
+        }
+        .letter-paper-flourish--tr::after {
+            content:'💐';
+            width:auto;
+            height:auto;
+            background:none;
+            box-shadow:none;
+            font-size:1.8rem;
+            top:-8px;
+            right:-8px;
+            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
+            animation:rose-glow 3s 0.5s ease-in-out infinite;
+        }
+        
+        /* Bottom-left */
+        .letter-paper-flourish--bl {
+            bottom:10px;
+            left:10px;
+        }
+        .letter-paper-flourish--bl::before {
+            content:'🌸';
+            width:auto;
+            height:auto;
+            background:none;
+            box-shadow:none;
+            font-size:1.8rem;
+            bottom:-8px;
+            left:-8px;
+            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
+            animation:rose-glow 3s 1s ease-in-out infinite;
+        }
+        .letter-paper-flourish--bl::after {
+            bottom:0;
+            left:0;
+            width:4px;
+            height:100%;
+            background:linear-gradient(0deg, 
+                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
+            box-shadow:
+                2px 0 10px rgba(255,215,0,0.6),
+                0 0 20px rgba(255,105,180,0.3);
+        }
+        
+        /* Bottom-right */
+        .letter-paper-flourish--br {
+            bottom:10px;
+            right:10px;
+        }
+        .letter-paper-flourish--br::before {
+            bottom:0;
+            right:0;
+            width:100%;
+            height:4px;
+            background:linear-gradient(270deg, 
+                #ffd700 0%, #dda0dd 30%, #ffc0cb 50%, #ff69b4 70%, #ffd700 100%);
+            box-shadow:
+                0 -2px 10px rgba(255,215,0,0.6),
+                0 0 20px rgba(255,105,180,0.3);
+        }
+        .letter-paper-flourish--br::after {
+            content:'🌺';
+            width:auto;
+            height:auto;
+            background:none;
+            box-shadow:none;
+            font-size:1.8rem;
+            bottom:-8px;
+            right:-8px;
+            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
+            animation:rose-glow 3s 1.5s ease-in-out infinite;
+        }
+        
+        /* Luxury rose gold scrollbar */
+        .letter-paper__content {
+            padding:40px 45px;
+            height:100%;
+            overflow-y:auto;
+            font-family:'Cormorant Garamond',serif;
+            color:#2c2c2c;
+            position:relative;
+            z-index:1;
+        }
+        .letter-paper__content::-webkit-scrollbar {
+            width:14px;
+        }
+        .letter-paper__content::-webkit-scrollbar-track {
+            background:linear-gradient(to bottom, #fff9f5, #fff5f0);
+            border-radius:7px;
+            border:2px solid rgba(255,215,0,0.2);
+            box-shadow:inset 0 0 8px rgba(255,105,180,0.1);
+        }
+        .letter-paper__content::-webkit-scrollbar-thumb {
+            background:linear-gradient(180deg, #e8c47c 0%, #d4af37 50%, #b8941f 100%);
+            border-radius:7px;
+            border:3px solid #ffd700;
+            box-shadow:
+                inset 0 2px 5px rgba(255,255,255,0.4),
+                inset 0 -2px 5px rgba(0,0,0,0.2),
+                0 0 10px rgba(255,215,0,0.5);
+        }
+        .letter-paper__content::-webkit-scrollbar-thumb:hover {
+            background:linear-gradient(180deg, #ffd700 0%, #e8c47c 50%, #d4af37 100%);
+            box-shadow:
+                inset 0 2px 5px rgba(255,255,255,0.5),
+                inset 0 -2px 5px rgba(0,0,0,0.2),
+                0 0 15px rgba(255,215,0,0.7);
+        }
+        
+        .letter-paper__title {
+            font-family:'Great Vibes',cursive;
+            font-size:3.2rem;
+            font-weight:400;
+            background:linear-gradient(135deg, #8b4513 0%, #d4006e 50%, #8b4513 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            margin-bottom:35px;
+            text-align:center;
+            position:relative;
+            padding:20px 0;
+            filter:drop-shadow(0 2px 4px rgba(139,69,19,0.2));
+            animation:title-glow-luxury 4s ease-in-out infinite;
+            letter-spacing:2px;
+        }
+        
+        /* Watercolor splash behind title */
+        .letter-paper__title::before {
+            content:'';
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            width:105%;
+            height:130%;
+            background:
+                radial-gradient(ellipse at 30% 40%, rgba(255,182,193,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(255,192,203,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255,215,0,0.08) 0%, transparent 60%);
+            border-radius:50% 40% 45% 55%;
+            z-index:-1;
+            filter:blur(20px);
+            animation:watercolor-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes watercolor-float {
+            0%, 100% {
+                border-radius:50% 40% 45% 55%;
+                transform:translate(-50%, -50%) rotate(0deg);
+            }
+            33% {
+                border-radius:45% 50% 40% 60%;
+                transform:translate(-48%, -52%) rotate(2deg);
+            }
+            66% {
+                border-radius:55% 45% 50% 40%;
+                transform:translate(-52%, -48%) rotate(-2deg);
+            }
+        }
+        
+        @keyframes title-glow-luxury {
+            0%, 100% {
+                filter:drop-shadow(0 2px 4px rgba(139,69,19,0.2));
+            }
+            50% {
+                filter:drop-shadow(0 3px 10px rgba(139,69,19,0.35)) drop-shadow(0 0 25px rgba(255,105,180,0.25));
+            }
+        }
+        .letter-paper__text {
+            font-size:1.15rem;
+            line-height:2.2;
+            margin-bottom:25px;
+            text-align:justify;
+            color:#3a3a3a;
+            position:relative;
+            text-indent:2.5em;
+            hyphens:auto;
+        }
+        
+        /* First paragraph gets drop cap */
+        .letter-paper__text:first-of-type::first-letter {
+            font-family:'Great Vibes',cursive;
+            font-size:4.5rem;
+            line-height:0.85;
+            float:left;
+            margin:0.1em 0.15em 0 0;
+            background:linear-gradient(135deg, #ffd700 0%, #ff69b4 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            filter:drop-shadow(0 2px 6px rgba(255,105,180,0.3));
+        }
+        
+        /* Emphasized text gets special styling */
+        .letter-paper__text em {
+            font-family:'Cormorant Garamond',serif;
+            font-style:italic;
+            color:#d4006e;
+            font-weight:500;
+            position:relative;
+        }
+        
+        .letter-paper__text strong {
+            font-weight:600;
+            position:relative;
+            padding:0 4px;
+            background:linear-gradient(to bottom, transparent 60%, rgba(255,215,0,0.15) 60%);
+        }
+        .letter-paper__signature {
+            margin-top:50px;
+            text-align:right;
+            font-family:'Allura',cursive;
+            font-size:2.8rem;
+            background:linear-gradient(120deg, #8b4513 0%, #d4006e 50%, #8b4513 100%);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            background-clip:text;
+            position:relative;
+            padding-right:20px;
+            filter:drop-shadow(0 2px 5px rgba(139,69,19,0.25));
+        }
+        
+        /* Decorative flourish under signature */
+        .letter-paper__signature::after {
+            content:'';
+            position:absolute;
+            bottom:-15px;
+            right:0;
+            width:180px;
+            height:3px;
+            background:linear-gradient(90deg, transparent 0%, #ffd700 20%, #ff69b4 50%, #d4af37 80%, transparent 100%);
+            border-radius:2px;
+            box-shadow:0 0 10px rgba(255,215,0,0.5);
+            animation:signature-line 3s ease-in-out infinite;
+        }
+        
+        @keyframes signature-line {
+            0%, 100% {
+                opacity:0.6;
+                box-shadow:0 0 10px rgba(255,215,0,0.5);
+            }
+            50% {
+                opacity:1;
+                box-shadow:0 0 20px rgba(255,215,0,0.8), 0 0 10px rgba(255,105,180,0.4);
+            }
+        }
+        
+        /* Pressed flowers decoration */
+        .pressed-flower {
+            position:absolute;
+            font-size:2rem;
+            opacity:0.25;
+            filter:blur(0.3px) grayscale(0.2);
+            transform:rotate(var(--rotation));
+            pointer-events:none;
+            z-index:0;
+        }
+        
+        /* Mini wax seals */
+        .mini-wax-seal {
+            position:absolute;
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            background:radial-gradient(circle at 30% 30%, #e8c47c 0%, #d4af37 40%, #b8941f 100%);
+            border:2px solid #8b6914;
+            box-shadow:
+                0 2px 8px rgba(139,105,20,0.4),
+                inset 0 1px 3px rgba(255,255,255,0.3),
+                inset 0 -1px 3px rgba(0,0,0,0.3);
+            opacity:0.3;
+            z-index:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:0.7rem;
+        }
+        
+        /* Floating petals inside letter */
+        .floating-petal {
+            position:absolute;
+            font-size:1.2rem;
+            opacity:0;
+            pointer-events:none;
+            animation:petal-fall var(--fall-duration) linear infinite;
+            animation-delay:var(--fall-delay);
+            filter:blur(0.3px);
+        }
+        
+        @keyframes petal-fall {
+            0% {
                 opacity:0;
-                transform:scale(0.3) rotate(0deg);
+                transform:translateY(-20px) translateX(0) rotate(0deg);
             }
             10% {
                 opacity:0.6;
-            }
-            50% {
-                left:var(--mid-x, 50%);
-                transform:scale(1) rotate(180deg);
             }
             90% {
                 opacity:0.3;
             }
             100% {
-                bottom:110%;
-                left:var(--end-x, 100%);
                 opacity:0;
-                transform:scale(0.5) rotate(360deg);
-            }
-        }
-        
-        /* Pulsing hearts in corners */
-        .heart-pulse {
-            position:absolute;
-            width:var(--size, 30px);
-            height:var(--size, 30px);
-            animation:heart-pulse-anim var(--duration, 3s) var(--delay, 0s) ease-in-out infinite;
-        }
-        .heart-pulse::before,
-        .heart-pulse::after {
-            content:'';
-            position:absolute;
-            width:var(--size, 30px);
-            height:var(--size, 30px);
-            background:var(--color, #ff69b4);
-            border-radius:50% 50% 0 0;
-            opacity:0.4;
-        }
-        .heart-pulse::before {
-            left:50%;
-            transform:translateX(-50%) rotate(-45deg);
-            transform-origin:0 100%;
-        }
-        .heart-pulse::after {
-            left:0;
-            transform:rotate(45deg);
-            transform-origin:100% 100%;
-        }
-        @keyframes heart-pulse-anim {
-            0%, 100% {
-                transform:scale(0.8);
-                opacity:0.3;
-            }
-            50% {
-                transform:scale(1.2);
-                opacity:0.7;
-            }
-        }
-        
-        /* Spinning hearts */
-        .heart-spin {
-            position:absolute;
-            width:var(--size, 25px);
-            height:var(--size, 25px);
-            animation:heart-spin-anim var(--duration, 8s) var(--delay, 0s) linear infinite;
-        }
-        .heart-spin::before,
-        .heart-spin::after {
-            content:'';
-            position:absolute;
-            width:var(--size, 25px);
-            height:var(--size, 25px);
-            background:var(--color, #ff69b4);
-            border-radius:50% 50% 0 0;
-            opacity:0.5;
-        }
-        .heart-spin::before {
-            left:50%;
-            transform:translateX(-50%) rotate(-45deg);
-            transform-origin:0 100%;
-        }
-        .heart-spin::after {
-            left:0;
-            transform:rotate(45deg);
-            transform-origin:100% 100%;
-        }
-        @keyframes heart-spin-anim {
-            0% {
-                transform:rotate(0deg) scale(1);
-            }
-            50% {
-                transform:rotate(180deg) scale(1.3);
-            }
-            100% {
-                transform:rotate(360deg) scale(1);
+                transform:translateY(100vh) translateX(var(--sway)) rotate(360deg);
             }
         }
 
-        .letter-card {
-            position:relative; max-width:700px; width:100%;
-            background:#ffffff;
-            border:3px solid #8b4513;
-            border-radius:8px; padding:64px 64px 56px;
-            box-shadow:
-                0 10px 40px rgba(0,0,0,0.3),
-                inset 0 0 0 1px rgba(139,69,19,0.1),
-                inset 3px 0 12px rgba(139,69,19,0.05),
-                inset -3px 0 12px rgba(139,69,19,0.05);
-            backdrop-filter:blur(10px); z-index:2;
-            position:relative;
-        }
-        /* Book spine effect */
-        .letter-card::before {
-            content:'';
+        /* Enhanced close button */
+        .close-envelope {
             position:absolute;
-            left:30px;
-            top:0;
-            bottom:0;
-            width:2px;
-            background:linear-gradient(to bottom, 
-                transparent 0%, 
-                rgba(139,69,19,0.15) 5%, 
-                rgba(139,69,19,0.15) 95%, 
-                transparent 100%);
-            box-shadow:1px 0 1px rgba(139,69,19,0.1);
-        }
-        /* Book edge decorations */
-        .letter-card::after {
-            content:'';
-            position:absolute;
-            right:20px;
-            top:20px;
-            width:30px;
-            height:30px;
-            background:linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            top:30px;
+            right:30px;
+            width:50px;
+            height:50px;
+            background:rgba(245,245,220,0.25);
+            border:2.5px solid rgba(212,197,169,0.5);
             border-radius:50%;
-            opacity:0.3;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            cursor:pointer;
+            z-index:100;
+            opacity:0;
+            transform:scale(0) rotate(-180deg);
+            transition:all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter:blur(15px);
         }
-        /* Corner decorations */
-        .letter-card-corner {
+        .envelope-container.active .close-envelope {
+            opacity:1;
+            transform:scale(1) rotate(0deg);
+            transition-delay:1.2s;
+        }
+        .close-envelope:hover {
+            background:rgba(245,245,220,0.6);
+            border-color:rgba(212,197,169,1);
+            transform:scale(1.15) rotate(90deg);
+            box-shadow:0 0 30px rgba(212,175,55,0.4);
+        }
+        .close-envelope::before,
+        .close-envelope::after {
+            content:'';
             position:absolute;
-            width:40px;
-            height:40px;
-            border-style:solid;
-            border-color:#8b4513;
+            width:24px;
+            height:3px;
+            background:#8b6914;
+            border-radius:3px;
+            transition:all 0.3s ease;
         }
-        .letter-card-corner--tl {
-            top:0;
-            left:0;
-            border-width:3px 0 0 3px;
-            border-radius:8px 0 0 0;
+        .close-envelope::before {
+            transform:rotate(45deg);
         }
-        .letter-card-corner--tr {
-            top:0;
-            right:0;
-            border-width:3px 3px 0 0;
-            border-radius:0 8px 0 0;
+        .close-envelope::after {
+            transform:rotate(-45deg);
         }
-        .letter-card-corner--bl {
-            bottom:0;
-            left:0;
-            border-width:0 0 3px 3px;
-            border-radius:0 0 0 8px;
-        }
-        .letter-card-corner--br {
-            bottom:0;
-            right:0;
-            border-width:0 3px 3px 0;
-            border-radius:0 0 8px 0;
-        }
-        /* Page lines effect */
-        .letter-card-lines {
-            position:absolute;
-            left:60px;
-            right:40px;
-            top:100px;
-            bottom:80px;
-            background-image:repeating-linear-gradient(
-                transparent,
-                transparent 31px,
-                rgba(139,69,19,0.08) 31px,
-                rgba(139,69,19,0.08) 32px
-            );
-            pointer-events:none;
-            z-index:0;
-        }
-
-        /* Wax seal */
-        .letter-seal {
-            position:absolute; top:-22px; left:50%; transform:translateX(-50%);
-            width:44px; height:44px;
-            background:radial-gradient(circle at 35% 35%,#ff8fb0,#cc2255);
-            border-radius:50%; display:flex; align-items:center; justify-content:center;
-            font-size:1.2rem;
-            box-shadow:0 4px 20px rgba(220,20,60,0.5),0 0 0 3px rgba(255,105,180,0.2);
-            animation:seal-pulse 3s ease-in-out infinite;
-            z-index:10;
-        }
-        @keyframes seal-pulse {
-            0%,100%{box-shadow:0 4px 20px rgba(220,20,60,0.5),0 0 0 3px rgba(255,105,180,0.2)}
-            50%    {box-shadow:0 4px 30px rgba(220,20,60,0.8),0 0 0 6px rgba(255,105,180,0.3)}
-        }
-
-        .letter-to {
-            display:block; font-family:'Dancing Script',cursive;
-            font-size:clamp(1.4rem,3vw,1.9rem); color:#d4006e;
-            margin-bottom:32px; letter-spacing:0.5px;
-            position:relative;
-            z-index:1;
-        }
-
-        .letter-body {
-            font-family:'Cormorant Garamond',serif;
-            font-size:clamp(1rem,2.2vw,1.16rem); color:#2c2c2c;
-            line-height:2.05; font-weight:400; letter-spacing:0.02em;
-            position:relative;
-            z-index:1;
-        }
-        .letter-body p { margin-bottom:1.5em; }
-        .letter-body p:last-child { margin-bottom:0; }
-
-        .flower-ref {
-            font-style:italic; color:var(--ref-color,#d4006e);
-            font-weight:500;
-        }
-        .lol {
-            color:#ff1493; font-style:italic; font-size:0.9em; opacity:0.8;
-        }
-
-        /* Divider */
-        .letter-divider {
-            width:100%; height:1px;
-            background:linear-gradient(to right,transparent,rgba(255,20,147,0.3),transparent);
-            margin:36px 0;
-        }
-
-        .letter-signature {
-            display:flex; flex-direction:column; align-items:flex-end; gap:4px;
-        }
-        .letter-signature .sign-label {
-            font-family:'Cormorant Garamond',serif; font-style:italic;
-            font-size:0.95rem; color:#555; letter-spacing:1px;
-            position:relative;
-            z-index:1;
-        }
-        .letter-signature .sign-name {
-            font-family:'Dancing Script',cursive;
-            font-size:clamp(1.6rem,3.2vw,2.1rem);
-            background:linear-gradient(135deg,#ff1493,#ff69b4);
-            -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-            background-clip:text; letter-spacing:1px;
-        }
-        .letter-date {
-            margin-top:16px; font-family:'Cormorant Garamond',serif;
-            font-style:italic; font-size:0.82rem;
-            color:rgba(212,0,110,0.6); letter-spacing:2.5px; text-align:center;
+        .close-envelope:hover::before,
+        .close-envelope:hover::after {
+            background:#d4af37;
         }
 
         .not-loaded *{animation-play-state:paused!important}
 
         @media(max-width:768px){
+            .envelope-wrapper {
+                width:90vw;
+                height:calc(90vw * 0.7);
+                max-width:500px;
+                max-height:350px;
+            }
             .flower{transform:scale(0.7)!important}
             .flower--c{left:calc(50% - 32vmin)}.flower--h{left:calc(50% - 24vmin)}
             .flower--a{left:calc(50% - 16vmin)}.flower--r{left:calc(50% - 8vmin)}
             .flower--m{left:50%}.flower--e1{left:calc(50% + 8vmin)}
             .flower--l1{left:calc(50% + 16vmin)}.flower--l2{left:calc(50% + 24vmin)}
             .flower--e2{left:calc(50% + 32vmin)}
-            .letter-card{padding:52px 28px 44px}
         }
         @media(max-width:480px){
             .flower{transform:scale(0.5)!important}
-            .letter-card{padding:44px 18px 36px}
+            .letter-paper__content {
+                padding:20px;
+            }
+            .letter-paper__title {
+                font-size:1.8rem;
+            }
         }
     </style>
 </head>
@@ -730,222 +1292,253 @@
             <div class="long-g long-g--23"><div class="grow-ans" style="--d:4.1s"><div class="leaf"></div></div></div>
         </div>
 
-        <div class="scroll-hint" onclick="document.getElementById('letter').scrollIntoView({behavior:'smooth'})">
-            <span>a letter for you</span>
-            <div class="scroll-hint__arrow"></div>
+        <div class="scroll-hint" onclick="openEnvelope()">
+            <span>✉️ a letter for you</span>
         </div>
     </div>
 
-    <!-- LOVE LETTER -->
-    <div class="letter-section" id="letter">
-        <div class="hearts-bg" id="hearts"></div>
+    <!-- ENVELOPE ANIMATION -->
+    <div class="envelope-container" id="envelope-container">
+        <div class="envelope-backdrop" onclick="closeEnvelope()"></div>
+        <div class="envelope-sparkles" id="sparkles"></div>
+        <div class="close-envelope" onclick="closeEnvelope()"></div>
+        <div class="envelope-wrapper">
+            <div class="envelope" id="envelope">
+                <div class="envelope__back">
+                    <div class="envelope__pattern"></div>
+                </div>
+                <div class="envelope__flap"></div>
+                <div class="envelope__front"></div>
+                <div class="letter-paper">
+                    <div class="letter-paper-flourish letter-paper-flourish--tl"></div>
+                    <div class="letter-paper-flourish letter-paper-flourish--tr"></div>
+                    <div class="letter-paper-flourish letter-paper-flourish--bl"></div>
+                    <div class="letter-paper-flourish letter-paper-flourish--br"></div>
+                    <div class="letter-paper__content">
+                        <!-- Floating rose petals -->
+                        <div class="floating-petal" style="left:10%; --fall-duration:15s; --fall-delay:0s; --sway:30px;">🌸</div>
+                        <div class="floating-petal" style="left:30%; --fall-duration:18s; --fall-delay:2s; --sway:-25px;">🌺</div>
+                        <div class="floating-petal" style="left:50%; --fall-duration:16s; --fall-delay:4s; --sway:20px;">🌹</div>
+                        <div class="floating-petal" style="left:70%; --fall-duration:17s; --fall-delay:6s; --sway:-30px;">💮</div>
+                        <div class="floating-petal" style="left:85%; --fall-duration:19s; --fall-delay:8s; --sway:25px;">🌼</div>
+                        <div class="floating-petal" style="left:20%; --fall-duration:20s; --fall-delay:10s; --sway:-20px;">🏵️</div>
+                        
+                        <!-- Decorative pressed flowers -->
+                        <div class="pressed-flower" style="top:8%; right:5%; --rotation:25deg;">🌸</div>
+                        <div class="pressed-flower" style="top:25%; left:3%; --rotation:-15deg;">🌺</div>
+                        <div class="pressed-flower" style="top:45%; right:4%; --rotation:35deg;">🌹</div>
+                        <div class="pressed-flower" style="top:65%; left:2%; --rotation:-25deg;">🌷</div>
+                        <div class="pressed-flower" style="top:85%; right:6%; --rotation:18deg;">💐</div>
+                        
+                        <!-- Mini wax seals -->
+                        <div class="mini-wax-seal" style="top:15%; left:8%;">💕</div>
+                        <div class="mini-wax-seal" style="top:38%; right:7%;">💖</div>
+                        <div class="mini-wax-seal" style="top:58%; left:6%;">💗</div>
+                        <div class="mini-wax-seal" style="top:78%; right:9%;">💝</div>
+                        
+                        <div class="letter-paper__title">My palanggi, Charm Charm ♡</div>
+                        
+                        <div class="letter-paper__text">
+                            Uhmmm… where do I even start? Hehe. First of all — and palagi ko naman tong sinasabi sayo —
+                            I am so, <em>so</em>, very very very thankful that I met you.
+                            You are the most loving, caring, and beautiful girl I have ever known in this whole world,
+                            and I genuinely hope na tatagal tayo. Pwede ding forever nalang? Us? Pretty plssss 🥺
+                        </div>
 
-        <div class="letter-card">
-            <div class="letter-card-corner letter-card-corner--tl"></div>
-            <div class="letter-card-corner letter-card-corner--tr"></div>
-            <div class="letter-card-corner letter-card-corner--bl"></div>
-            <div class="letter-card-corner letter-card-corner--br"></div>
-            <div class="letter-card-lines"></div>
-            <div class="letter-seal">💌</div>
+                        <div class="letter-paper__text">
+                            As you can see sa taas, may bouquet of flowers — and each one represents a letter of your name.
+                            Let me explain them one by one, okay? Mwehehe.
+                        </div>
 
-            <span class="letter-to">My palanggi, Charm Charm ♡</span>
+                        <div class="letter-paper__text">
+                            The first flower is the <strong style="color:#ff1493">Cherry Blossom</strong> — for <em>C</em>.
+                            Bakit? Because you bloom in my eyes every single time. Palagi kang nagbobloom sa paningin ko,
+                            Charm — like the most beautiful thing I never get tired of seeing. Mwuah. 🌸
+                        </div>
 
-            <div class="letter-body">
-                <p>
-                    Uhmmm… where do I even start? Hehe. First of all — and palagi ko naman tong sinasabi sayo —
-                    I am so, <em>so</em>, very very very thankful that I met you.
-                    You are the most loving, caring, and beautiful girl I have ever known in this whole world,
-                    and I genuinely hope na tatagal tayo. Pwede ding forever nalang? Us? Pretty plssss 🥺
-                </p>
+                        <div class="letter-paper__text">
+                            The second is <strong style="color:#d946ef">Hyacinth</strong> — for <em>H</em>.
+                            I chose this one because it represents love — and I genuinely feel it. Not just the word.
+                            The real, actual thing you feel right here <em>(points at chest)</em>. That's you.
+                        </div>
 
-                <p>
-                    As you can see sa taas, may bouquet of flowers — and each one represents a letter of your name.
-                    Let me explain them one by one, okay? Mwehehe.
-                </p>
+                        <div class="letter-paper__text">
+                            Third is the <strong style="color:#ff6b6b">Anemone</strong> — for <em>A</em>.
+                            It symbolizes protection and feeling safe — and that is literally what I feel pag nag-uusap tayo.
+                            Parang nasa safe space ako every single call. So comfortable. So at home. You know? 🫶
+                        </div>
 
-                <p>
-                    The first flower is the <span class="flower-ref" style="--ref-color:#ff1493">Cherry Blossom</span> — for <em>C</em>.
-                    Bakit? Because you bloom in my eyes every single time. Palagi kang nagbobloom sa paningin ko,
-                    Charm — like the most beautiful thing I never get tired of seeing. Mwuah. 🌸
-                </p>
+                        <div class="letter-paper__text">
+                            Fourth is the <strong style="color:#dc143c">Rose</strong> — for <em>R</em>.
+                            Oo, common siya — I know, I know. But I don't care.
+                            You already know what a rose means, and everything it stands for?
+                            That's exactly how I feel about you. Classic. Timeless. Without question.
+                        </div>
 
-                <p>
-                    The second is <span class="flower-ref" style="--ref-color:#d946ef">Hyacinth</span> — for <em>H</em>.
-                    I chose this one because it represents love — and I genuinely feel it. Not just the word.
-                    The real, actual thing you feel right here <em>(points at chest)</em>. That's you.
-                </p>
+                        <div class="letter-paper__text">
+                            Fifth is <strong style="color:#4a90e2">Morning Glory</strong> — for <em>M</em>.
+                            Because when I met you, parang nabuhay ulit ako — like something woke up inside me again.
+                            I want to fall in love for the first time, all over again. I want to risk it.
+                            And if it's for you? Gusto ko. Talagang gusto ko.
+                        </div>
 
-                <p>
-                    Third is the <span class="flower-ref" style="--ref-color:#ff6b6b">Anemone</span> — for <em>A</em>.
-                    It symbolizes protection and feeling safe — and that is literally what I feel pag nag-uusap tayo.
-                    Parang nasa safe space ako every single call. So comfortable. So at home. You know? 🫶
-                </p>
+                        <div class="letter-paper__text">
+                            Sixth is <strong style="color:#888">Edelweiss</strong> — for <em>E</em>.
+                            Okay this one's actually more about me, hehe — it represents loyalty.
+                            And I am loyal to you. Patay na patay ako, gruur. I worship you, I swear.
+                            Love u, mwuah. 🤍
+                        </div>
 
-                <p>
-                    Fourth is the <span class="flower-ref" style="--ref-color:#dc143c">Rose</span> — for <em>R</em>.
-                    Oo, common siya — I know, I know. But I don't care.
-                    You already know what a rose means, and everything it stands for?
-                    That's exactly how I feel about you. Classic. Timeless. Without question.
-                </p>
+                        <div class="letter-paper__text">
+                            Seventh is the <strong style="color:#ffd700">Lily</strong> — for <em>L</em>.
+                            It means purity — and everything you say to me is pure, Charm.
+                            Walang halong biro, walang hidden meanings. You are honest and real and completely true
+                            to yourself. That's one of the things I love most about you.
+                        </div>
 
-                <p>
-                    Fifth is <span class="flower-ref" style="--ref-color:#4a90e2">Morning Glory</span> — for <em>M</em>.
-                    Because when I met you, parang nabuhay ulit ako — like something woke up inside me again.
-                    I want to fall in love for the first time, all over again. I want to risk it.
-                    And if it's for you? Gusto ko. Talagang gusto ko.
-                </p>
+                        <div class="letter-paper__text">
+                            Eighth is <strong style="color:#9370db">Lavender</strong> — for <em>L</em>.
+                            My personal favorite flower — at saka kinda my scent hehe 🪻.
+                            But this one's for you too, because whenever we're in a call,
+                            nawawala lahat ng stress ko. Pagkatapos ng lahat — school, outside happenings, lahat —
+                            ikaw yung calm ko. My stress reliever. My peace. You are so special to me, I swear I would
+                            <em>die</em> for you — okay oa naman pero you get it. 🫀
+                        </div>
 
-                <p>
-                    Sixth is <span class="flower-ref" style="--ref-color:#888">Edelweiss</span> — for <em>E</em>.
-                    Okay this one's actually more about me, hehe — it represents loyalty.
-                    And I am loyal to you. Patay na patay ako, gruur. I worship you, I swear.
-                    Love u, mwuah. 🤍
-                </p>
+                        <div class="letter-paper__text">
+                            And the ninth — the last, the most enchanted — is the
+                            <strong style="color:#ff1493">Enchanted Bloom</strong> — for <em>E</em>.
+                            It symbolizes magical love. Love at first sight.
+                            Mine was a little different though —
+                            <em style="color:#ff1493">love at first jakol HAHAHAHAHAHAHA I'm sorry, I'm sorry, kidingggg!</em>
+                            But genuinely — that unexpected, caught-you-off-guard, can't-explain-it kind of love?
+                            That's exactly what this is. That's exactly what you are to me.
+                        </div>
 
-                <p>
-                    Seventh is the <span class="flower-ref" style="--ref-color:#ffd700">Lily</span> — for <em>L</em>.
-                    It means purity — and everything you say to me is pure, Charm.
-                    Walang halong biro, walang hidden meanings. You are honest and real and completely true
-                    to yourself. That's one of the things I love most about you.
-                </p>
+                        <div style="height:2px;background:linear-gradient(to right,transparent,rgba(255,20,147,0.4) 20%,rgba(255,215,0,0.5) 50%,rgba(255,20,147,0.4) 80%,transparent);margin:30px 0;position:relative;box-shadow:0 0 10px rgba(255,215,0,0.3);">
+                            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;background:#fffef9;padding:0 15px;filter:drop-shadow(0 2px 8px rgba(255,105,180,0.4));">💝</div>
+                        </div>
 
-                <p>
-                    Eighth is <span class="flower-ref" style="--ref-color:#9370db">Lavender</span> — for <em>L</em>.
-                    My personal favorite flower — at saka kinda my scent hehe 🪻.
-                    But this one's for you too, because whenever we're in a call,
-                    nawawala lahat ng stress ko. Pagkatapos ng lahat — school, outside happenings, lahat —
-                    ikaw yung calm ko. My stress reliever. My peace. You are so special to me, I swear I would
-                    <em>die</em> for you — okay oa naman pero you get it. 🫀
-                </p>
+                        <div class="letter-paper__text">
+                            Nine letters. Nine flowers. All of them accurate — because I actually feel every single one,
+                            and we've only been talking for a month. Imagine that.
+                            Ang accurate lahat kasi nafefeel ko talaga sya, Charm.
+                        </div>
 
-                <p>
-                    And the ninth — the last, the most enchanted — is the
-                    <span class="flower-ref" style="--ref-color:#ff1493">Enchanted Bloom</span> — for <em>E</em>.
-                    It symbolizes magical love. Love at first sight.
-                    Mine was a little different though —
-                    <span class="lol">love at first jakol HAHAHAHAHAHAHA I'm sorry, I'm sorry, kidingggg!</span>
-                    But genuinely — that unexpected, caught-you-off-guard, can't-explain-it kind of love?
-                    That's exactly what this is. That's exactly what you are to me.
-                </p>
+                        <div class="letter-paper__text">
+                            Please, please, please — don't change. Stay exactly who you are,
+                            because who you are is already everything.
+                            I'll stay the same too, I promise.
+                            And I hope — so, so much — na magkita tayo soon. 🌸
+                        </div>
 
-                <div class="letter-divider"></div>
+                        <div class="letter-paper__text" style="margin-top:25px; font-style:italic; background:linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,105,180,0.08) 100%); padding:20px; border-radius:10px; border-left:4px solid #ffd700; box-shadow:0 4px 15px rgba(255,215,0,0.15); text-indent:0;">
+                            <span style="font-family:'Great Vibes',cursive; font-size:1.4em; color:#d4006e; filter:drop-shadow(0 2px 4px rgba(212,0,110,0.3));">Happy Valentine's Day, Charm Cha ✨</span><br>
+                            <span style="font-size:1.1em; color:#8b4513;">I love you so, so, so much.</span>
+                        </div>
 
-                <p>
-                    Nine letters. Nine flowers. All of them accurate — because I actually feel every single one,
-                    and we've only been talking for a month. Imagine that.
-                    Ang accurate lahat kasi nafefeel ko talaga sya, Charm.
-                </p>
+                        <div class="letter-paper__signature">
+                            with all my love,<br>
+                            your Blanco 💕
+                        </div>
 
-                <p>
-                    Please, please, please — don't change. Stay exactly who you are,
-                    because who you are is already everything.
-                    I'll stay the same too, I promise.
-                    And I hope — so, so much — na magkita tayo soon. 🌸
-                </p>
-
-                <p style="margin-top:1.6em; font-style:italic; color:#d4006e; font-size:1.06em; line-height:1.9">
-                    Happy Valentine's Day, Charm Cha&nbsp;✨<br>
-                    I love you so, so, so much.
-                </p>
+                        <div style="text-align:center; margin-top:35px; padding:15px; background:linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,105,180,0.05)); border-radius:8px; position:relative;">
+                            <div style="font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:#8b6914; font-style:italic; letter-spacing:1px;">
+                                📜 February 14 · forever and counting 📜
+                            </div>
+                            <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-size:1.5rem; filter:drop-shadow(0 2px 6px rgba(255,215,0,0.4));">💌</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="letter-signature">
-                <span class="sign-label">with all my love,</span>
-                <span class="sign-name">your Blanco 💕</span>
-            </div>
-
-            <p class="letter-date">February 14 &nbsp;·&nbsp; forever and counting</p>
         </div>
     </div>
+
 
     <script>
         setTimeout(() => { document.body.classList.remove('not-loaded'); }, 100);
 
-        // Floating hearts in letter section (emoji style)
-        const container = document.getElementById('hearts');
-        const chars = ['♡','♥','❤','💕','✿','❀','✦','·','💖','💗','💓','💝'];
-        const colors = ['#ff69b4','#ff1493','#ffd700','#ffb6c1','#ff80c0','#c9a0db','#ffc0cb','#ff1493'];
-        
-        // More emoji hearts
-        for (let i = 0; i < 35; i++) {
-            const el = document.createElement('span');
-            el.classList.add('heart-float');
-            el.textContent = chars[Math.floor(Math.random() * chars.length)];
-            el.style.setProperty('--size', (0.5 + Math.random() * 1.5) + 'rem');
-            el.style.setProperty('--dur',  (6 + Math.random() * 12) + 's');
-            el.style.setProperty('--delay',(Math.random() * 12) + 's');
-            el.style.setProperty('--rot',  (Math.random() * 30 - 15) + 'deg');
-            el.style.left = (Math.random() * 100) + '%';
-            el.style.color = colors[Math.floor(Math.random() * colors.length)];
-            container.appendChild(el);
+        // Create sparkles around envelope
+        function createSparkles() {
+            const sparklesContainer = document.getElementById('sparkles');
+            const sparkleCount = 30;
+            
+            for (let i = 0; i < sparkleCount; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                
+                // Random position around envelope center
+                const angle = (Math.PI * 2 * i) / sparkleCount;
+                const radius = 200 + Math.random() * 150;
+                const x = 50 + Math.cos(angle) * (radius / window.innerWidth * 100);
+                const y = 50 + Math.sin(angle) * (radius / window.innerHeight * 100);
+                
+                sparkle.style.left = x + '%';
+                sparkle.style.top = y + '%';
+                sparkle.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
+                sparkle.style.setProperty('--delay', (Math.random() * 3) + 's');
+                
+                sparklesContainer.appendChild(sparkle);
+            }
         }
 
-        // Add animated CSS heart shapes (floating up)
-        const heartColors = ['#ff69b4', '#ff1493', '#ffb6c1', '#ffc0cb', '#ff80c0', '#c9a0db'];
-        for (let i = 0; i < 25; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart-shape';
-            const size = 12 + Math.random() * 30;
-            heart.style.setProperty('--size', size + 'px');
-            heart.style.setProperty('--color', heartColors[Math.floor(Math.random() * heartColors.length)]);
-            heart.style.setProperty('--duration', (10 + Math.random() * 12) + 's');
-            heart.style.setProperty('--delay', (Math.random() * 10) + 's');
-            heart.style.setProperty('--start-x', (Math.random() * 100) + '%');
-            heart.style.setProperty('--mid-x', (Math.random() * 100) + '%');
-            heart.style.setProperty('--end-x', (Math.random() * 100) + '%');
-            container.appendChild(heart);
+        // Enhanced envelope animation functions
+        function openEnvelope() {
+            const container = document.getElementById('envelope-container');
+            const envelope = document.getElementById('envelope');
+            
+            // Remove closing class if present
+            envelope.classList.remove('closing');
+            
+            // Create sparkles
+            createSparkles();
+            
+            // Show container
+            container.classList.add('active');
+            
+            // Trigger envelope opening animation after envelope appears
+            setTimeout(() => {
+                envelope.classList.add('opening');
+            }, 1400);
         }
 
-        // Add pulsing hearts in corners
-        const pulsePositions = [
-            {top: '10%', left: '5%'},
-            {top: '15%', right: '8%'},
-            {bottom: '20%', left: '7%'},
-            {bottom: '15%', right: '6%'},
-            {top: '30%', left: '12%'},
-            {top: '25%', right: '15%'},
-            {bottom: '35%', left: '10%'},
-            {bottom: '30%', right: '12%'},
-        ];
-        pulsePositions.forEach((pos, i) => {
-            const heart = document.createElement('div');
-            heart.className = 'heart-pulse';
-            Object.assign(heart.style, pos);
-            const size = 20 + Math.random() * 25;
-            heart.style.setProperty('--size', size + 'px');
-            heart.style.setProperty('--color', heartColors[Math.floor(Math.random() * heartColors.length)]);
-            heart.style.setProperty('--duration', (2.5 + Math.random() * 2) + 's');
-            heart.style.setProperty('--delay', (Math.random() * 3) + 's');
-            container.appendChild(heart);
+        function closeEnvelope() {
+            const container = document.getElementById('envelope-container');
+            const envelope = document.getElementById('envelope');
+            const sparklesContainer = document.getElementById('sparkles');
+            
+            // Remove opening class and add closing class
+            envelope.classList.remove('opening');
+            envelope.classList.add('closing');
+            
+            // After animations complete (letter goes down + flap closes), fade out container
+            setTimeout(() => {
+                container.classList.remove('active');
+                
+                // Clean up after container fades out
+                setTimeout(() => {
+                    envelope.classList.remove('closing');
+                    sparklesContainer.innerHTML = '';
+                }, 800);
+            }, 4000); // 2.2s letter down + 1.8s flap close
+        }
+
+        // Close envelope with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeEnvelope();
+            }
         });
-
-        // Add spinning hearts
-        for (let i = 0; i < 10; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart-spin';
-            heart.style.left = (10 + Math.random() * 80) + '%';
-            heart.style.top = (10 + Math.random() * 80) + '%';
-            const size = 15 + Math.random() * 20;
-            heart.style.setProperty('--size', size + 'px');
-            heart.style.setProperty('--color', heartColors[Math.floor(Math.random() * heartColors.length)]);
-            heart.style.setProperty('--duration', (6 + Math.random() * 8) + 's');
-            heart.style.setProperty('--delay', (Math.random() * 5) + 's');
-            container.appendChild(heart);
-        }
 
         // Add Sanrio characters floating around
         const sanrioContainer = document.getElementById('sanrio-container');
         
-        // Sanrio character image URLs (from public CDNs)
+       // Sanrio character image URLs
         const sanrioImages = [
-            'HelloKitty.png', // Hello Kitty
-            'https://i.pinimg.com/originals/e3/28/f4/e328f44f2adba5b98084f0c6ea19bbc8.png', // My Melody
-            'https://i.pinimg.com/originals/41/23/6d/41236de8f8e3da68f4326c2f3e5e5235.png', // Cinnamoroll
-            'https://i.pinimg.com/originals/b5/c6/97/b5c6971e1bb4e8c664c68c8bb87b1e6f.png', // Kuromi
-            'https://i.pinimg.com/originals/c1/b7/e7/c1b7e7d93b8dbee39fb2e8a6d44e12ee.png', // Pompompurin
-            'https://i.pinimg.com/originals/4f/54/4a/4f544a16c7be9f7e6f62e9abc37ea6f3.png', // Little Twin Stars
-            'https://i.pinimg.com/originals/89/1c/c9/891cc94f3fe1f8f8f0b11e8aea7de8c5.png', // Keroppi
-            'https://i.pinimg.com/originals/2d/8b/1f/2d8b1f9f8c3dc8e7e3e7c1f9e8f7d6c5.png', // Pochacco
+            './Hellokittyt.png', // Hello Kitty
+            './melody.png', // My Melody
+            './cinnamoroll..jpg', // Cinnamoroll
+            './kuromi.png', // Kuromi
         ];
 
         // Add 12 random Sanrio characters
@@ -956,6 +1549,12 @@
             const img = document.createElement('img');
             img.src = sanrioImages[Math.floor(Math.random() * sanrioImages.length)];
             img.alt = 'Sanrio character';
+            
+            // Error handling for images
+            img.onerror = function() {
+                console.log('Failed to load image:', this.src);
+                this.style.display = 'none';
+            };
             
             sanrio.appendChild(img);
             
