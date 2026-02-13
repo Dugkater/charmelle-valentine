@@ -1025,27 +1025,28 @@
                 max-height:350px;
             }
 
-            /* Keep flowers centered vertically like desktop */
+            /* Keep flowers at bottom like desktop - NOT centered */
             .flowers {
-                align-items:center;
+                align-items:flex-end;
                 padding-bottom:0;
             }
 
-            /* Scale flowers down but keep same positioning */
+            /* Scale flowers but keep at bottom */
             .flower {
-                transform:scale(0.55)!important;
-                bottom:auto!important;
+                bottom:8vmin!important;
+                transform-origin:bottom center;
             }
             
-            .flower--c{left:calc(50% - 40vmin)}
-            .flower--h{left:calc(50% - 30vmin)}
-            .flower--a{left:calc(50% - 20vmin)}
-            .flower--r{left:calc(50% - 10vmin)}
-            .flower--m{left:50%}
-            .flower--e1{left:calc(50% + 10vmin)}
-            .flower--l1{left:calc(50% + 20vmin)}
-            .flower--l2{left:calc(50% + 30vmin)}
-            .flower--e2{left:calc(50% + 40vmin)}
+            /* Maintain desktop spacing between flowers */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.7) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.7) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.7) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.7) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.7) rotate(2deg)!important}
 
             .flower__label-letter {
                 font-size:clamp(1rem,3.5vmin,1.8rem);
@@ -1054,30 +1055,48 @@
                 font-size:clamp(0.5rem,1.6vmin,0.85rem);
             }
 
-            /* Keep grass at bottom */
+            /* Keep grass RIGHT at bottom like desktop */
             .long-g {
-                bottom:10vmin;
-                transform:scale(0.5)!important;
+                bottom:15vmin;
             }
 
-            /* Vines maintain archway entrance on mobile */
+            /* Vines - spread them out properly, maintain archway */
             .vine {
                 width:3px;
             }
-            .vine--left-1, .vine--left-2, .vine--left-3,
-            .vine--left-4, .vine--left-5, .vine--left-6,
-            .vine--left-7, .vine--left-8, .vine--left-9, 
-            .vine--left-10, .vine--left-11, .vine--left-12,
-            .vine--left-13, .vine--left-14, .vine--left-15 {
-                /* Keep same percentages - they scale naturally */
-            }
-            .vine--right-1, .vine--right-2, .vine--right-3,
-            .vine--right-4, .vine--right-5, .vine--right-6,
-            .vine--right-7, .vine--right-8, .vine--right-9, 
-            .vine--right-10, .vine--right-11, .vine--right-12,
-            .vine--right-13, .vine--right-14, .vine--right-15 {
-                /* Keep same percentages - they scale naturally */
-            }
+            /* Left vines maintain proper spread */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            /* Right vines maintain proper spread */
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
+            
             .vine-leaf {
                 width:16px;
                 height:24px;
@@ -1112,27 +1131,28 @@
         }
 
         @media(max-width:480px){
-            /* Keep flowers centered vertically like desktop */
+            /* Keep flowers at BOTTOM like desktop */
             .flowers {
-                align-items:center;
+                align-items:flex-end;
                 padding-bottom:0;
             }
 
-            /* Scale flowers smaller but maintain desktop layout */
+            /* Flowers at bottom with desktop spacing */
             .flower {
-                transform:scale(0.4)!important;
-                bottom:auto!important;
+                bottom:8vmin!important;
+                transform-origin:bottom center;
             }
 
-            .flower--c{left:calc(50% - 42vmin)}
-            .flower--h{left:calc(50% - 32vmin)}
-            .flower--a{left:calc(50% - 22vmin)}
-            .flower--r{left:calc(50% - 12vmin)}
-            .flower--m{left:50%}
-            .flower--e1{left:calc(50% + 12vmin)}
-            .flower--l1{left:calc(50% + 22vmin)}
-            .flower--l2{left:calc(50% + 32vmin)}
-            .flower--e2{left:calc(50% + 42vmin)}
+            /* Maintain desktop flower spacing */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.55) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.55) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.55) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.55) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.55) rotate(2deg)!important}
 
             .letter-paper__content {
                 padding:30px 25px;
@@ -1149,10 +1169,43 @@
                 font-size:0.75rem;
             }
 
-            /* Smaller vines but keep archway structure */
+            /* Vines properly spread - same as desktop percentages */
             .vine {
-                width:2px;
+                width:2.5px;
             }
+            /* Left vines */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            /* Right vines */
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
+            
             .vine-leaf {
                 width:14px;
                 height:20px;
@@ -1161,13 +1214,12 @@
                 font-size:0.7rem;
             }
 
-            /* Keep grass at bottom, smaller scale */
+            /* Grass stays at bottom like desktop */
             .long-g {
-                bottom:8vmin;
-                transform:scale(0.4)!important;
+                bottom:15vmin;
             }
 
-            /* Hide extra grass on small screens - keep only core 70 blades */
+            /* Hide extra grass on small screens - keep 70 blades */
             .long-g--70, .long-g--71, .long-g--72, .long-g--73,
             .long-g--74, .long-g--75, .long-g--76, .long-g--77,
             .long-g--78, .long-g--79, .long-g--80, .long-g--81,
@@ -1192,15 +1244,27 @@
             }
         }
 
-        /* Landscape mobile - maintain desktop perspective */
+        /* Landscape mobile - match desktop layout */
         @media(max-height:500px) and (orientation:landscape) {
+            /* Flowers at bottom */
             .flowers {
-                align-items:center;
+                align-items:flex-end;
             }
             .flower {
-                transform:scale(0.35)!important;
-                bottom:auto!important;
+                bottom:6vmin!important;
+                transform-origin:bottom center;
             }
+            /* Desktop spacing maintained */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.5) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.5) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.5) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.5) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.5) rotate(2deg)!important}
+            
             .header {
                 top:15px;
             }
@@ -1215,12 +1279,42 @@
                 padding:8px 18px;
             }
             .long-g {
-                bottom:6vmin;
-                transform:scale(0.35)!important;
+                bottom:12vmin;
             }
             .vine {
                 width:2px;
             }
+            /* Vines keep desktop spread */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
             .vine-leaf {
                 width:12px;
                 height:18px;
