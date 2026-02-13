@@ -18,6 +18,8 @@
             overflow-x:hidden;
             font-family:'Cormorant Garamond',serif;
             position:relative;
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
         }
         body::before {
             content:'';
@@ -214,7 +216,16 @@
             position:relative; width:100vw; height:100vh;
             display:flex; align-items:flex-end; justify-content:center;
         }
-        .flower { position:absolute; bottom:8vmin; transform-origin:bottom center; z-index:10; }
+        .flower { 
+            position:absolute; 
+            bottom:8vmin; 
+            transform-origin:bottom center; 
+            z-index:10;
+            -webkit-transform:translateZ(0);
+            transform:translateZ(0);
+            -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+        }
 
         .flower__label {
             position:absolute; bottom:calc(100% + 2vmin); left:50%;
@@ -701,6 +712,11 @@
             overflow:hidden;
             transform-style:preserve-3d;
             contain:layout style paint;
+            -webkit-transform:translateZ(0);
+            -webkit-backface-visibility:hidden;
+            backface-visibility:hidden;
+            -webkit-perspective:1000;
+            perspective:1000;
         }
         .envelope.opening .letter-paper {
             bottom:50%;
@@ -1254,6 +1270,13 @@
            MOBILE PERFORMANCE OPTIMIZATIONS
         ══════════════════════════════════ */
         @media(max-width:768px){
+            /* Force hardware acceleration on all animated elements */
+            * {
+                -webkit-transform:translateZ(0);
+                -webkit-backface-visibility:hidden;
+                -webkit-perspective:1000;
+            }
+
             .header h1 {
                 font-size:clamp(1.8rem,7vw,3rem);
                 letter-spacing:4px;
@@ -1278,7 +1301,7 @@
 
             /* Better flower positioning for mobile */
             .flower {
-                transform:scale(0.55)!important;
+                transform:scale(0.55) translateZ(0)!important;
                 bottom:auto!important;
             }
             
@@ -1292,6 +1315,12 @@
             .flower--l2{left:calc(50% + 30vmin)}
             .flower--e2{left:calc(50% + 40vmin)}
 
+            /* Disable flower swaying on mobile to prevent flicker */
+            .flower--c, .flower--h, .flower--a, .flower--r, .flower--m,
+            .flower--e1, .flower--l1, .flower--l2, .flower--e2 {
+                animation:none!important;
+            }
+
             /* Adjust flower labels for mobile */
             .flower__label-letter {
                 font-size:clamp(1rem,3.5vmin,1.8rem);
@@ -1300,15 +1329,31 @@
                 font-size:clamp(0.5rem,1.6vmin,0.85rem);
             }
 
+            /* Disable glow pulse on mobile */
+            .flower__leafs::after {
+                animation:none;
+            }
+
+            /* Disable light floating animations on mobile */
+            .flower__light {
+                display:none;
+            }
+
             /* Adjust grass for mobile - keep at bottom */
             .long-g {
                 bottom:10vmin;
                 transform:scale(0.5)!important;
             }
 
+            /* Disable grass swaying on mobile */
+            .leaf {
+                animation:none;
+            }
+
             /* Vines adjustment for mobile */
             .vine {
                 width:2px;
+                animation:none!important;
             }
             .vine--left-1, .vine--left-2, .vine--left-3 {
                 left:2%;
@@ -1322,6 +1367,13 @@
             }
             .vine-flower {
                 font-size:0.8rem;
+                animation:none!important;
+            }
+
+            /* Disable twinkling hearts on mobile */
+            .night {
+                animation:none;
+                opacity:0.5;
             }
 
             /* ═══ LETTER PAPER OPTIMIZATIONS FOR MOBILE ═══ */
@@ -1343,8 +1395,10 @@
             
             /* Reduce texture complexity for better performance */
             .letter-paper::before {
-                opacity:0.4;
-                background-size: 100% 100%, 100% 100%, 400px 400px, 300px 300px, 350px 350px, 250px 250px;
+                opacity:0.3;
+                background-image:
+                    repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(230,220,210,0.1) 31px, rgba(230,220,210,0.1) 32px, transparent 32px, transparent 63px);
+                background-size: 100% 100%;
             }
             
             /* Disable rose glow animations on mobile */
@@ -1374,12 +1428,44 @@
 
             /* Simplify watercolor splash behind title */
             .letter-paper__title::before {
-                filter:blur(15px);
+                filter:blur(10px);
+                animation:none;
+            }
+
+            /* Disable title glow animation */
+            .letter-paper__title {
+                animation:none;
+            }
+
+            /* Disable signature line animation */
+            .letter-paper__signature::after {
+                animation:none;
+                opacity:0.7;
+            }
+
+            /* Disable letter float animation */
+            .envelope.opening .letter-paper {
+                animation:none!important;
+            }
+
+            /* Disable envelope animations that cause flicker */
+            .envelope__flap::before {
+                animation:none;
+            }
+
+            .envelope__flap::after {
+                animation:none;
             }
 
             /* Reduce sparkle count by hiding some */
-            .sparkle:nth-child(n+16) {
+            .sparkle:nth-child(n+11) {
                 display:none;
+            }
+
+            /* Disable sparkle animations on mobile */
+            .sparkle {
+                animation:none;
+                opacity:0.6;
             }
         }
 
@@ -1391,7 +1477,7 @@
             }
 
             .flower {
-                transform:scale(0.4)!important;
+                transform:scale(0.4) translateZ(0)!important;
                 bottom:auto!important;
             }
 
@@ -1433,12 +1519,17 @@
             
             /* Simplify watercolor splash more */
             .letter-paper__title::before {
-                filter:blur(10px);
-                opacity:0.7;
+                filter:blur(8px);
+                opacity:0.6;
             }
 
             /* Reduce envelope sparkles further */
-            .sparkle:nth-child(n+11) {
+            .sparkle:nth-child(n+8) {
+                display:none;
+            }
+
+            /* Hide all background radial gradients that might cause flicker */
+            body::before {
                 display:none;
             }
         }
