@@ -54,34 +54,6 @@
         }
         @keyframes hearts-twinkle { 0%,100%{opacity:0.4} 50%{opacity:0.7} }
 
-        /* Sanrio characters floating around */
-        .sanrio-characters {
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            pointer-events:none;
-            z-index:1;
-            overflow:hidden;
-        }
-        .sanrio {
-            position:absolute;
-            animation:float-sanrio var(--duration) ease-in-out infinite;
-            animation-delay:var(--delay);
-            opacity:0.9;
-        }
-        .sanrio img {
-            width:100%;
-            height:100%;
-            object-fit:contain;
-            filter:drop-shadow(0 4px 12px rgba(255,105,180,0.4));
-        }
-        @keyframes float-sanrio {
-            0%, 100% { transform:translateY(0) rotate(-5deg); }
-            50% { transform:translateY(-25px) rotate(5deg); }
-        }
-
         /* Garden scene */
         .garden-scene {
             position:relative; width:100vw; height:100vh;
@@ -1209,9 +1181,6 @@
 <body class="not-loaded">
     <div class="night"></div>
 
-    <!-- Sanrio Characters -->
-    <div class="sanrio-characters" id="sanrio-container"></div>
-
     <!-- GARDEN -->
     <div class="garden-scene">
         <div class="header">
@@ -1339,80 +1308,81 @@
                         <div class="letter-paper__title">My palanggi, Charm Charm ♡</div>
                         
                         <div class="letter-paper__text">
-                            Uhmmm… where do I even start? Hehe. First of all — and palagi ko naman tong sinasabi sayo —
-                            I am so, <em>so</em>, very very very thankful that I met you.
-                            You are the most loving, caring, and beautiful girl I have ever known in this whole world,
-                            and I genuinely hope na tatagal tayo. Pwede ding forever nalang? Us? Pretty plssss 🥺
+                            Uhmmmmm… saan ko mag-start hehehehe. First of all — palagi ko naman 'to sinasabi sayo —
+                            I'm so, <em>so</em>, very very veryyyy thankful na nakilala kita.
+                            You're the most loving, caring, and beautiful gurlll I've ever known in this wooorld hehehehe,
+                            and I hope na sana tatagal tayo... pwede ding forever nalang? Us? Pretty plssss 🥺
                         </div>
 
                         <div class="letter-paper__text">
-                            As you can see sa taas, may bouquet of flowers — and each one represents a letter of your name.
-                            Let me explain them one by one, okay? Mwehehe.
+                            By the way, as you can see sa taas, may bouquet of flowers hehe — yan yung nag-represent sa name mo mwehehehe.
+                            Let me explain them one by one, okay?
                         </div>
 
                         <div class="letter-paper__text">
-                            The first flower is the <strong style="color:#ff1493">Cherry Blossom</strong> — for <em>C</em>.
-                            Bakit? Because you bloom in my eyes every single time. Palagi kang nagbobloom sa paningin ko,
-                            Charm — like the most beautiful thing I never get tired of seeing. Mwuah. 🌸
+                            First is yung <strong style="color:#ff1493">Cherry Blossom</strong> — for <em>C</em>.
+                            Bakit yan?? Because nag-bobloom ka palagi sa paningin ko mwuuah.
+                            Palagi kang fresh, palagi kang blooming — like the most beautiful thing I never get tired of seeing. 🌸
                         </div>
 
                         <div class="letter-paper__text">
-                            The second is <strong style="color:#d946ef">Hyacinth</strong> — for <em>H</em>.
-                            I chose this one because it represents love — and I genuinely feel it. Not just the word.
-                            The real, actual thing you feel right here <em>(points at chest)</em>. That's you.
+                            Second is <strong style="color:#d946ef">Hyacinth</strong> — for <em>H</em>.
+                            Idk, di ko alam yung flavor nayan HAHAHAHA jk.
+                            Yan yung napili ko because I feel love sayo — not just the word ha,
+                            yung real, actual thing you feel right here <em>(points at chest)</em>. That's you. 💜
                         </div>
 
                         <div class="letter-paper__text">
-                            Third is the <strong style="color:#ff6b6b">Anemone</strong> — for <em>A</em>.
-                            It symbolizes protection and feeling safe — and that is literally what I feel pag nag-uusap tayo.
-                            Parang nasa safe space ako every single call. So comfortable. So at home. You know? 🫶
+                            The third one is <strong style="color:#ff6b6b">Anemone</strong> — for <em>A</em>.
+                            I feel protected when I talk to you — parang nasa safe space ako.
+                            I'm so comfortable pag nasa call tayo, you knoooow? 🫶
                         </div>
 
                         <div class="letter-paper__text">
-                            Fourth is the <strong style="color:#dc143c">Rose</strong> — for <em>R</em>.
-                            Oo, common siya — I know, I know. But I don't care.
-                            You already know what a rose means, and everything it stands for?
-                            That's exactly how I feel about you. Classic. Timeless. Without question.
+                            Next is yung 4th flower, <strong style="color:#dc143c">Rose</strong> — for <em>R</em>.
+                            Common siya, I knoooow, pero I don't care.
+                            Alam mo naman ata meaning nyan eh HAHAHAHAH — classic, timeless.
+                            That's exactly how I feel about you. 🌹
                         </div>
 
                         <div class="letter-paper__text">
-                            Fifth is <strong style="color:#4a90e2">Morning Glory</strong> — for <em>M</em>.
-                            Because when I met you, parang nabuhay ulit ako — like something woke up inside me again.
-                            I want to fall in love for the first time, all over again. I want to risk it.
-                            And if it's for you? Gusto ko. Talagang gusto ko.
+                            Next is <strong style="color:#4a90e2">Morning Glory</strong> — for <em>M</em>.
+                            Di ko din alam 'tong flavor nito HAHAHAHAHA.
+                            But yeah, nag-represent din 'to sayo because when I met you, parang nabuhay ulit ako —
+                            jk oa naman, pero legit — gusto ko maging in-love ulit for the first time.
+                            I want to risk again on love. And if it's for you? Gusto ko. Talagang gusto ko. 🌺
                         </div>
 
                         <div class="letter-paper__text">
-                            Sixth is <strong style="color:#888">Edelweiss</strong> — for <em>E</em>.
-                            Okay this one's actually more about me, hehe — it represents loyalty.
-                            And I am loyal to you. Patay na patay ako, gruur. I worship you, I swear.
-                            Love u, mwuah. 🤍
+                            The next one is <strong style="color:#888">Edelweiss</strong> — for <em>E</em>.
+                            Nag-represent sya ng loyal — ewan, di naman para sayo 'yan, sakin 'yan hehe.
+                            Naka-represent na loyal ako sayo. Patay na patay ako gruuuuuh.
+                            Love u, I worship kita mwuah. 🤍
                         </div>
 
                         <div class="letter-paper__text">
-                            Seventh is the <strong style="color:#ffd700">Lily</strong> — for <em>L</em>.
-                            It means purity — and everything you say to me is pure, Charm.
-                            Walang halong biro, walang hidden meanings. You are honest and real and completely true
-                            to yourself. That's one of the things I love most about you.
+                            Next flower is <strong style="color:#ffd700">Lily</strong> — for <em>L</em>.
+                            It means purity — lahat ng sinasabi mo sakin is pureeee.
+                            Walang halong biro, and di ka rin marunong mag-lie, which is gusto ko sayo.
+                            Pure ka, totoong-totoo ka sa sarili mo. 🌼
                         </div>
 
                         <div class="letter-paper__text">
-                            Eighth is <strong style="color:#9370db">Lavender</strong> — for <em>L</em>.
-                            My personal favorite flower — at saka kinda my scent hehe 🪻.
-                            But this one's for you too, because whenever we're in a call,
-                            nawawala lahat ng stress ko. Pagkatapos ng lahat — school, outside happenings, lahat —
-                            ikaw yung calm ko. My stress reliever. My peace. You are so special to me, I swear I would
-                            <em>die</em> for you — okay oa naman pero you get it. 🫀
+                            Next is <strong style="color:#9370db">Lavender</strong> — for <em>L</em>.
+                            Pinaka-favorite flower ko — and yung amoy ko hehehe 🪻.
+                            And also, nag-represent din 'to sayo because whenever we're in call, I feel so calm.
+                            Nawawala stress ko pagdating sayo, you know? Ikaw yung stress reliever ko.
+                            Pagkatapos sa school, sa mga happenings outside — ang special mo sakin.
+                            I swear I would <em>die</em> for you — oaaaa. 🫀
                         </div>
 
                         <div class="letter-paper__text">
-                            And the ninth — the last, the most enchanted — is the
-                            <strong style="color:#ff1493">Enchanted Bloom</strong> — for <em>E</em>.
-                            It symbolizes magical love. Love at first sight.
-                            Mine was a little different though —
-                            <em style="color:#ff1493">love at first jakol HAHAHAHAHAHAHA I'm sorry, I'm sorry, kidingggg!</em>
-                            But genuinely — that unexpected, caught-you-off-guard, can't-explain-it kind of love?
-                            That's exactly what this is. That's exactly what you are to me.
+                            Last flower is <strong style="color:#ff1493">Enchanted Bloom</strong> — for <em>E</em>.
+                            Yung flower daw na 'to nag-symbolize ng magical love — for example, love at first sight.
+                            Pero iba yung sakin eh —
+                            <em style="color:#ff1493">love at first jakol HAHAHAHHAHAA kupal ka boy!</em>
+                            But yeah, that unexpected, caught-you-off-guard kind of love?
+                            That's exactly what this is. That's exactly what you are to me. ✨
                         </div>
 
                         <div style="height:2px;background:linear-gradient(to right,transparent,rgba(255,20,147,0.4) 20%,rgba(255,215,0,0.5) 50%,rgba(255,20,147,0.4) 80%,transparent);margin:30px 0;position:relative;box-shadow:0 0 10px rgba(255,215,0,0.3);">
@@ -1420,21 +1390,20 @@
                         </div>
 
                         <div class="letter-paper__text">
-                            Nine letters. Nine flowers. All of them accurate — because I actually feel every single one,
-                            and we've only been talking for a month. Imagine that.
-                            Ang accurate lahat kasi nafefeel ko talaga sya, Charm.
+                            Yan yung mga 9 letters na nag-represent sa pangalan mo.
+                            Ang accurate lahat kasi nafefeel ko sya — even 1 month palang tayo nag-uusap.
+                            Imagine that, Charm. 💕
                         </div>
 
                         <div class="letter-paper__text">
-                            Please, please, please — don't change. Stay exactly who you are,
-                            because who you are is already everything.
-                            I'll stay the same too, I promise.
-                            And I hope — so, so much — na magkita tayo soon. 🌸
+                            Sana pls pls pls, 'di ka magbago. Stay what you are.
+                            Same din sakin — I'll stay the same too, I promise.
+                            I hope magkita tayo soon. 🌸
                         </div>
 
                         <div class="letter-paper__text" style="margin-top:25px; font-style:italic; background:linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,105,180,0.08) 100%); padding:20px; border-radius:10px; border-left:4px solid #ffd700; box-shadow:0 4px 15px rgba(255,215,0,0.15); text-indent:0;">
                             <span style="font-family:'Great Vibes',cursive; font-size:1.4em; color:#d4006e; filter:drop-shadow(0 2px 4px rgba(212,0,110,0.3));">Happy Valentine's Day, Charm Cha ✨</span><br>
-                            <span style="font-size:1.1em; color:#8b4513;">I love you so, so, so much.</span>
+                            <span style="font-size:1.1em; color:#8b4513;">Ame palanggi, I love youuuuuuu 💕</span>
                         </div>
 
                         <div class="letter-paper__signature">
@@ -1529,51 +1498,6 @@
                 closeEnvelope();
             }
         });
-
-        // Add Sanrio characters floating around
-        const sanrioContainer = document.getElementById('sanrio-container');
-        
-       // Sanrio character image URLs
-        const sanrioImages = [
-            './Hellokittyt.png', // Hello Kitty
-            './melody.png', // My Melody
-            './cinnamoroll..jpg', // Cinnamoroll
-            './kuromi.png', // Kuromi
-        ];
-
-        // Add 12 random Sanrio characters
-        for (let i = 0; i < 12; i++) {
-            const sanrio = document.createElement('div');
-            sanrio.className = 'sanrio';
-            
-            const img = document.createElement('img');
-            img.src = sanrioImages[Math.floor(Math.random() * sanrioImages.length)];
-            img.alt = 'Sanrio character';
-            
-            // Error handling for images
-            img.onerror = function() {
-                console.log('Failed to load image:', this.src);
-                this.style.display = 'none';
-            };
-            
-            sanrio.appendChild(img);
-            
-            // Random positioning
-            sanrio.style.left = (5 + Math.random() * 90) + '%';
-            sanrio.style.top = (5 + Math.random() * 90) + '%';
-            
-            // Random size
-            const size = 60 + Math.random() * 80;
-            sanrio.style.width = size + 'px';
-            sanrio.style.height = size + 'px';
-            
-            // Random animation properties
-            sanrio.style.setProperty('--duration', (6 + Math.random() * 6) + 's');
-            sanrio.style.setProperty('--delay', (Math.random() * 4) + 's');
-            
-            sanrioContainer.appendChild(sanrio);
-        }
     </script>
 </body>
 </html>
-
