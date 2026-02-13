@@ -413,6 +413,7 @@
         .long-g--37{right:3vmin;transform:scale(0.65) rotate(4deg)}
         .long-g--38{left:9vmin;transform:scale(0.72) rotate(1deg)}
         .long-g--39{right:9vmin;transform:scale(0.72) rotate(-1deg)}
+        /* Additional 40 grass blades for field effect */
         .long-g--40{left:2vmin;transform:scale(0.63) rotate(2deg)}
         .long-g--41{left:5vmin;transform:scale(0.58) rotate(-3deg)}
         .long-g--42{left:8vmin;transform:scale(0.68) rotate(4deg)}
@@ -453,6 +454,7 @@
         .long-g--77{right:53vmin;transform:scale(0.6) rotate(4deg)}
         .long-g--78{right:56vmin;transform:scale(0.65) rotate(-2deg)}
         .long-g--79{right:59vmin;transform:scale(0.58) rotate(3deg)}
+        /* Additional 70 grass blades for LITERAL FIELD density */
         .long-g--80{left:1.5vmin;transform:scale(0.62) rotate(1deg)}
         .long-g--81{left:4.5vmin;transform:scale(0.56) rotate(-2deg)}
         .long-g--82{left:6.5vmin;transform:scale(0.69) rotate(3deg)}
@@ -566,6 +568,7 @@
             backdrop-filter:blur(15px);
         }
 
+        /* Floating sparkles around envelope */
         .envelope-sparkles {
             position:absolute;
             width:100%;
@@ -589,10 +592,21 @@
             animation-delay:var(--delay);
         }
         @keyframes sparkle-float {
-            0%, 100% { opacity:0; transform:translateY(0) scale(0); }
-            10% { opacity:1; transform:translateY(-10px) scale(1); }
-            90% { opacity:1; }
-            100% { opacity:0; transform:translateY(-50px) scale(0); }
+            0%, 100% {
+                opacity:0;
+                transform:translateY(0) scale(0);
+            }
+            10% {
+                opacity:1;
+                transform:translateY(-10px) scale(1);
+            }
+            90% {
+                opacity:1;
+            }
+            100% {
+                opacity:0;
+                transform:translateY(-50px) scale(0);
+            }
         }
 
         .envelope-wrapper {
@@ -619,6 +633,7 @@
             filter:drop-shadow(0 25px 60px rgba(0,0,0,0.4));
         }
         
+        /* Elegant cream envelope design */
         .envelope__back {
             position:absolute;
             width:100%;
@@ -668,6 +683,7 @@
                 inset 0 -3px 8px rgba(139,69,19,0.12);
         }
         
+        /* Wax seal */
         .envelope__flap::before {
             content:'';
             position:absolute;
@@ -689,10 +705,18 @@
         }
         @keyframes seal-glow {
             0%, 100% {
-                box-shadow: 0 6px 20px rgba(139,105,20,0.6), inset 0 3px 6px rgba(255,255,255,0.4), inset 0 -3px 6px rgba(0,0,0,0.4), 0 0 30px rgba(212,175,55,0.3);
+                box-shadow:
+                    0 6px 20px rgba(139,105,20,0.6),
+                    inset 0 3px 6px rgba(255,255,255,0.4),
+                    inset 0 -3px 6px rgba(0,0,0,0.4),
+                    0 0 30px rgba(212,175,55,0.3);
             }
             50% {
-                box-shadow: 0 6px 25px rgba(139,105,20,0.8), inset 0 3px 6px rgba(255,255,255,0.5), inset 0 -3px 6px rgba(0,0,0,0.4), 0 0 50px rgba(212,175,55,0.5);
+                box-shadow:
+                    0 6px 25px rgba(139,105,20,0.8),
+                    inset 0 3px 6px rgba(255,255,255,0.5),
+                    inset 0 -3px 6px rgba(0,0,0,0.4),
+                    0 0 50px rgba(212,175,55,0.5);
             }
         }
         .envelope__flap::after {
@@ -708,10 +732,15 @@
             animation:heart-pulse 2s ease-in-out infinite;
         }
         @keyframes heart-pulse {
-            0%, 100% { transform:translate(-50%, -50%) scale(1); }
-            50% { transform:translate(-50%, -50%) scale(1.1); }
+            0%, 100% {
+                transform:translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform:translate(-50%, -50%) scale(1.1);
+            }
         }
         
+        /* OPENING ANIMATION */
         .envelope.opening .envelope__flap {
             transform:rotateX(-180deg);
             transition:transform 1.8s 1s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -723,6 +752,7 @@
             transition:all 0.6s ease;
         }
         
+        /* CLOSING ANIMATION */
         .envelope.closing .letter-paper {
             bottom:-150%;
             transform:scale(0.85) translateY(20px);
@@ -745,6 +775,7 @@
             transition:all 0.6s 3.4s ease;
         }
         
+        /* MINIMAL LOVE LETTER PAPER */
         .letter-paper {
             position:absolute;
             width:94%;
@@ -780,23 +811,35 @@
             animation:letter-float 3s ease-in-out infinite 5.3s;
         }
         @keyframes letter-float {
-            0%, 100% { transform:translateY(50%) scale(1); }
-            50% { transform:translateY(calc(50% - 8px)) scale(1); }
+            0%, 100% {
+                transform:translateY(50%) scale(1);
+            }
+            50% {
+                transform:translateY(calc(50% - 8px)) scale(1);
+            }
         }
         
+        /* Subtle paper texture */
         .letter-paper::before {
             content:'';
             position:absolute;
-            top:0; left:0; right:0; bottom:0;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
             background:repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(0,0,0,0.02) 30px, rgba(0,0,0,0.02) 31px);
             pointer-events:none;
             z-index:0;
         }
         
+        /* Simple heart border accent */
         .letter-paper::after {
             content:'';
             position:absolute;
-            top:25px; left:25px; right:25px; bottom:25px;
+            top:25px;
+            left:25px;
+            right:25px;
+            bottom:25px;
             border:2px solid transparent;
             border-image:linear-gradient(135deg, #ff69b4 0%, #ffd700 50%, #ff69b4 100%) 1;
             border-radius:4px;
@@ -815,11 +858,23 @@
             z-index:1;
         }
         
-        .letter-paper__content::-webkit-scrollbar { width:10px; }
-        .letter-paper__content::-webkit-scrollbar-track { background:#f5f5f5; border-radius:5px; }
-        .letter-paper__content::-webkit-scrollbar-thumb { background:#d4af37; border-radius:5px; }
-        .letter-paper__content::-webkit-scrollbar-thumb:hover { background:#b8941f; }
+        /* Clean scrollbar */
+        .letter-paper__content::-webkit-scrollbar {
+            width:10px;
+        }
+        .letter-paper__content::-webkit-scrollbar-track {
+            background:#f5f5f5;
+            border-radius:5px;
+        }
+        .letter-paper__content::-webkit-scrollbar-thumb {
+            background:#d4af37;
+            border-radius:5px;
+        }
+        .letter-paper__content::-webkit-scrollbar-thumb:hover {
+            background:#b8941f;
+        }
         
+        /* Minimal title styling */
         .letter-paper__title {
             font-family:'Great Vibes',cursive;
             font-size:2.5rem;
@@ -830,6 +885,7 @@
             position:relative;
         }
         
+        /* Simple text paragraphs */
         .letter-paper__text {
             font-size:1.05rem;
             line-height:1.9;
@@ -838,6 +894,7 @@
             color:#3a3a3a;
         }
         
+        /* First letter styling */
         .letter-paper__text:first-of-type::first-letter {
             font-family:'Great Vibes',cursive;
             font-size:3.5rem;
@@ -847,9 +904,18 @@
             color:#ff69b4;
         }
         
-        .letter-paper__text em { font-style:italic; color:#d4006e; }
-        .letter-paper__text strong { font-weight:600; color:#8b4513; }
+        /* Emphasized text */
+        .letter-paper__text em {
+            font-style:italic;
+            color:#d4006e;
+        }
         
+        .letter-paper__text strong {
+            font-weight:600;
+            color:#8b4513;
+        }
+        
+        /* Simple signature */
         .letter-paper__signature {
             margin-top:50px;
             text-align:right;
@@ -859,15 +925,19 @@
             position:relative;
         }
         
+        /* Simple line under signature */
         .letter-paper__signature::after {
             content:'';
             position:absolute;
-            bottom:-10px; right:0;
-            width:150px; height:1px;
+            bottom:-10px;
+            right:0;
+            width:150px;
+            height:1px;
             background:#ff69b4;
             opacity:0.5;
         }
         
+        /* Simple divider */
         .divider {
             height:1px;
             background:linear-gradient(to right, transparent, #ff69b4 50%, transparent);
@@ -875,6 +945,7 @@
             opacity:0.3;
         }
         
+        /* Decorative corner flowers - OUTSIDE the letter border */
         .letter-corner-flower {
             position:absolute;
             font-size:2.5rem;
@@ -893,11 +964,28 @@
                 transform:scale(1.05) rotate(3deg);
             }
         }
-        .letter-corner-flower--tl { top:-20px; left:-20px; animation-delay:0s; }
-        .letter-corner-flower--tr { top:-20px; right:-20px; animation-delay:0.5s; }
-        .letter-corner-flower--bl { bottom:-20px; left:-20px; animation-delay:1s; }
-        .letter-corner-flower--br { bottom:-20px; right:-20px; animation-delay:1.5s; }
+        .letter-corner-flower--tl {
+            top:-20px;
+            left:-20px;
+            animation-delay:0s;
+        }
+        .letter-corner-flower--tr {
+            top:-20px;
+            right:-20px;
+            animation-delay:0.5s;
+        }
+        .letter-corner-flower--bl {
+            bottom:-20px;
+            left:-20px;
+            animation-delay:1s;
+        }
+        .letter-corner-flower--br {
+            bottom:-20px;
+            right:-20px;
+            animation-delay:1.5s;
+        }
         
+        /* Simple highlighted section */
         .highlight-box {
             margin-top:25px;
             padding:20px;
@@ -906,10 +994,13 @@
             border-radius:4px;
         }
 
+        /* Enhanced close button */
         .close-envelope {
             position:absolute;
-            top:30px; right:30px;
-            width:50px; height:50px;
+            top:30px;
+            right:30px;
+            width:50px;
+            height:50px;
             background:rgba(245,245,220,0.25);
             border:2.5px solid rgba(212,197,169,0.5);
             border-radius:50%;
@@ -938,389 +1029,335 @@
         .close-envelope::after {
             content:'';
             position:absolute;
-            width:24px; height:3px;
+            width:24px;
+            height:3px;
             background:#8b6914;
             border-radius:3px;
             transition:all 0.3s ease;
         }
-        .close-envelope::before { transform:rotate(45deg); }
-        .close-envelope::after { transform:rotate(-45deg); }
+        .close-envelope::before {
+            transform:rotate(45deg);
+        }
+        .close-envelope::after {
+            transform:rotate(-45deg);
+        }
         .close-envelope:hover::before,
-        .close-envelope:hover::after { background:#d4af37; }
+        .close-envelope:hover::after {
+            background:#d4af37;
+        }
 
         .not-loaded *{animation-play-state:paused!important}
 
-        /* ══════════════════════════════════════════════════════
-           MOBILE — IMMERSIVE GARDEN  v4
-           • Flowers: horizontal scroll, well-spaced, not cramped
-           • Vines: spread across FULL left/right edges, breathing room
-           • Grass: lush blades visible at the base
-           • "a letter for you" button: always fixed + visible
-        ══════════════════════════════════════════════════════ */
-
-        /* swipe hint hidden by default (desktop) */
-        .swipe-hint { display:none; }
-
         @media(max-width:768px){
-
-            /* ── HEADER ── */
-            .header {
-                top:20px;
-                width:100%;
-                padding:0 5vw;
-                z-index:150;
-            }
             .header h1 {
-                font-size:clamp(1.6rem,6.5vw,2.8rem);
+                font-size:clamp(1.8rem,7vw,3rem);
                 letter-spacing:4px;
             }
             .header .subtitle {
-                font-size:clamp(0.6rem,2.2vw,0.9rem);
+                font-size:clamp(0.75rem,2.5vw,1.1rem);
                 letter-spacing:2px;
             }
 
-            /* ── VINES
-                Only 6 vines per side, spread across 0-18% of screen width.
-                Gives them room to breathe and actually be seen.
-            ── */
-            .vines-container {
-                opacity:0.9;
-                z-index:2;
+            .envelope-wrapper {
+                width:90vw;
+                height:calc(90vw * 0.7);
+                max-width:500px;
+                max-height:350px;
             }
-            .vine { width:4px; }
-            .vine-leaf { width:20px; height:30px; }
-            .vine-flower { font-size:0.95rem; }
 
-            /* Left side — 6 evenly spread vines, hide the rest */
-            .vine--left-1  { left:0%;  height:100%; display:block; }
-            .vine--left-2  { left:2%;  height:96%;  display:block; }
-            .vine--left-3  { left:4%;  height:90%;  display:block; }
-            .vine--left-4  { left:7%;  height:82%;  display:block; }
-            .vine--left-5  { left:10%; height:72%;  display:block; }
-            .vine--left-6  { left:14%; height:60%;  display:block; }
-            .vine--left-7  { display:none; }
-            .vine--left-8  { display:none; }
-            .vine--left-9  { display:none; }
-            .vine--left-10 { display:none; }
-            .vine--left-11 { left:1%;  height:92%;  display:block; }
-            .vine--left-12 { left:3%;  height:85%;  display:block; }
-            .vine--left-13 { display:none; }
-            .vine--left-14 { display:none; }
-            .vine--left-15 { display:none; }
-
-            /* Right side — mirror */
-            .vine--right-1  { right:0%;  height:100%; display:block; }
-            .vine--right-2  { right:2%;  height:96%;  display:block; }
-            .vine--right-3  { right:4%;  height:90%;  display:block; }
-            .vine--right-4  { right:7%;  height:82%;  display:block; }
-            .vine--right-5  { right:10%; height:72%;  display:block; }
-            .vine--right-6  { right:14%; height:60%;  display:block; }
-            .vine--right-7  { display:none; }
-            .vine--right-8  { display:none; }
-            .vine--right-9  { display:none; }
-            .vine--right-10 { display:none; }
-            .vine--right-11 { right:1%;  height:92%;  display:block; }
-            .vine--right-12 { right:3%;  height:85%;  display:block; }
-            .vine--right-13 { display:none; }
-            .vine--right-14 { display:none; }
-            .vine--right-15 { display:none; }
-
-            /* ── GARDEN SCENE — scrollable track ── */
-            .garden-scene {
-                overflow-x:auto;
-                overflow-y:hidden;
-                -webkit-overflow-scrolling:touch;
-                scroll-snap-type:x proximity;
-                scrollbar-width:none;
+            /* Keep flowers at bottom like desktop - NOT centered */
+            .flowers {
                 align-items:flex-end;
-                height:100vh;
                 padding-bottom:0;
             }
-            .garden-scene::-webkit-scrollbar { display:none; }
 
-            /* ── FLOWERS CONTAINER
-                Wide flex row — flowers sit side by side with generous gaps.
-                Left/right padding = vine zone buffer (16vw each side).
-            ── */
-            .flowers {
-                position:relative;
-                width:max-content;
-                min-width:100vw;
-                height:100vh;
-                display:flex;
-                flex-direction:row;
-                align-items:flex-end;
-                justify-content:flex-start;
-                transform:none;
-                /* 16vw each side leaves room for vines */
-                padding:0 16vw;
-                gap:6vw; /* generous breathing room between flowers */
-            }
-
-            /* ── INDIVIDUAL FLOWERS ── */
+            /* Scale flowers but keep at bottom */
             .flower {
-                position:relative !important;
-                left:auto !important;
-                bottom:8vmin !important;
-                flex-shrink:0;
-                /* each flower occupies a comfortable slot */
-                width:10vw;
+                bottom:8vmin!important;
                 transform-origin:bottom center;
-                scroll-snap-align:start;
-                margin:0;
             }
+            
+            /* Maintain desktop spacing between flowers */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.7) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.7) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.7) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.7) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.7) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.7) rotate(2deg)!important}
 
-            /* Sway animations */
-            .flower--c  { animation:moving-flower-1 4s   ease-in-out infinite !important; }
-            .flower--h  { animation:moving-flower-2 4.2s ease-in-out infinite !important; }
-            .flower--a  { animation:moving-flower-3 3.8s ease-in-out infinite !important; }
-            .flower--r  { animation:moving-flower-1 4.4s ease-in-out infinite !important; }
-            .flower--m  { animation:moving-flower-2 4s   ease-in-out infinite !important; }
-            .flower--e1 { animation:moving-flower-3 3.9s ease-in-out infinite !important; }
-            .flower--l1 { animation:moving-flower-1 4.1s ease-in-out infinite !important; }
-            .flower--l2 { animation:moving-flower-2 4.3s ease-in-out infinite !important; }
-            .flower--e2 { animation:moving-flower-3 3.7s ease-in-out infinite !important; }
-
-            /* Petals and stems — sized to feel close-up but not overwhelming */
-            .flower__leaf {
-                width:9vmin !important;
-                height:13vmin !important;
-            }
-            .flower__line {
-                width:1.8vmin !important;
-                height:52vmin !important;
-            }
-            .flower__white-circle {
-                width:10vmin !important;
-                height:4.5vmin !important;
-                left:-4.5vmin !important;
-                top:-3.5vmin !important;
-            }
-            .flower__light {
-                width:1.5vmin !important;
-                height:1.5vmin !important;
-            }
-
-            /* Labels */
-            .flower__label { white-space:nowrap; }
             .flower__label-letter {
-                font-size:clamp(1.1rem,3.5vmin,2rem);
+                font-size:clamp(1rem,3.5vmin,1.8rem);
             }
             .flower__label-name {
-                font-size:clamp(0.5rem,1.5vmin,0.85rem);
+                font-size:clamp(0.5rem,1.6vmin,0.85rem);
             }
 
-            /* ── GRASS
-                Keep all blades, use absolute positioning relative to .flowers.
-                Spread them across the full scroll width naturally.
-            ── */
+            /* Keep grass RIGHT at bottom like desktop */
             .long-g {
-                display:block !important;
-                bottom:8vmin;
-            }
-            .leaf {
-                --w:10vmin !important;
-                --h:30vmin !important;
+                bottom:15vmin;
             }
 
-            /* ── "A LETTER FOR YOU" BUTTON
-                Fixed to bottom of viewport so it's ALWAYS visible
-                regardless of scroll position. Override the opacity animation
-                to force-show it.
-            ── */
+            /* Vines - spread them out properly, maintain archway */
+            .vine {
+                width:3px;
+            }
+            /* Left vines maintain proper spread */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            /* Right vines maintain proper spread */
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
+            
+            .vine-leaf {
+                width:16px;
+                height:24px;
+            }
+            .vine-flower {
+                font-size:0.75rem;
+            }
+            
+            /* Hide some grass blades on medium mobile for performance */
+            .long-g--70, .long-g--71, .long-g--72, .long-g--73,
+            .long-g--74, .long-g--75, .long-g--76, .long-g--77,
+            .long-g--78, .long-g--79, .long-g--80, .long-g--81,
+            .long-g--82, .long-g--83, .long-g--84, .long-g--85,
+            .long-g--86, .long-g--87, .long-g--88, .long-g--89,
+            .long-g--90, .long-g--91, .long-g--92, .long-g--93,
+            .long-g--94, .long-g--95, .long-g--96, .long-g--97,
+            .long-g--98, .long-g--99, .long-g--100, .long-g--101,
+            .long-g--102, .long-g--103, .long-g--104, .long-g--105,
+            .long-g--106, .long-g--107, .long-g--108, .long-g--109,
+            .long-g--110, .long-g--111, .long-g--112, .long-g--113,
+            .long-g--114, .long-g--115, .long-g--116, .long-g--117,
+            .long-g--118, .long-g--119, .long-g--120, .long-g--121,
+            .long-g--122, .long-g--123, .long-g--124, .long-g--125,
+            .long-g--126, .long-g--127, .long-g--128, .long-g--129,
+            .long-g--130, .long-g--131, .long-g--132, .long-g--133,
+            .long-g--134, .long-g--135, .long-g--136, .long-g--137,
+            .long-g--138, .long-g--139, .long-g--140, .long-g--141,
+            .long-g--142, .long-g--143, .long-g--144, .long-g--145,
+            .long-g--146, .long-g--147, .long-g--148, .long-g--149 {
+                display:none;
+            }
+        }
+
+        @media(max-width:480px){
+            /* Keep flowers at BOTTOM like desktop */
+            .flowers {
+                align-items:flex-end;
+                padding-bottom:0;
+            }
+
+            /* Flowers at bottom with desktop spacing */
+            .flower {
+                bottom:8vmin!important;
+                transform-origin:bottom center;
+            }
+
+            /* Maintain desktop flower spacing */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.55) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.55) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.55) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.55) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.55) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.55) rotate(2deg)!important}
+
+            .letter-paper__content {
+                padding:30px 25px;
+            }
+            .letter-paper__title {
+                font-size:1.8rem;
+            }
+
             .scroll-hint {
-                position:fixed !important;
-                bottom:20px !important;
-                left:50% !important;
-                transform:translateX(-50%) !important;
-                z-index:9000 !important;
-                padding:14px 32px !important;
-                opacity:1 !important;
-                animation:none !important;
-                background:linear-gradient(135deg, rgba(255,20,147,0.25), rgba(255,105,180,0.25)) !important;
-                border:2px solid rgba(212,0,110,0.5) !important;
-                border-radius:50px !important;
-                backdrop-filter:blur(16px) !important;
-                box-shadow:0 6px 28px rgba(255,105,180,0.4), 0 2px 8px rgba(0,0,0,0.15) !important;
-                pointer-events:all !important;
-                white-space:nowrap !important;
+                padding:12px 24px;
+                bottom:15px;
             }
             .scroll-hint span {
-                font-size:0.82rem !important;
-                color:#c0005a !important;
-                letter-spacing:2px !important;
+                font-size:0.75rem;
             }
 
-            /* ── SWIPE HINT ── */
-            .swipe-hint {
-                display:flex;
-                position:fixed;
-                right:16px;
-                bottom:90px;
-                flex-direction:column;
-                align-items:center;
-                gap:4px;
-                z-index:8999;
-                opacity:0;
-                animation:swipe-appear 1.2s 7s ease-out forwards;
-                pointer-events:none;
+            /* Vines properly spread - same as desktop percentages */
+            .vine {
+                width:2.5px;
             }
-            @keyframes swipe-appear {
-                0%   { opacity:0; transform:translateX(8px); }
-                40%  { opacity:1; transform:translateX(0); }
-                100% { opacity:0.5; }
+            /* Left vines */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            /* Right vines */
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
+            
+            .vine-leaf {
+                width:14px;
+                height:20px;
             }
-            .swipe-hint__arrow {
-                font-size:1.4rem;
-                animation:swipe-bounce 1.3s ease-in-out infinite;
-            }
-            @keyframes swipe-bounce {
-                0%,100% { transform:translateX(0); }
-                50%     { transform:translateX(5px); }
-            }
-            .swipe-hint__text {
-                font-family:'Cormorant Garamond',serif;
-                font-style:italic;
-                font-size:0.6rem;
-                color:#d4006e;
-                letter-spacing:1px;
-                writing-mode:vertical-rl;
+            .vine-flower {
+                font-size:0.7rem;
             }
 
-            /* ── ENVELOPE ── */
-            .envelope-wrapper {
-                width:88vw;
-                height:calc(88vw * 0.7);
-                max-width:460px;
-                max-height:322px;
+            /* Grass stays at bottom like desktop */
+            .long-g {
+                bottom:15vmin;
             }
-            .letter-paper__content { padding:35px 30px; }
-            .letter-paper__title   { font-size:2rem; }
+
+            /* Hide extra grass on small screens - keep 70 blades */
+            .long-g--70, .long-g--71, .long-g--72, .long-g--73,
+            .long-g--74, .long-g--75, .long-g--76, .long-g--77,
+            .long-g--78, .long-g--79, .long-g--80, .long-g--81,
+            .long-g--82, .long-g--83, .long-g--84, .long-g--85,
+            .long-g--86, .long-g--87, .long-g--88, .long-g--89,
+            .long-g--90, .long-g--91, .long-g--92, .long-g--93,
+            .long-g--94, .long-g--95, .long-g--96, .long-g--97,
+            .long-g--98, .long-g--99, .long-g--100, .long-g--101,
+            .long-g--102, .long-g--103, .long-g--104, .long-g--105,
+            .long-g--106, .long-g--107, .long-g--108, .long-g--109,
+            .long-g--110, .long-g--111, .long-g--112, .long-g--113,
+            .long-g--114, .long-g--115, .long-g--116, .long-g--117,
+            .long-g--118, .long-g--119, .long-g--120, .long-g--121,
+            .long-g--122, .long-g--123, .long-g--124, .long-g--125,
+            .long-g--126, .long-g--127, .long-g--128, .long-g--129,
+            .long-g--130, .long-g--131, .long-g--132, .long-g--133,
+            .long-g--134, .long-g--135, .long-g--136, .long-g--137,
+            .long-g--138, .long-g--139, .long-g--140, .long-g--141,
+            .long-g--142, .long-g--143, .long-g--144, .long-g--145,
+            .long-g--146, .long-g--147, .long-g--148, .long-g--149 {
+                display:none;
+            }
         }
 
-        /* ─────────────────────────────────
-           SMALL PHONE ≤480px
-        ───────────────────────────────── */
-        @media(max-width:480px){
+        /* Landscape mobile - match desktop layout */
+        @media(max-height:500px) and (orientation:landscape) {
+            /* Flowers at bottom */
+            .flowers {
+                align-items:flex-end;
+            }
+            .flower {
+                bottom:6vmin!important;
+                transform-origin:bottom center;
+            }
+            /* Desktop spacing maintained */
+            .flower--c{left:calc(50% - 36vmin);transform:scale(0.5) rotate(2deg)!important}
+            .flower--h{left:calc(50% - 27vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--a{left:calc(50% - 18vmin);transform:scale(0.5) rotate(1deg)!important}
+            .flower--r{left:calc(50% - 9vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--m{left:50%;transform:scale(0.5) rotate(2deg)!important}
+            .flower--e1{left:calc(50% + 9vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--l1{left:calc(50% + 18vmin);transform:scale(0.5) rotate(1deg)!important}
+            .flower--l2{left:calc(50% + 27vmin);transform:scale(0.5) rotate(-2deg)!important}
+            .flower--e2{left:calc(50% + 36vmin);transform:scale(0.5) rotate(2deg)!important}
+            
+            .header {
+                top:15px;
+            }
             .header h1 {
-                font-size:clamp(1.4rem,7.5vw,2.2rem);
-                letter-spacing:3px;
+                font-size:1.5rem;
             }
             .header .subtitle {
-                font-size:clamp(0.55rem,2.8vw,0.8rem);
+                font-size:0.7rem;
             }
-
-            .flowers {
-                gap:8vw !important;
-                padding:0 18vw !important;
-            }
-            .flower {
-                width:11vw !important;
-            }
-            .flower__line {
-                height:55vmin !important;
-            }
-
-            /* Vine sizing for small screens */
-            .vine { width:3.5px; }
-            .vine-leaf { width:18px; height:27px; }
-            .vine-flower { font-size:0.85rem; }
-
-            /* Tighter vine spread for narrow screens */
-            .vine--left-1  { left:0%;  height:100%; }
-            .vine--left-2  { left:1.5%;height:95%;  }
-            .vine--left-3  { left:3%;  height:88%;  }
-            .vine--left-4  { left:5.5%;height:78%;  }
-            .vine--left-5  { left:8%;  height:68%;  }
-            .vine--left-6  { left:11%; height:56%;  }
-            .vine--left-11 { left:0.8%;height:90%;  }
-            .vine--left-12 { left:2.5%;height:82%;  }
-            .vine--right-1  { right:0%;  height:100%; }
-            .vine--right-2  { right:1.5%;height:95%;  }
-            .vine--right-3  { right:3%;  height:88%;  }
-            .vine--right-4  { right:5.5%;height:78%;  }
-            .vine--right-5  { right:8%;  height:68%;  }
-            .vine--right-6  { right:11%; height:56%;  }
-            .vine--right-11 { right:0.8%;height:90%;  }
-            .vine--right-12 { right:2.5%;height:82%;  }
-
             .scroll-hint {
-                bottom:16px !important;
-                padding:12px 26px !important;
+                bottom:10px;
+                padding:8px 18px;
             }
-            .scroll-hint span { font-size:0.76rem !important; }
-
-            .envelope-wrapper {
-                width:93vw;
-                height:calc(93vw * 0.7);
+            .long-g {
+                bottom:12vmin;
             }
-            .letter-paper__content { padding:28px 22px; }
-            .letter-paper__title   { font-size:1.7rem; }
-        }
-
-        /* ─────────────────────────────────
-           LANDSCAPE PHONE
-        ───────────────────────────────── */
-        @media(max-height:500px) and (orientation:landscape){
-            .garden-scene {
-                overflow-x:auto;
-                -webkit-overflow-scrolling:touch;
-                scroll-snap-type:x proximity;
+            .vine {
+                width:2px;
             }
-            .flowers {
-                position:relative !important;
-                width:max-content !important;
-                min-width:100vw !important;
-                height:100vh !important;
-                display:flex !important;
-                flex-direction:row !important;
-                align-items:flex-end !important;
-                transform:none !important;
-                padding:0 14vw !important;
-                gap:5vw !important;
-            }
-            .flower {
-                position:relative !important;
-                left:auto !important;
-                flex-shrink:0 !important;
-                width:8vw !important;
-                bottom:6vmin !important;
-            }
-            .flower__line { height:38vmin !important; }
-            .flower__leaf { width:7vmin !important; height:10vmin !important; }
-            .flower--c  { animation:moving-flower-1 4s   ease-in-out infinite !important; }
-            .flower--h  { animation:moving-flower-2 4.2s ease-in-out infinite !important; }
-            .flower--a  { animation:moving-flower-3 3.8s ease-in-out infinite !important; }
-            .flower--r  { animation:moving-flower-1 4.4s ease-in-out infinite !important; }
-            .flower--m  { animation:moving-flower-2 4s   ease-in-out infinite !important; }
-            .flower--e1 { animation:moving-flower-3 3.9s ease-in-out infinite !important; }
-            .flower--l1 { animation:moving-flower-1 4.1s ease-in-out infinite !important; }
-            .flower--l2 { animation:moving-flower-2 4.3s ease-in-out infinite !important; }
-            .flower--e2 { animation:moving-flower-3 3.7s ease-in-out infinite !important; }
-            .vine { width:3px; }
-            .vine--left-1  { left:0%;  height:100%; display:block; }
-            .vine--left-2  { left:2%;  height:90%;  display:block; }
-            .vine--left-3  { left:4%;  height:78%;  display:block; }
-            .vine--left-4  { left:7%;  height:65%;  display:block; }
-            .vine--left-5  { display:none; }
-            .vine--left-6  { display:none; }
-            .vine--left-11 { left:1%;  height:85%;  display:block; }
-            .vine--left-12 { display:none; }
-            .vine--right-1  { right:0%;  height:100%; display:block; }
-            .vine--right-2  { right:2%;  height:90%;  display:block; }
-            .vine--right-3  { right:4%;  height:78%;  display:block; }
-            .vine--right-4  { right:7%;  height:65%;  display:block; }
-            .vine--right-5  { display:none; }
-            .vine--right-6  { display:none; }
-            .vine--right-11 { right:1%;  height:85%;  display:block; }
-            .vine--right-12 { display:none; }
-            .long-g { display:block !important; }
-            .header { top:8px; }
-            .header h1 { font-size:1.2rem; letter-spacing:3px; }
-            .header .subtitle { font-size:0.55rem; }
-            .scroll-hint {
-                bottom:10px !important;
-                padding:8px 18px !important;
+            /* Vines keep desktop spread */
+            .vine--left-1 { left:0.5%; }
+            .vine--left-2 { left:2%; }
+            .vine--left-3 { left:3.5%; }
+            .vine--left-4 { left:5%; }
+            .vine--left-5 { left:6.5%; }
+            .vine--left-6 { left:8%; }
+            .vine--left-7 { left:9.5%; }
+            .vine--left-8 { left:11%; }
+            .vine--left-9 { left:12.5%; }
+            .vine--left-10 { left:14%; }
+            .vine--left-11 { left:1.5%; }
+            .vine--left-12 { left:4.5%; }
+            .vine--left-13 { left:7.5%; }
+            .vine--left-14 { left:10.5%; }
+            .vine--left-15 { left:13%; }
+            .vine--right-1 { right:0.5%; }
+            .vine--right-2 { right:2%; }
+            .vine--right-3 { right:3.5%; }
+            .vine--right-4 { right:5%; }
+            .vine--right-5 { right:6.5%; }
+            .vine--right-6 { right:8%; }
+            .vine--right-7 { right:9.5%; }
+            .vine--right-8 { right:11%; }
+            .vine--right-9 { right:12.5%; }
+            .vine--right-10 { right:14%; }
+            .vine--right-11 { right:1.5%; }
+            .vine--right-12 { right:4.5%; }
+            .vine--right-13 { right:7.5%; }
+            .vine--right-14 { right:10.5%; }
+            .vine--right-15 { right:13%; }
+            .vine-leaf {
+                width:12px;
+                height:18px;
             }
         }
     </style>
@@ -1330,7 +1367,7 @@
 
     <!-- GARDEN ENTRANCE ARCHWAY VINES -->
     <div class="vines-container">
-        <!-- Left side vines -->
+        <!-- Left side vines - 10 total creating entrance arch -->
         <div class="vine vine--left-1">
             <div class="vine-leaf" style="top:20%"></div>
             <div class="vine-leaf" style="top:40%;transform:scaleX(-1)"></div>
@@ -1529,7 +1566,7 @@
             <div class="vine-flower" style="top:82%;--bloom-delay:7.8s">🌼</div>
         </div>
 
-        <!-- Right side vines -->
+        <!-- Right side vines - 15 total creating entrance arch -->
         <div class="vine vine--right-1">
             <div class="vine-leaf" style="top:20%;transform:scaleX(-1)"></div>
             <div class="vine-leaf" style="top:40%"></div>
@@ -1783,7 +1820,7 @@
                 <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div><div class="flower__line__leaf flower__line__leaf--2"></div><div class="flower__line__leaf flower__line__leaf--3"></div><div class="flower__line__leaf flower__line__leaf--4"></div></div>
             </div>
 
-            <!-- GRASS FIELD -->
+            <!-- EXPANDED GRASS - 40 blades -->
             <div class="long-g long-g--0"><div class="grow-ans" style="--d:3s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--1"><div class="grow-ans" style="--d:3.2s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--2"><div class="grow-ans" style="--d:3.4s"><div class="leaf"></div></div></div>
@@ -1824,6 +1861,7 @@
             <div class="long-g long-g--37"><div class="grow-ans" style="--d:4.25s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--38"><div class="grow-ans" style="--d:3.4s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--39"><div class="grow-ans" style="--d:3.6s"><div class="leaf"></div></div></div>
+            <!-- Additional 40 grass blades for full field effect -->
             <div class="long-g long-g--40"><div class="grow-ans" style="--d:3.25s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--41"><div class="grow-ans" style="--d:3.45s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--42"><div class="grow-ans" style="--d:3.65s"><div class="leaf"></div></div></div>
@@ -1864,6 +1902,7 @@
             <div class="long-g long-g--77"><div class="grow-ans" style="--d:4.06s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--78"><div class="grow-ans" style="--d:3.16s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--79"><div class="grow-ans" style="--d:3.36s"><div class="leaf"></div></div></div>
+            <!-- Additional 70 grass blades for LITERAL FIELD density -->
             <div class="long-g long-g--80"><div class="grow-ans" style="--d:3.27s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--81"><div class="grow-ans" style="--d:3.47s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--82"><div class="grow-ans" style="--d:3.67s"><div class="leaf"></div></div></div>
@@ -1941,12 +1980,6 @@
         </div>
     </div>
 
-    <!-- SWIPE HINT (mobile only) -->
-    <div class="swipe-hint" id="swipe-hint">
-        <div class="swipe-hint__arrow">👉</div>
-        <div class="swipe-hint__text">swipe</div>
-    </div>
-
     <!-- ENVELOPE ANIMATION -->
     <div class="envelope-container" id="envelope-container">
         <div class="envelope-backdrop" onclick="closeEnvelope()"></div>
@@ -1958,6 +1991,7 @@
                 <div class="envelope__flap"></div>
                 <div class="envelope__front"></div>
                 <div class="letter-paper">
+                    <!-- Corner flower decorations OUTSIDE the letter -->
                     <div class="letter-corner-flower letter-corner-flower--tl">🌹</div>
                     <div class="letter-corner-flower letter-corner-flower--tr">💐</div>
                     <div class="letter-corner-flower letter-corner-flower--bl">🌸</div>
@@ -2041,60 +2075,29 @@
         </div>
     </div>
 
+
     <script>
         setTimeout(() => { document.body.classList.remove('not-loaded'); }, 100);
 
-        // On mobile: show the letter button immediately + center on middle flower
-        function initMobileScroll() {
-            if (window.innerWidth <= 768) {
-                const scene  = document.querySelector('.garden-scene');
-                const flowers = document.querySelector('.flowers');
-                const btn    = document.querySelector('.scroll-hint');
-
-                // Force the letter button visible right away on mobile
-                if (btn) {
-                    btn.style.opacity = '1';
-                    btn.style.animation = 'none';
-                    btn.style.pointerEvents = 'all';
-                }
-
-                // After layout paints, scroll to center (middle flower = M)
-                if (scene && flowers) {
-                    requestAnimationFrame(() => {
-                        setTimeout(() => {
-                            const scrollCenter = (flowers.scrollWidth - scene.clientWidth) / 2;
-                            scene.scrollLeft = scrollCenter;
-                        }, 100);
-                    });
-                }
-
-                // Fade out swipe hint after user first scrolls
-                const swipeHint = document.getElementById('swipe-hint');
-                if (swipeHint && scene) {
-                    scene.addEventListener('scroll', () => {
-                        swipeHint.style.opacity = '0';
-                        swipeHint.style.transition = 'opacity 0.4s ease';
-                    }, { once: true });
-                }
-            }
-        }
-
-        setTimeout(initMobileScroll, 200);
-
+        // Create sparkles around envelope
         function createSparkles() {
             const sparklesContainer = document.getElementById('sparkles');
             const sparkleCount = 30;
+            
             for (let i = 0; i < sparkleCount; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
+                
                 const angle = (Math.PI * 2 * i) / sparkleCount;
                 const radius = 200 + Math.random() * 150;
                 const x = 50 + Math.cos(angle) * (radius / window.innerWidth * 100);
                 const y = 50 + Math.sin(angle) * (radius / window.innerHeight * 100);
+                
                 sparkle.style.left = x + '%';
                 sparkle.style.top = y + '%';
                 sparkle.style.setProperty('--duration', (3 + Math.random() * 4) + 's');
                 sparkle.style.setProperty('--delay', (Math.random() * 3) + 's');
+                
                 sparklesContainer.appendChild(sparkle);
             }
         }
@@ -2102,20 +2105,27 @@
         function openEnvelope() {
             const container = document.getElementById('envelope-container');
             const envelope = document.getElementById('envelope');
+            
             envelope.classList.remove('closing');
             createSparkles();
             container.classList.add('active');
-            setTimeout(() => { envelope.classList.add('opening'); }, 1400);
+            
+            setTimeout(() => {
+                envelope.classList.add('opening');
+            }, 1400);
         }
 
         function closeEnvelope() {
             const container = document.getElementById('envelope-container');
             const envelope = document.getElementById('envelope');
             const sparklesContainer = document.getElementById('sparkles');
+            
             envelope.classList.remove('opening');
             envelope.classList.add('closing');
+            
             setTimeout(() => {
                 container.classList.remove('active');
+                
                 setTimeout(() => {
                     envelope.classList.remove('closing');
                     sparklesContainer.innerHTML = '';
@@ -2124,7 +2134,9 @@
         }
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeEnvelope();
+            if (e.key === 'Escape') {
+                closeEnvelope();
+            }
         });
     </script>
 </body>
