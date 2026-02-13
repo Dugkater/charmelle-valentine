@@ -35,7 +35,7 @@
         }
 
         /* ══════════════════════════════════
-           DECORATIVE VINES BACKGROUND
+           GARDEN ENTRANCE ARCHWAY VINES
         ══════════════════════════════════ */
         .vines-container {
             position:fixed;
@@ -45,12 +45,12 @@
             height:100%;
             pointer-events:none;
             z-index:1;
-            opacity:0.4;
+            opacity:0.6;
         }
 
         .vine {
             position:absolute;
-            width:3px;
+            width:4px;
             background:linear-gradient(to bottom, 
                 transparent 0%,
                 #2d7a3e 10%, 
@@ -75,11 +75,11 @@
         /* Vine leaves */
         .vine-leaf {
             position:absolute;
-            width:20px;
-            height:30px;
+            width:22px;
+            height:32px;
             background:linear-gradient(135deg, #2d7a3e 0%, #4a9d5f 100%);
             border-radius:0% 50% 50% 50%;
-            left:-10px;
+            left:-11px;
             transform-origin:bottom right;
             box-shadow:inset 1px 2px 4px rgba(0,0,0,0.2);
         }
@@ -95,15 +95,39 @@
             transform:rotate(-30deg);
         }
 
-        /* Left side vines */
-        .vine--left-1 { left:5%; height:70%; top:10%; --start-angle:2deg; --end-angle:-3deg; --sway-duration:7s; }
-        .vine--left-2 { left:12%; height:85%; top:5%; --start-angle:-1deg; --end-angle:4deg; --sway-duration:8.5s; --sway-delay:1s; }
-        .vine--left-3 { left:3%; height:60%; top:25%; --start-angle:3deg; --end-angle:-2deg; --sway-duration:9s; --sway-delay:2s; }
+        /* ARCHWAY ENTRANCE - Left side vines (15 total) - creating dense entrance */
+        .vine--left-1 { left:0.5%; height:40%; top:0%; --start-angle:3deg; --end-angle:-2deg; --sway-duration:7s; }
+        .vine--left-2 { left:2%; height:50%; top:0%; --start-angle:-1deg; --end-angle:4deg; --sway-duration:8.5s; --sway-delay:1s; }
+        .vine--left-3 { left:3.5%; height:60%; top:0%; --start-angle:2deg; --end-angle:-3deg; --sway-duration:9s; --sway-delay:2s; }
+        .vine--left-4 { left:5%; height:68%; top:0%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:7.8s; --sway-delay:0.5s; }
+        .vine--left-5 { left:6.5%; height:75%; top:0%; --start-angle:2.5deg; --end-angle:-3.5deg; --sway-duration:8.2s; --sway-delay:1.5s; }
+        .vine--left-6 { left:8%; height:82%; top:0%; --start-angle:-1.5deg; --end-angle:4.5deg; --sway-duration:9.3s; --sway-delay:2.3s; }
+        .vine--left-7 { left:9.5%; height:88%; top:0%; --start-angle:3deg; --end-angle:-2.5deg; --sway-duration:8.7s; --sway-delay:1.2s; }
+        .vine--left-8 { left:11%; height:92%; top:0%; --start-angle:-2deg; --end-angle:3.5deg; --sway-duration:7.5s; --sway-delay:2.8s; }
+        .vine--left-9 { left:12.5%; height:95%; top:0%; --start-angle:2deg; --end-angle:-3deg; --sway-duration:8.8s; --sway-delay:0.8s; }
+        .vine--left-10 { left:14%; height:96%; top:0%; --start-angle:-2.5deg; --end-angle:4deg; --sway-duration:9.1s; --sway-delay:1.8s; }
+        .vine--left-11 { left:1.5%; height:45%; top:5%; --start-angle:2deg; --end-angle:-3deg; --sway-duration:8.3s; --sway-delay:0.6s; }
+        .vine--left-12 { left:4.5%; height:65%; top:3%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:7.9s; --sway-delay:1.3s; }
+        .vine--left-13 { left:7.5%; height:78%; top:2%; --start-angle:2.5deg; --end-angle:-3.5deg; --sway-duration:8.6s; --sway-delay:2.1s; }
+        .vine--left-14 { left:10.5%; height:90%; top:1%; --start-angle:-1.5deg; --end-angle:4deg; --sway-duration:9.2s; --sway-delay:1.6s; }
+        .vine--left-15 { left:13%; height:94%; top:0%; --start-angle:3deg; --end-angle:-2deg; --sway-duration:8.4s; --sway-delay:2.4s; }
 
-        /* Right side vines */
-        .vine--right-1 { right:5%; height:75%; top:8%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:7.5s; --sway-delay:0.5s; }
-        .vine--right-2 { right:12%; height:80%; top:12%; --start-angle:1deg; --end-angle:-4deg; --sway-duration:8s; --sway-delay:1.5s; }
-        .vine--right-3 { right:3%; height:65%; top:20%; --start-angle:-3deg; --end-angle:2deg; --sway-duration:9.5s; --sway-delay:2.5s; }
+        /* ARCHWAY ENTRANCE - Right side vines (15 total) - mirror of left */
+        .vine--right-1 { right:0.5%; height:40%; top:0%; --start-angle:-3deg; --end-angle:2deg; --sway-duration:7.5s; --sway-delay:0.5s; }
+        .vine--right-2 { right:2%; height:50%; top:0%; --start-angle:1deg; --end-angle:-4deg; --sway-duration:8s; --sway-delay:1.5s; }
+        .vine--right-3 { right:3.5%; height:60%; top:0%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:9.5s; --sway-delay:2.5s; }
+        .vine--right-4 { right:5%; height:68%; top:0%; --start-angle:2deg; --end-angle:-3.5deg; --sway-duration:7.7s; --sway-delay:0.8s; }
+        .vine--right-5 { right:6.5%; height:75%; top:0%; --start-angle:-2.5deg; --end-angle:4deg; --sway-duration:8.4s; --sway-delay:1.8s; }
+        .vine--right-6 { right:8%; height:82%; top:0%; --start-angle:1.5deg; --end-angle:-4.5deg; --sway-duration:9.2s; --sway-delay:2.8s; }
+        .vine--right-7 { right:9.5%; height:88%; top:0%; --start-angle:-3deg; --end-angle:2.5deg; --sway-duration:8.6s; --sway-delay:1.3s; }
+        .vine--right-8 { right:11%; height:92%; top:0%; --start-angle:2deg; --end-angle:-3.5deg; --sway-duration:7.6s; --sway-delay:2.9s; }
+        .vine--right-9 { right:12.5%; height:95%; top:0%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:8.9s; --sway-delay:0.9s; }
+        .vine--right-10 { right:14%; height:96%; top:0%; --start-angle:2.5deg; --end-angle:-4deg; --sway-duration:9s; --sway-delay:1.9s; }
+        .vine--right-11 { right:1.5%; height:45%; top:5%; --start-angle:-2deg; --end-angle:3deg; --sway-duration:8.2s; --sway-delay:0.7s; }
+        .vine--right-12 { right:4.5%; height:65%; top:3%; --start-angle:2deg; --end-angle:-3deg; --sway-duration:8.1s; --sway-delay:1.4s; }
+        .vine--right-13 { right:7.5%; height:78%; top:2%; --start-angle:-2.5deg; --end-angle:3.5deg; --sway-duration:8.7s; --sway-delay:2.2s; }
+        .vine--right-14 { right:10.5%; height:90%; top:1%; --start-angle:1.5deg; --end-angle:-4deg; --sway-duration:9.3s; --sway-delay:1.7s; }
+        .vine--right-15 { right:13%; height:94%; top:0%; --start-angle:-3deg; --end-angle:2deg; --sway-duration:8.5s; --sway-delay:2.5s; }
 
         /* Small decorative flowers on vines */
         .vine-flower {
@@ -347,28 +371,160 @@
         @keyframes blooming-leaf-right{0%{transform-origin:left;transform:rotate(70deg) rotateY(30deg) scale(0)}}
         @keyframes blooming-leaf-left{0%{transform-origin:right;transform:rotate(-70deg) rotateY(30deg) scale(0)}}
 
+        /* LITERAL GRASS FIELD - 150 total grass blades for dense field effect */
         .long-g{position:absolute;bottom:15vmin;transform-origin:bottom left;opacity:0.7}
-        .long-g--0{left:2vmin}.long-g--1{left:10vmin;transform:scale(0.7) rotate(-5deg)}
-        .long-g--2{left:18vmin;transform:scale(0.5)}.long-g--3{right:2vmin;transform:scale(0.7) rotate(5deg)}
-        .long-g--4{right:10vmin;transform:scale(0.5)}.long-g--5{right:18vmin;opacity:0.5}
-        .long-g--6{left:26vmin;transform:scale(0.6) rotate(3deg)}
-        .long-g--7{left:34vmin;transform:scale(0.55) rotate(-4deg)}
-        .long-g--8{left:42vmin;transform:scale(0.65) rotate(2deg)}
-        .long-g--9{right:26vmin;transform:scale(0.6) rotate(-3deg)}
-        .long-g--10{right:34vmin;transform:scale(0.55) rotate(4deg)}
-        .long-g--11{right:42vmin;transform:scale(0.65) rotate(-2deg)}
-        .long-g--12{left:50vmin;transform:scale(0.6) rotate(-3deg)}
-        .long-g--13{left:58vmin;transform:scale(0.5) rotate(4deg)}
-        .long-g--14{left:66vmin;transform:scale(0.55) rotate(-2deg)}
-        .long-g--15{right:50vmin;transform:scale(0.6) rotate(3deg)}
-        .long-g--16{right:58vmin;transform:scale(0.5) rotate(-4deg)}
-        .long-g--17{right:66vmin;transform:scale(0.55) rotate(2deg)}
-        .long-g--18{left:5vmin;transform:scale(0.8) rotate(2deg)}
-        .long-g--19{right:5vmin;transform:scale(0.8) rotate(-2deg)}
-        .long-g--20{left:14vmin;transform:scale(0.6) rotate(-3deg)}
-        .long-g--21{right:14vmin;transform:scale(0.6) rotate(3deg)}
-        .long-g--22{left:22vmin;transform:scale(0.55) rotate(4deg)}
-        .long-g--23{right:22vmin;transform:scale(0.55) rotate(-4deg)}
+        .long-g--0{left:1vmin;transform:scale(0.75) rotate(1deg)}
+        .long-g--1{left:7vmin;transform:scale(0.7) rotate(-5deg)}
+        .long-g--2{left:13vmin;transform:scale(0.5) rotate(3deg)}
+        .long-g--3{right:1vmin;transform:scale(0.7) rotate(5deg)}
+        .long-g--4{right:7vmin;transform:scale(0.5) rotate(-2deg)}
+        .long-g--5{right:13vmin;transform:scale(0.55) rotate(4deg)}
+        .long-g--6{left:19vmin;transform:scale(0.6) rotate(3deg)}
+        .long-g--7{left:25vmin;transform:scale(0.55) rotate(-4deg)}
+        .long-g--8{left:31vmin;transform:scale(0.65) rotate(2deg)}
+        .long-g--9{right:19vmin;transform:scale(0.6) rotate(-3deg)}
+        .long-g--10{right:25vmin;transform:scale(0.55) rotate(4deg)}
+        .long-g--11{right:31vmin;transform:scale(0.65) rotate(-2deg)}
+        .long-g--12{left:37vmin;transform:scale(0.6) rotate(-3deg)}
+        .long-g--13{left:43vmin;transform:scale(0.5) rotate(4deg)}
+        .long-g--14{left:49vmin;transform:scale(0.55) rotate(-2deg)}
+        .long-g--15{right:37vmin;transform:scale(0.6) rotate(3deg)}
+        .long-g--16{right:43vmin;transform:scale(0.5) rotate(-4deg)}
+        .long-g--17{right:49vmin;transform:scale(0.55) rotate(2deg)}
+        .long-g--18{left:4vmin;transform:scale(0.8) rotate(2deg)}
+        .long-g--19{right:4vmin;transform:scale(0.8) rotate(-2deg)}
+        .long-g--20{left:10vmin;transform:scale(0.6) rotate(-3deg)}
+        .long-g--21{right:10vmin;transform:scale(0.6) rotate(3deg)}
+        .long-g--22{left:16vmin;transform:scale(0.55) rotate(4deg)}
+        .long-g--23{right:16vmin;transform:scale(0.55) rotate(-4deg)}
+        .long-g--24{left:22vmin;transform:scale(0.7) rotate(-1deg)}
+        .long-g--25{right:22vmin;transform:scale(0.7) rotate(1deg)}
+        .long-g--26{left:28vmin;transform:scale(0.52) rotate(3deg)}
+        .long-g--27{right:28vmin;transform:scale(0.52) rotate(-3deg)}
+        .long-g--28{left:34vmin;transform:scale(0.68) rotate(-2deg)}
+        .long-g--29{right:34vmin;transform:scale(0.68) rotate(2deg)}
+        .long-g--30{left:40vmin;transform:scale(0.58) rotate(4deg)}
+        .long-g--31{right:40vmin;transform:scale(0.58) rotate(-4deg)}
+        .long-g--32{left:46vmin;transform:scale(0.62) rotate(-3deg)}
+        .long-g--33{right:46vmin;transform:scale(0.62) rotate(3deg)}
+        .long-g--34{left:52vmin;transform:scale(0.57) rotate(2deg)}
+        .long-g--35{right:52vmin;transform:scale(0.57) rotate(-2deg)}
+        .long-g--36{left:3vmin;transform:scale(0.65) rotate(-4deg)}
+        .long-g--37{right:3vmin;transform:scale(0.65) rotate(4deg)}
+        .long-g--38{left:9vmin;transform:scale(0.72) rotate(1deg)}
+        .long-g--39{right:9vmin;transform:scale(0.72) rotate(-1deg)}
+        /* Additional 40 grass blades for field effect */
+        .long-g--40{left:2vmin;transform:scale(0.63) rotate(2deg)}
+        .long-g--41{left:5vmin;transform:scale(0.58) rotate(-3deg)}
+        .long-g--42{left:8vmin;transform:scale(0.68) rotate(4deg)}
+        .long-g--43{left:11vmin;transform:scale(0.54) rotate(-2deg)}
+        .long-g--44{left:14vmin;transform:scale(0.71) rotate(3deg)}
+        .long-g--45{left:17vmin;transform:scale(0.59) rotate(-4deg)}
+        .long-g--46{left:20vmin;transform:scale(0.66) rotate(2deg)}
+        .long-g--47{left:23vmin;transform:scale(0.53) rotate(-3deg)}
+        .long-g--48{left:26vmin;transform:scale(0.69) rotate(4deg)}
+        .long-g--49{left:29vmin;transform:scale(0.61) rotate(-2deg)}
+        .long-g--50{left:32vmin;transform:scale(0.57) rotate(3deg)}
+        .long-g--51{left:35vmin;transform:scale(0.64) rotate(-4deg)}
+        .long-g--52{left:38vmin;transform:scale(0.56) rotate(2deg)}
+        .long-g--53{left:41vmin;transform:scale(0.67) rotate(-3deg)}
+        .long-g--54{left:44vmin;transform:scale(0.62) rotate(4deg)}
+        .long-g--55{left:47vmin;transform:scale(0.55) rotate(-2deg)}
+        .long-g--56{left:50vmin;transform:scale(0.7) rotate(3deg)}
+        .long-g--57{left:53vmin;transform:scale(0.6) rotate(-4deg)}
+        .long-g--58{left:56vmin;transform:scale(0.65) rotate(2deg)}
+        .long-g--59{left:59vmin;transform:scale(0.58) rotate(-3deg)}
+        .long-g--60{right:2vmin;transform:scale(0.63) rotate(-2deg)}
+        .long-g--61{right:5vmin;transform:scale(0.58) rotate(3deg)}
+        .long-g--62{right:8vmin;transform:scale(0.68) rotate(-4deg)}
+        .long-g--63{right:11vmin;transform:scale(0.54) rotate(2deg)}
+        .long-g--64{right:14vmin;transform:scale(0.71) rotate(-3deg)}
+        .long-g--65{right:17vmin;transform:scale(0.59) rotate(4deg)}
+        .long-g--66{right:20vmin;transform:scale(0.66) rotate(-2deg)}
+        .long-g--67{right:23vmin;transform:scale(0.53) rotate(3deg)}
+        .long-g--68{right:26vmin;transform:scale(0.69) rotate(-4deg)}
+        .long-g--69{right:29vmin;transform:scale(0.61) rotate(2deg)}
+        .long-g--70{right:32vmin;transform:scale(0.57) rotate(-3deg)}
+        .long-g--71{right:35vmin;transform:scale(0.64) rotate(4deg)}
+        .long-g--72{right:38vmin;transform:scale(0.56) rotate(-2deg)}
+        .long-g--73{right:41vmin;transform:scale(0.67) rotate(3deg)}
+        .long-g--74{right:44vmin;transform:scale(0.62) rotate(-4deg)}
+        .long-g--75{right:47vmin;transform:scale(0.55) rotate(2deg)}
+        .long-g--76{right:50vmin;transform:scale(0.7) rotate(-3deg)}
+        .long-g--77{right:53vmin;transform:scale(0.6) rotate(4deg)}
+        .long-g--78{right:56vmin;transform:scale(0.65) rotate(-2deg)}
+        .long-g--79{right:59vmin;transform:scale(0.58) rotate(3deg)}
+        /* Additional 70 grass blades for LITERAL FIELD density */
+        .long-g--80{left:1.5vmin;transform:scale(0.62) rotate(1deg)}
+        .long-g--81{left:4.5vmin;transform:scale(0.56) rotate(-2deg)}
+        .long-g--82{left:6.5vmin;transform:scale(0.69) rotate(3deg)}
+        .long-g--83{left:9.5vmin;transform:scale(0.53) rotate(-4deg)}
+        .long-g--84{left:12.5vmin;transform:scale(0.67) rotate(2deg)}
+        .long-g--85{left:15.5vmin;transform:scale(0.61) rotate(-3deg)}
+        .long-g--86{left:18.5vmin;transform:scale(0.58) rotate(4deg)}
+        .long-g--87{left:21.5vmin;transform:scale(0.64) rotate(-2deg)}
+        .long-g--88{left:24.5vmin;transform:scale(0.71) rotate(3deg)}
+        .long-g--89{left:27.5vmin;transform:scale(0.54) rotate(-4deg)}
+        .long-g--90{left:30.5vmin;transform:scale(0.66) rotate(2deg)}
+        .long-g--91{left:33.5vmin;transform:scale(0.59) rotate(-3deg)}
+        .long-g--92{left:36.5vmin;transform:scale(0.63) rotate(4deg)}
+        .long-g--93{left:39.5vmin;transform:scale(0.57) rotate(-2deg)}
+        .long-g--94{left:42.5vmin;transform:scale(0.68) rotate(3deg)}
+        .long-g--95{left:45.5vmin;transform:scale(0.55) rotate(-4deg)}
+        .long-g--96{left:48.5vmin;transform:scale(0.62) rotate(2deg)}
+        .long-g--97{left:51.5vmin;transform:scale(0.6) rotate(-3deg)}
+        .long-g--98{left:54.5vmin;transform:scale(0.65) rotate(4deg)}
+        .long-g--99{left:57.5vmin;transform:scale(0.58) rotate(-2deg)}
+        .long-g--100{right:1.5vmin;transform:scale(0.62) rotate(-1deg)}
+        .long-g--101{right:4.5vmin;transform:scale(0.56) rotate(2deg)}
+        .long-g--102{right:6.5vmin;transform:scale(0.69) rotate(-3deg)}
+        .long-g--103{right:9.5vmin;transform:scale(0.53) rotate(4deg)}
+        .long-g--104{right:12.5vmin;transform:scale(0.67) rotate(-2deg)}
+        .long-g--105{right:15.5vmin;transform:scale(0.61) rotate(3deg)}
+        .long-g--106{right:18.5vmin;transform:scale(0.58) rotate(-4deg)}
+        .long-g--107{right:21.5vmin;transform:scale(0.64) rotate(2deg)}
+        .long-g--108{right:24.5vmin;transform:scale(0.71) rotate(-3deg)}
+        .long-g--109{right:27.5vmin;transform:scale(0.54) rotate(4deg)}
+        .long-g--110{right:30.5vmin;transform:scale(0.66) rotate(-2deg)}
+        .long-g--111{right:33.5vmin;transform:scale(0.59) rotate(3deg)}
+        .long-g--112{right:36.5vmin;transform:scale(0.63) rotate(-4deg)}
+        .long-g--113{right:39.5vmin;transform:scale(0.57) rotate(2deg)}
+        .long-g--114{right:42.5vmin;transform:scale(0.68) rotate(-3deg)}
+        .long-g--115{right:45.5vmin;transform:scale(0.55) rotate(4deg)}
+        .long-g--116{right:48.5vmin;transform:scale(0.62) rotate(-2deg)}
+        .long-g--117{right:51.5vmin;transform:scale(0.6) rotate(3deg)}
+        .long-g--118{right:54.5vmin;transform:scale(0.65) rotate(-4deg)}
+        .long-g--119{right:57.5vmin;transform:scale(0.58) rotate(2deg)}
+        .long-g--120{left:0.5vmin;transform:scale(0.73) rotate(-1deg)}
+        .long-g--121{left:3.5vmin;transform:scale(0.51) rotate(3deg)}
+        .long-g--122{left:5.5vmin;transform:scale(0.66) rotate(-2deg)}
+        .long-g--123{left:7.5vmin;transform:scale(0.59) rotate(4deg)}
+        .long-g--124{left:10.5vmin;transform:scale(0.64) rotate(-3deg)}
+        .long-g--125{left:13.5vmin;transform:scale(0.57) rotate(2deg)}
+        .long-g--126{left:16.5vmin;transform:scale(0.68) rotate(-4deg)}
+        .long-g--127{left:19.5vmin;transform:scale(0.54) rotate(3deg)}
+        .long-g--128{left:22.5vmin;transform:scale(0.61) rotate(-2deg)}
+        .long-g--129{left:25.5vmin;transform:scale(0.63) rotate(4deg)}
+        .long-g--130{left:28.5vmin;transform:scale(0.56) rotate(-3deg)}
+        .long-g--131{left:31.5vmin;transform:scale(0.69) rotate(2deg)}
+        .long-g--132{left:34.5vmin;transform:scale(0.52) rotate(-4deg)}
+        .long-g--133{left:37.5vmin;transform:scale(0.67) rotate(3deg)}
+        .long-g--134{left:40.5vmin;transform:scale(0.6) rotate(-2deg)}
+        .long-g--135{left:43.5vmin;transform:scale(0.65) rotate(4deg)}
+        .long-g--136{left:46.5vmin;transform:scale(0.58) rotate(-3deg)}
+        .long-g--137{left:49.5vmin;transform:scale(0.62) rotate(2deg)}
+        .long-g--138{left:52.5vmin;transform:scale(0.55) rotate(-4deg)}
+        .long-g--139{left:55.5vmin;transform:scale(0.71) rotate(3deg)}
+        .long-g--140{right:0.5vmin;transform:scale(0.73) rotate(1deg)}
+        .long-g--141{right:3.5vmin;transform:scale(0.51) rotate(-3deg)}
+        .long-g--142{right:5.5vmin;transform:scale(0.66) rotate(2deg)}
+        .long-g--143{right:7.5vmin;transform:scale(0.59) rotate(-4deg)}
+        .long-g--144{right:10.5vmin;transform:scale(0.64) rotate(3deg)}
+        .long-g--145{right:13.5vmin;transform:scale(0.57) rotate(-2deg)}
+        .long-g--146{right:16.5vmin;transform:scale(0.68) rotate(4deg)}
+        .long-g--147{right:19.5vmin;transform:scale(0.54) rotate(-3deg)}
+        .long-g--148{right:22.5vmin;transform:scale(0.61) rotate(2deg)}
+        .long-g--149{right:25.5vmin;transform:scale(0.63) rotate(-4deg)}
 
         .leaf{--w:10vmin;--h:30vmin;position:absolute;bottom:0;width:var(--w);height:var(--h);border-top-left-radius:100%;border-left:1.5vmin solid #3a8a4a;-webkit-mask-image:linear-gradient(to top,transparent 20%,#3a8a4a);mask-image:linear-gradient(to top,transparent 20%,#3a8a4a);transform-origin:bottom center;animation:leaf-sway 4s ease-in-out infinite}
         @keyframes leaf-sway{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(5deg)}}
@@ -376,7 +532,7 @@
         @keyframes grow-ans{0%{transform:scale(0);opacity:0}}
 
         /* ══════════════════════════════════
-           ENHANCED ENVELOPE ANIMATION
+           MINIMAL LOVE LETTER DESIGN
         ══════════════════════════════════ */
         .envelope-container {
             position:fixed;
@@ -477,7 +633,7 @@
             filter:drop-shadow(0 25px 60px rgba(0,0,0,0.4));
         }
         
-        /* Elegant cream envelope design with enhanced 3D effect */
+        /* Elegant cream envelope design */
         .envelope__back {
             position:absolute;
             width:100%;
@@ -491,32 +647,6 @@
                 inset 0 -3px 6px rgba(139,69,19,0.15);
             z-index:1;
             transform:translateZ(-5px);
-        }
-        .envelope__back::before {
-            content:'';
-            position:absolute;
-            top:20px;
-            left:20px;
-            right:20px;
-            bottom:20px;
-            border:1.5px solid rgba(212,197,169,0.4);
-            border-radius:10px;
-            pointer-events:none;
-        }
-        /* Decorative pattern */
-        .envelope__back::after {
-            content:'';
-            position:absolute;
-            top:0;
-            left:0;
-            right:0;
-            bottom:0;
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(212,197,169,0.05) 15px, rgba(212,197,169,0.05) 30px),
-                repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(212,197,169,0.05) 15px, rgba(212,197,169,0.05) 30px);
-            opacity:0.5;
-            border-radius:15px;
-            pointer-events:none;
         }
         
         .envelope__front {
@@ -553,7 +683,7 @@
                 inset 0 -3px 8px rgba(139,69,19,0.12);
         }
         
-        /* Enhanced wax seal with glow effect */
+        /* Wax seal */
         .envelope__flap::before {
             content:'';
             position:absolute;
@@ -622,7 +752,7 @@
             transition:all 0.6s ease;
         }
         
-        /* CLOSING ANIMATION - Reverse of opening */
+        /* CLOSING ANIMATION */
         .envelope.closing .letter-paper {
             bottom:-150%;
             transform:scale(0.85) translateY(20px);
@@ -645,46 +775,19 @@
             transition:all 0.6s 3.4s ease;
         }
         
-        /* Enhanced paper texture */
-        .envelope__pattern {
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%, -50%);
-            width:85%;
-            height:75%;
-            background-image:
-                repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(212,197,169,0.12) 12px, rgba(212,197,169,0.12) 24px),
-                repeating-linear-gradient(-45deg, transparent, transparent 12px, rgba(212,197,169,0.12) 12px, rgba(212,197,169,0.12) 24px);
-            opacity:0.25;
-            pointer-events:none;
-            z-index:1;
-        }
-        
-        /* PREMIUM LUXURY LETTER PAPER */
+        /* MINIMAL LOVE LETTER PAPER */
         .letter-paper {
             position:absolute;
             width:94%;
             height:240%;
             left:3%;
             bottom:-150%;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(255,182,193,0.12) 0%, transparent 30%),
-                radial-gradient(circle at 85% 15%, rgba(255,192,203,0.1) 0%, transparent 25%),
-                radial-gradient(circle at 10% 85%, rgba(221,160,221,0.08) 0%, transparent 28%),
-                radial-gradient(circle at 90% 75%, rgba(255,215,0,0.06) 0%, transparent 30%),
-                radial-gradient(ellipse at 50% 0%, rgba(255,105,180,0.05) 0%, transparent 40%),
-                linear-gradient(135deg, #fffef9 0%, #ffffff 50%, #fffef5 100%);
-            border:3px solid transparent;
-            border-radius:12px;
+            background:#ffffff;
+            border:1px solid #e8e8e8;
+            border-radius:8px;
             box-shadow:
                 0 35px 120px rgba(0,0,0,0.5),
-                0 20px 60px rgba(139,69,19,0.35),
-                0 10px 30px rgba(255,105,180,0.15),
-                inset 0 3px 10px rgba(255,255,255,0.95),
-                inset 0 -3px 10px rgba(255,215,0,0.08),
-                0 0 0 1px rgba(212,175,55,0.2),
-                0 0 40px rgba(255,105,180,0.1);
+                0 20px 60px rgba(0,0,0,0.2);
             transform:scale(0.85) translateY(20px);
             opacity:0;
             transition:
@@ -694,7 +797,6 @@
                 z-index 0s;
             z-index:2;
             overflow:hidden;
-            transform-style:preserve-3d;
         }
         .envelope.opening .letter-paper {
             bottom:50%;
@@ -717,7 +819,7 @@
             }
         }
         
-        /* Vintage paper texture with fibers */
+        /* Subtle paper texture */
         .letter-paper::before {
             content:'';
             position:absolute;
@@ -725,240 +827,29 @@
             left:0;
             right:0;
             bottom:0;
-            background-image:
-                repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(230,220,210,0.15) 31px, rgba(230,220,210,0.15) 32px, transparent 32px, transparent 63px),
-                repeating-linear-gradient(90deg, transparent 0px, rgba(212,197,169,0.03) 1px, transparent 2px, transparent 100%),
-                radial-gradient(circle at 20% 30%, rgba(139,69,19,0.015) 0%, transparent 3%),
-                radial-gradient(circle at 80% 70%, rgba(139,69,19,0.015) 0%, transparent 3%),
-                radial-gradient(circle at 45% 55%, rgba(139,69,19,0.015) 0%, transparent 3%),
-                radial-gradient(circle at 65% 25%, rgba(139,69,19,0.015) 0%, transparent 3%);
-            background-size: 100% 100%, 100% 100%, 800px 800px, 600px 600px, 700px 700px, 500px 500px;
+            background:repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(0,0,0,0.02) 30px, rgba(0,0,0,0.02) 31px);
             pointer-events:none;
             z-index:0;
-            opacity:0.7;
-            mix-blend-mode:multiply;
         }
         
-        /* Ornate watercolor border */
+        /* Simple heart border accent */
         .letter-paper::after {
             content:'';
             position:absolute;
-            top:22px;
-            left:22px;
-            right:22px;
-            bottom:22px;
-            border:4px solid transparent;
-            border-image:linear-gradient(135deg, 
-                #ffd700 0%, 
-                #ff69b4 8%, 
-                #ffc0cb 16%,
-                #dda0dd 24%,
-                #d4af37 32%, 
-                #ff1493 40%,
-                #ffb6c1 48%,
-                #ffd700 56%,
-                #ff69b4 64%,
-                #dda0dd 72%,
-                #d4af37 80%,
-                #ff1493 88%,
-                #ffd700 100%) 1;
-            border-radius:8px;
+            top:25px;
+            left:25px;
+            right:25px;
+            bottom:25px;
+            border:2px solid transparent;
+            border-image:linear-gradient(135deg, #ff69b4 0%, #ffd700 50%, #ff69b4 100%) 1;
+            border-radius:4px;
             pointer-events:none;
             z-index:0;
-            opacity:0.35;
-            filter:blur(0.3px);
-            animation:border-shimmer-luxury 12s linear infinite;
-        }
-        @keyframes border-shimmer-luxury {
-            0% {
-                border-image-source:linear-gradient(135deg, 
-                    #ffd700 0%, #ff69b4 8%, #ffc0cb 16%, #dda0dd 24%,
-                    #d4af37 32%, #ff1493 40%, #ffb6c1 48%, #ffd700 56%,
-                    #ff69b4 64%, #dda0dd 72%, #d4af37 80%, #ff1493 88%, #ffd700 100%);
-                opacity:0.35;
-            }
-            25% {
-                opacity:0.5;
-            }
-            50% {
-                border-image-source:linear-gradient(135deg, 
-                    #ff69b4 0%, #dda0dd 8%, #d4af37 16%, #ff1493 24%,
-                    #ffd700 32%, #ff69b4 40%, #ffc0cb 48%, #dda0dd 56%,
-                    #d4af37 64%, #ffd700 72%, #ff1493 80%, #ffb6c1 88%, #ff69b4 100%);
-                opacity:0.35;
-            }
-            75% {
-                opacity:0.5;
-            }
-            100% {
-                border-image-source:linear-gradient(135deg, 
-                    #ffd700 0%, #ff69b4 8%, #ffc0cb 16%, #dda0dd 24%,
-                    #d4af37 32%, #ff1493 40%, #ffb6c1 48%, #ffd700 56%,
-                    #ff69b4 64%, #dda0dd 72%, #d4af37 80%, #ff1493 88%, #ffd700 100%);
-                opacity:0.35;
-            }
+            opacity:0.2;
         }
         
-        /* Ornate corner decorations with roses */
-        .letter-paper-flourish {
-            position:absolute;
-            width:80px;
-            height:80px;
-            pointer-events:none;
-            z-index:1;
-            opacity:0.8;
-        }
-        .letter-paper-flourish::before,
-        .letter-paper-flourish::after {
-            content:'';
-            position:absolute;
-            background:linear-gradient(135deg, #ffd700 0%, #ff69b4 50%, #ffc0cb 100%);
-            box-shadow:
-                0 0 15px rgba(255,215,0,0.5),
-                0 0 8px rgba(255,105,180,0.4);
-            border-radius:2px;
-        }
-        
-        /* Top-left ornate corner */
-        .letter-paper-flourish--tl {
-            top:10px;
-            left:10px;
-        }
-        .letter-paper-flourish--tl::before {
-            top:0;
-            left:0;
-            width:100%;
-            height:4px;
-            background:linear-gradient(90deg, 
-                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
-            box-shadow:
-                0 2px 10px rgba(255,215,0,0.6),
-                0 0 20px rgba(255,105,180,0.3);
-        }
-        .letter-paper-flourish--tl::after {
-            top:0;
-            left:0;
-            width:4px;
-            height:100%;
-            background:linear-gradient(180deg, 
-                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
-            box-shadow:
-                2px 0 10px rgba(255,215,0,0.6),
-                0 0 20px rgba(255,105,180,0.3);
-        }
-        
-        /* Rose decoration for top-left */
-        .letter-paper-flourish--tl::after {
-            content:'🌹';
-            width:auto;
-            height:auto;
-            background:none;
-            box-shadow:none;
-            font-size:1.8rem;
-            top:-8px;
-            left:-8px;
-            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
-            animation:rose-glow 3s ease-in-out infinite;
-        }
-        @keyframes rose-glow {
-            0%, 100% {
-                filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
-            }
-            50% {
-                filter:drop-shadow(0 2px 12px rgba(255,105,180,0.8)) drop-shadow(0 0 20px rgba(255,215,0,0.6));
-            }
-        }
-        
-        /* Top-right */
-        .letter-paper-flourish--tr {
-            top:10px;
-            right:10px;
-        }
-        .letter-paper-flourish--tr::before {
-            top:0;
-            right:0;
-            width:100%;
-            height:4px;
-            background:linear-gradient(270deg, 
-                #ffd700 0%, #dda0dd 30%, #ffc0cb 50%, #ff69b4 70%, #ffd700 100%);
-            box-shadow:
-                0 2px 10px rgba(255,215,0,0.6),
-                0 0 20px rgba(255,105,180,0.3);
-        }
-        .letter-paper-flourish--tr::after {
-            content:'💐';
-            width:auto;
-            height:auto;
-            background:none;
-            box-shadow:none;
-            font-size:1.8rem;
-            top:-8px;
-            right:-8px;
-            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
-            animation:rose-glow 3s 0.5s ease-in-out infinite;
-        }
-        
-        /* Bottom-left */
-        .letter-paper-flourish--bl {
-            bottom:10px;
-            left:10px;
-        }
-        .letter-paper-flourish--bl::before {
-            content:'🌸';
-            width:auto;
-            height:auto;
-            background:none;
-            box-shadow:none;
-            font-size:1.8rem;
-            bottom:-8px;
-            left:-8px;
-            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
-            animation:rose-glow 3s 1s ease-in-out infinite;
-        }
-        .letter-paper-flourish--bl::after {
-            bottom:0;
-            left:0;
-            width:4px;
-            height:100%;
-            background:linear-gradient(0deg, 
-                #ffd700 0%, #ff69b4 30%, #ffc0cb 50%, #dda0dd 70%, #ffd700 100%);
-            box-shadow:
-                2px 0 10px rgba(255,215,0,0.6),
-                0 0 20px rgba(255,105,180,0.3);
-        }
-        
-        /* Bottom-right */
-        .letter-paper-flourish--br {
-            bottom:10px;
-            right:10px;
-        }
-        .letter-paper-flourish--br::before {
-            bottom:0;
-            right:0;
-            width:100%;
-            height:4px;
-            background:linear-gradient(270deg, 
-                #ffd700 0%, #dda0dd 30%, #ffc0cb 50%, #ff69b4 70%, #ffd700 100%);
-            box-shadow:
-                0 -2px 10px rgba(255,215,0,0.6),
-                0 0 20px rgba(255,105,180,0.3);
-        }
-        .letter-paper-flourish--br::after {
-            content:'🌺';
-            width:auto;
-            height:auto;
-            background:none;
-            box-shadow:none;
-            font-size:1.8rem;
-            bottom:-8px;
-            right:-8px;
-            filter:drop-shadow(0 2px 8px rgba(255,105,180,0.5)) drop-shadow(0 0 12px rgba(255,215,0,0.4));
-            animation:rose-glow 3s 1.5s ease-in-out infinite;
-        }
-        
-        /* Luxury rose gold scrollbar */
         .letter-paper__content {
-            padding:40px 45px;
+            padding:50px 45px;
             height:100%;
             overflow-y:auto;
             font-family:'Cormorant Garamond',serif;
@@ -966,227 +857,101 @@
             position:relative;
             z-index:1;
         }
+        
+        /* Clean scrollbar */
         .letter-paper__content::-webkit-scrollbar {
-            width:14px;
+            width:10px;
         }
         .letter-paper__content::-webkit-scrollbar-track {
-            background:linear-gradient(to bottom, #fff9f5, #fff5f0);
-            border-radius:7px;
-            border:2px solid rgba(255,215,0,0.2);
-            box-shadow:inset 0 0 8px rgba(255,105,180,0.1);
+            background:#f5f5f5;
+            border-radius:5px;
         }
         .letter-paper__content::-webkit-scrollbar-thumb {
-            background:linear-gradient(180deg, #e8c47c 0%, #d4af37 50%, #b8941f 100%);
-            border-radius:7px;
-            border:3px solid #ffd700;
-            box-shadow:
-                inset 0 2px 5px rgba(255,255,255,0.4),
-                inset 0 -2px 5px rgba(0,0,0,0.2),
-                0 0 10px rgba(255,215,0,0.5);
+            background:#d4af37;
+            border-radius:5px;
         }
         .letter-paper__content::-webkit-scrollbar-thumb:hover {
-            background:linear-gradient(180deg, #ffd700 0%, #e8c47c 50%, #d4af37 100%);
-            box-shadow:
-                inset 0 2px 5px rgba(255,255,255,0.5),
-                inset 0 -2px 5px rgba(0,0,0,0.2),
-                0 0 15px rgba(255,215,0,0.7);
+            background:#b8941f;
         }
         
+        /* Minimal title styling */
         .letter-paper__title {
             font-family:'Great Vibes',cursive;
-            font-size:3.2rem;
+            font-size:2.5rem;
             font-weight:400;
-            background:linear-gradient(135deg, #8b4513 0%, #d4006e 50%, #8b4513 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            background-clip:text;
-            margin-bottom:35px;
+            color:#d4006e;
+            margin-bottom:40px;
             text-align:center;
             position:relative;
-            padding:20px 0;
-            filter:drop-shadow(0 2px 4px rgba(139,69,19,0.2));
-            animation:title-glow-luxury 4s ease-in-out infinite;
-            letter-spacing:2px;
         }
         
-        /* Watercolor splash behind title */
-        .letter-paper__title::before {
-            content:'';
-            position:absolute;
-            top:50%;
-            left:50%;
-            transform:translate(-50%, -50%);
-            width:105%;
-            height:130%;
-            background:
-                radial-gradient(ellipse at 30% 40%, rgba(255,182,193,0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 70% 60%, rgba(255,192,203,0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, rgba(255,215,0,0.08) 0%, transparent 60%);
-            border-radius:50% 40% 45% 55%;
-            z-index:-1;
-            filter:blur(20px);
-            animation:watercolor-float 6s ease-in-out infinite;
-        }
-        
-        @keyframes watercolor-float {
-            0%, 100% {
-                border-radius:50% 40% 45% 55%;
-                transform:translate(-50%, -50%) rotate(0deg);
-            }
-            33% {
-                border-radius:45% 50% 40% 60%;
-                transform:translate(-48%, -52%) rotate(2deg);
-            }
-            66% {
-                border-radius:55% 45% 50% 40%;
-                transform:translate(-52%, -48%) rotate(-2deg);
-            }
-        }
-        
-        @keyframes title-glow-luxury {
-            0%, 100% {
-                filter:drop-shadow(0 2px 4px rgba(139,69,19,0.2));
-            }
-            50% {
-                filter:drop-shadow(0 3px 10px rgba(139,69,19,0.35)) drop-shadow(0 0 25px rgba(255,105,180,0.25));
-            }
-        }
+        /* Simple text paragraphs */
         .letter-paper__text {
-            font-size:1.15rem;
-            line-height:2.2;
-            margin-bottom:25px;
-            text-align:justify;
+            font-size:1.05rem;
+            line-height:1.9;
+            margin-bottom:20px;
+            text-align:left;
             color:#3a3a3a;
-            position:relative;
-            text-indent:2.5em;
-            hyphens:auto;
         }
         
-        /* First paragraph gets drop cap */
+        /* First letter styling */
         .letter-paper__text:first-of-type::first-letter {
             font-family:'Great Vibes',cursive;
-            font-size:4.5rem;
-            line-height:0.85;
+            font-size:3.5rem;
+            line-height:0.9;
             float:left;
-            margin:0.1em 0.15em 0 0;
-            background:linear-gradient(135deg, #ffd700 0%, #ff69b4 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            background-clip:text;
-            filter:drop-shadow(0 2px 6px rgba(255,105,180,0.3));
+            margin:0.05em 0.1em 0 0;
+            color:#ff69b4;
         }
         
-        /* Emphasized text gets special styling */
+        /* Emphasized text */
         .letter-paper__text em {
-            font-family:'Cormorant Garamond',serif;
             font-style:italic;
             color:#d4006e;
-            font-weight:500;
-            position:relative;
         }
         
         .letter-paper__text strong {
             font-weight:600;
-            position:relative;
-            padding:0 4px;
-            background:linear-gradient(to bottom, transparent 60%, rgba(255,215,0,0.15) 60%);
+            color:#8b4513;
         }
+        
+        /* Simple signature */
         .letter-paper__signature {
             margin-top:50px;
             text-align:right;
             font-family:'Allura',cursive;
-            font-size:2.8rem;
-            background:linear-gradient(120deg, #8b4513 0%, #d4006e 50%, #8b4513 100%);
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-            background-clip:text;
+            font-size:2rem;
+            color:#8b4513;
             position:relative;
-            padding-right:20px;
-            filter:drop-shadow(0 2px 5px rgba(139,69,19,0.25));
         }
         
-        /* Decorative flourish under signature */
+        /* Simple line under signature */
         .letter-paper__signature::after {
             content:'';
             position:absolute;
-            bottom:-15px;
+            bottom:-10px;
             right:0;
-            width:180px;
-            height:3px;
-            background:linear-gradient(90deg, transparent 0%, #ffd700 20%, #ff69b4 50%, #d4af37 80%, transparent 100%);
-            border-radius:2px;
-            box-shadow:0 0 10px rgba(255,215,0,0.5);
-            animation:signature-line 3s ease-in-out infinite;
+            width:150px;
+            height:1px;
+            background:#ff69b4;
+            opacity:0.5;
         }
         
-        @keyframes signature-line {
-            0%, 100% {
-                opacity:0.6;
-                box-shadow:0 0 10px rgba(255,215,0,0.5);
-            }
-            50% {
-                opacity:1;
-                box-shadow:0 0 20px rgba(255,215,0,0.8), 0 0 10px rgba(255,105,180,0.4);
-            }
-        }
-        
-        /* Pressed flowers decoration */
-        .pressed-flower {
-            position:absolute;
-            font-size:2rem;
-            opacity:0.25;
-            filter:blur(0.3px) grayscale(0.2);
-            transform:rotate(var(--rotation));
-            pointer-events:none;
-            z-index:0;
-        }
-        
-        /* Mini wax seals */
-        .mini-wax-seal {
-            position:absolute;
-            width:28px;
-            height:28px;
-            border-radius:50%;
-            background:radial-gradient(circle at 30% 30%, #e8c47c 0%, #d4af37 40%, #b8941f 100%);
-            border:2px solid #8b6914;
-            box-shadow:
-                0 2px 8px rgba(139,105,20,0.4),
-                inset 0 1px 3px rgba(255,255,255,0.3),
-                inset 0 -1px 3px rgba(0,0,0,0.3);
+        /* Simple divider */
+        .divider {
+            height:1px;
+            background:linear-gradient(to right, transparent, #ff69b4 50%, transparent);
+            margin:30px 0;
             opacity:0.3;
-            z-index:0;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:0.7rem;
         }
         
-        /* Floating petals inside letter */
-        .floating-petal {
-            position:absolute;
-            font-size:1.2rem;
-            opacity:0;
-            pointer-events:none;
-            animation:petal-fall var(--fall-duration) linear infinite;
-            animation-delay:var(--fall-delay);
-            filter:blur(0.3px);
-        }
-        
-        @keyframes petal-fall {
-            0% {
-                opacity:0;
-                transform:translateY(-20px) translateX(0) rotate(0deg);
-            }
-            10% {
-                opacity:0.6;
-            }
-            90% {
-                opacity:0.3;
-            }
-            100% {
-                opacity:0;
-                transform:translateY(100vh) translateX(var(--sway)) rotate(360deg);
-            }
+        /* Simple highlighted section */
+        .highlight-box {
+            margin-top:25px;
+            padding:20px;
+            background:linear-gradient(135deg, rgba(255,105,180,0.05), rgba(255,215,0,0.05));
+            border-left:3px solid #ff69b4;
+            border-radius:4px;
         }
 
         /* Enhanced close button */
@@ -1260,13 +1025,13 @@
                 max-height:350px;
             }
 
-            /* Center flowers container vertically like desktop */
+            /* Keep flowers centered vertically like desktop */
             .flowers {
                 align-items:center;
                 padding-bottom:0;
             }
 
-            /* Better flower positioning for mobile */
+            /* Scale flowers down but keep same positioning */
             .flower {
                 transform:scale(0.55)!important;
                 bottom:auto!important;
@@ -1282,7 +1047,6 @@
             .flower--l2{left:calc(50% + 30vmin)}
             .flower--e2{left:calc(50% + 40vmin)}
 
-            /* Adjust flower labels for mobile */
             .flower__label-letter {
                 font-size:clamp(1rem,3.5vmin,1.8rem);
             }
@@ -1290,38 +1054,71 @@
                 font-size:clamp(0.5rem,1.6vmin,0.85rem);
             }
 
-            /* Adjust grass for mobile - keep at bottom */
+            /* Keep grass at bottom */
             .long-g {
                 bottom:10vmin;
                 transform:scale(0.5)!important;
             }
 
-            /* Vines adjustment for mobile */
+            /* Vines maintain archway entrance on mobile */
             .vine {
-                width:2px;
+                width:3px;
             }
-            .vine--left-1, .vine--left-2, .vine--left-3 {
-                left:2%;
+            .vine--left-1, .vine--left-2, .vine--left-3,
+            .vine--left-4, .vine--left-5, .vine--left-6,
+            .vine--left-7, .vine--left-8, .vine--left-9, 
+            .vine--left-10, .vine--left-11, .vine--left-12,
+            .vine--left-13, .vine--left-14, .vine--left-15 {
+                /* Keep same percentages - they scale naturally */
             }
-            .vine--right-1, .vine--right-2, .vine--right-3 {
-                right:2%;
+            .vine--right-1, .vine--right-2, .vine--right-3,
+            .vine--right-4, .vine--right-5, .vine--right-6,
+            .vine--right-7, .vine--right-8, .vine--right-9, 
+            .vine--right-10, .vine--right-11, .vine--right-12,
+            .vine--right-13, .vine--right-14, .vine--right-15 {
+                /* Keep same percentages - they scale naturally */
             }
             .vine-leaf {
-                width:15px;
-                height:22px;
+                width:16px;
+                height:24px;
             }
             .vine-flower {
-                font-size:0.8rem;
+                font-size:0.75rem;
+            }
+            
+            /* Hide some grass blades on medium mobile for performance */
+            .long-g--70, .long-g--71, .long-g--72, .long-g--73,
+            .long-g--74, .long-g--75, .long-g--76, .long-g--77,
+            .long-g--78, .long-g--79, .long-g--80, .long-g--81,
+            .long-g--82, .long-g--83, .long-g--84, .long-g--85,
+            .long-g--86, .long-g--87, .long-g--88, .long-g--89,
+            .long-g--90, .long-g--91, .long-g--92, .long-g--93,
+            .long-g--94, .long-g--95, .long-g--96, .long-g--97,
+            .long-g--98, .long-g--99, .long-g--100, .long-g--101,
+            .long-g--102, .long-g--103, .long-g--104, .long-g--105,
+            .long-g--106, .long-g--107, .long-g--108, .long-g--109,
+            .long-g--110, .long-g--111, .long-g--112, .long-g--113,
+            .long-g--114, .long-g--115, .long-g--116, .long-g--117,
+            .long-g--118, .long-g--119, .long-g--120, .long-g--121,
+            .long-g--122, .long-g--123, .long-g--124, .long-g--125,
+            .long-g--126, .long-g--127, .long-g--128, .long-g--129,
+            .long-g--130, .long-g--131, .long-g--132, .long-g--133,
+            .long-g--134, .long-g--135, .long-g--136, .long-g--137,
+            .long-g--138, .long-g--139, .long-g--140, .long-g--141,
+            .long-g--142, .long-g--143, .long-g--144, .long-g--145,
+            .long-g--146, .long-g--147, .long-g--148, .long-g--149 {
+                display:none;
             }
         }
 
         @media(max-width:480px){
-            /* Center flowers container */
+            /* Keep flowers centered vertically like desktop */
             .flowers {
                 align-items:center;
                 padding-bottom:0;
             }
 
+            /* Scale flowers smaller but maintain desktop layout */
             .flower {
                 transform:scale(0.4)!important;
                 bottom:auto!important;
@@ -1338,7 +1135,7 @@
             .flower--e2{left:calc(50% + 42vmin)}
 
             .letter-paper__content {
-                padding:20px;
+                padding:30px 25px;
             }
             .letter-paper__title {
                 font-size:1.8rem;
@@ -1352,14 +1149,50 @@
                 font-size:0.75rem;
             }
 
-            /* Hide some grass on very small screens */
-            .long-g--12, .long-g--13, .long-g--14, 
-            .long-g--15, .long-g--16, .long-g--17 {
+            /* Smaller vines but keep archway structure */
+            .vine {
+                width:2px;
+            }
+            .vine-leaf {
+                width:14px;
+                height:20px;
+            }
+            .vine-flower {
+                font-size:0.7rem;
+            }
+
+            /* Keep grass at bottom, smaller scale */
+            .long-g {
+                bottom:8vmin;
+                transform:scale(0.4)!important;
+            }
+
+            /* Hide extra grass on small screens - keep only core 70 blades */
+            .long-g--70, .long-g--71, .long-g--72, .long-g--73,
+            .long-g--74, .long-g--75, .long-g--76, .long-g--77,
+            .long-g--78, .long-g--79, .long-g--80, .long-g--81,
+            .long-g--82, .long-g--83, .long-g--84, .long-g--85,
+            .long-g--86, .long-g--87, .long-g--88, .long-g--89,
+            .long-g--90, .long-g--91, .long-g--92, .long-g--93,
+            .long-g--94, .long-g--95, .long-g--96, .long-g--97,
+            .long-g--98, .long-g--99, .long-g--100, .long-g--101,
+            .long-g--102, .long-g--103, .long-g--104, .long-g--105,
+            .long-g--106, .long-g--107, .long-g--108, .long-g--109,
+            .long-g--110, .long-g--111, .long-g--112, .long-g--113,
+            .long-g--114, .long-g--115, .long-g--116, .long-g--117,
+            .long-g--118, .long-g--119, .long-g--120, .long-g--121,
+            .long-g--122, .long-g--123, .long-g--124, .long-g--125,
+            .long-g--126, .long-g--127, .long-g--128, .long-g--129,
+            .long-g--130, .long-g--131, .long-g--132, .long-g--133,
+            .long-g--134, .long-g--135, .long-g--136, .long-g--137,
+            .long-g--138, .long-g--139, .long-g--140, .long-g--141,
+            .long-g--142, .long-g--143, .long-g--144, .long-g--145,
+            .long-g--146, .long-g--147, .long-g--148, .long-g--149 {
                 display:none;
             }
         }
 
-        /* Landscape mobile fix */
+        /* Landscape mobile - maintain desktop perspective */
         @media(max-height:500px) and (orientation:landscape) {
             .flowers {
                 align-items:center;
@@ -1381,66 +1214,421 @@
                 bottom:10px;
                 padding:8px 18px;
             }
+            .long-g {
+                bottom:6vmin;
+                transform:scale(0.35)!important;
+            }
+            .vine {
+                width:2px;
+            }
+            .vine-leaf {
+                width:12px;
+                height:18px;
+            }
         }
     </style>
 </head>
 <body class="not-loaded">
     <div class="night"></div>
 
-    <!-- DECORATIVE VINES -->
+    <!-- GARDEN ENTRANCE ARCHWAY VINES -->
     <div class="vines-container">
-        <!-- Left side vines -->
+        <!-- Left side vines - 10 total creating entrance arch -->
         <div class="vine vine--left-1">
-            <div class="vine-leaf" style="top:15%"></div>
-            <div class="vine-leaf" style="top:25%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:40%"></div>
-            <div class="vine-leaf" style="top:55%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:70%"></div>
-            <div class="vine-flower" style="top:20%;--bloom-delay:0s">🌸</div>
-            <div class="vine-flower" style="top:50%;--bloom-delay:1.5s">🌺</div>
-            <div class="vine-flower" style="top:80%;--bloom-delay:3s">💮</div>
+            <div class="vine-leaf" style="top:20%"></div>
+            <div class="vine-leaf" style="top:40%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:65%"></div>
+            <div class="vine-leaf" style="top:85%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:30%;--bloom-delay:0s">🌸</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:2s">🌺</div>
         </div>
         <div class="vine vine--left-2">
-            <div class="vine-leaf" style="top:10%"></div>
-            <div class="vine-leaf" style="top:30%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:50%"></div>
-            <div class="vine-leaf" style="top:65%;transform:scaleX(-1)"></div>
-            <div class="vine-flower" style="top:35%;--bloom-delay:0.8s">🌼</div>
-            <div class="vine-flower" style="top:70%;--bloom-delay:2.3s">🌷</div>
+            <div class="vine-leaf" style="top:15%"></div>
+            <div class="vine-leaf" style="top:28%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:42%"></div>
+            <div class="vine-leaf" style="top:58%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:72%"></div>
+            <div class="vine-leaf" style="top:88%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:22%;--bloom-delay:0.8s">🌼</div>
+            <div class="vine-flower" style="top:50%;--bloom-delay:2.3s">🌷</div>
+            <div class="vine-flower" style="top:80%;--bloom-delay:3.5s">💮</div>
         </div>
         <div class="vine vine--left-3">
-            <div class="vine-leaf" style="top:20%"></div>
+            <div class="vine-leaf" style="top:12%"></div>
+            <div class="vine-leaf" style="top:24%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:38%"></div>
+            <div class="vine-leaf" style="top:52%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:66%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:18%;--bloom-delay:1.2s">🏵️</div>
+            <div class="vine-flower" style="top:45%;--bloom-delay:2.8s">🌹</div>
+            <div class="vine-flower" style="top:73%;--bloom-delay:4s">🌸</div>
+        </div>
+        <div class="vine vine--left-4">
+            <div class="vine-leaf" style="top:10%"></div>
+            <div class="vine-leaf" style="top:22%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:35%"></div>
+            <div class="vine-leaf" style="top:48%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:62%"></div>
+            <div class="vine-leaf" style="top:75%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:88%"></div>
+            <div class="vine-flower" style="top:16%;--bloom-delay:0.4s">💐</div>
+            <div class="vine-flower" style="top:42%;--bloom-delay:2s">🌸</div>
+            <div class="vine-flower" style="top:68%;--bloom-delay:3.2s">🌺</div>
+        </div>
+        <div class="vine vine--left-5">
+            <div class="vine-leaf" style="top:8%"></div>
+            <div class="vine-leaf" style="top:18%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:30%"></div>
+            <div class="vine-leaf" style="top:42%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:55%"></div>
+            <div class="vine-leaf" style="top:68%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-leaf" style="top:92%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:14%;--bloom-delay:1s">🌺</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:2.5s">💮</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:3.8s">🌼</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:5s">🌷</div>
+        </div>
+        <div class="vine vine--left-6">
+            <div class="vine-leaf" style="top:7%"></div>
+            <div class="vine-leaf" style="top:16%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:26%"></div>
+            <div class="vine-leaf" style="top:37%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:48%"></div>
+            <div class="vine-leaf" style="top:59%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:70%"></div>
+            <div class="vine-leaf" style="top:81%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:12%;--bloom-delay:1.4s">🌼</div>
+            <div class="vine-flower" style="top:33%;--bloom-delay:2.8s">🌷</div>
+            <div class="vine-flower" style="top:55%;--bloom-delay:4.2s">🏵️</div>
+            <div class="vine-flower" style="top:76%;--bloom-delay:5.5s">🌹</div>
+        </div>
+        <div class="vine vine--left-7">
+            <div class="vine-leaf" style="top:6%"></div>
+            <div class="vine-leaf" style="top:14%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:23%"></div>
+            <div class="vine-leaf" style="top:32%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:42%"></div>
+            <div class="vine-leaf" style="top:52%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:62%"></div>
+            <div class="vine-leaf" style="top:72%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:82%"></div>
+            <div class="vine-leaf" style="top:92%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:10%;--bloom-delay:0.6s">🌸</div>
+            <div class="vine-flower" style="top:28%;--bloom-delay:2.2s">💐</div>
+            <div class="vine-flower" style="top:47%;--bloom-delay:3.6s">🌺</div>
+            <div class="vine-flower" style="top:67%;--bloom-delay:5s">💮</div>
+            <div class="vine-flower" style="top:87%;--bloom-delay:6.2s">🌼</div>
+        </div>
+        <div class="vine vine--left-8">
+            <div class="vine-leaf" style="top:5%"></div>
+            <div class="vine-leaf" style="top:13%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:21%"></div>
+            <div class="vine-leaf" style="top:29%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:38%"></div>
+            <div class="vine-leaf" style="top:47%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:56%"></div>
+            <div class="vine-leaf" style="top:65%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:74%"></div>
+            <div class="vine-leaf" style="top:83%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:9%;--bloom-delay:0.8s">🌷</div>
+            <div class="vine-flower" style="top:25%;--bloom-delay:2.4s">🏵️</div>
+            <div class="vine-flower" style="top:42%;--bloom-delay:4s">🌹</div>
+            <div class="vine-flower" style="top:60%;--bloom-delay:5.4s">🌸</div>
+            <div class="vine-flower" style="top:78%;--bloom-delay:6.8s">💐</div>
+        </div>
+        <div class="vine vine--left-9">
+            <div class="vine-leaf" style="top:18%"></div>
+            <div class="vine-leaf" style="top:32%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:48%"></div>
+            <div class="vine-leaf" style="top:64%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-flower" style="top:25%;--bloom-delay:1.6s">🌺</div>
+            <div class="vine-flower" style="top:56%;--bloom-delay:3.2s">💮</div>
+            <div class="vine-flower" style="top:88%;--bloom-delay:4.8s">🌼</div>
+        </div>
+        <div class="vine vine--left-10">
+            <div class="vine-leaf" style="top:10%"></div>
+            <div class="vine-leaf" style="top:20%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:32%"></div>
+            <div class="vine-leaf" style="top:44%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:56%"></div>
+            <div class="vine-leaf" style="top:68%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-leaf" style="top:92%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:15%;--bloom-delay:0.9s">🌼</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:2.6s">🌷</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:4.2s">💐</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:5.8s">🌸</div>
+        </div>
+        <div class="vine vine--left-11">
+            <div class="vine-leaf" style="top:22%"></div>
             <div class="vine-leaf" style="top:45%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:75%"></div>
-            <div class="vine-flower" style="top:30%;--bloom-delay:1.2s">🏵️</div>
-            <div class="vine-flower" style="top:60%;--bloom-delay:2.8s">🌹</div>
+            <div class="vine-leaf" style="top:68%"></div>
+            <div class="vine-leaf" style="top:88%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:32%;--bloom-delay:1.1s">🌺</div>
+            <div class="vine-flower" style="top:78%;--bloom-delay:3.4s">💮</div>
+        </div>
+        <div class="vine vine--left-12">
+            <div class="vine-leaf" style="top:14%"></div>
+            <div class="vine-leaf" style="top:26%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:40%"></div>
+            <div class="vine-leaf" style="top:54%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:68%"></div>
+            <div class="vine-leaf" style="top:82%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:20%;--bloom-delay:0.7s">🌼</div>
+            <div class="vine-flower" style="top:47%;--bloom-delay:2.4s">🌷</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:4.1s">🏵️</div>
+        </div>
+        <div class="vine vine--left-13">
+            <div class="vine-leaf" style="top:10%"></div>
+            <div class="vine-leaf" style="top:20%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:32%"></div>
+            <div class="vine-leaf" style="top:44%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:56%"></div>
+            <div class="vine-leaf" style="top:68%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-leaf" style="top:92%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:16%;--bloom-delay:1.3s">🌹</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:2.9s">🌸</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:4.5s">💐</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:6.1s">🌺</div>
+        </div>
+        <div class="vine vine--left-14">
+            <div class="vine-leaf" style="top:7%"></div>
+            <div class="vine-leaf" style="top:16%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:26%"></div>
+            <div class="vine-leaf" style="top:36%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:47%"></div>
+            <div class="vine-leaf" style="top:58%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:69%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:91%"></div>
+            <div class="vine-flower" style="top:12%;--bloom-delay:0.9s">💮</div>
+            <div class="vine-flower" style="top:32%;--bloom-delay:2.5s">🌼</div>
+            <div class="vine-flower" style="top:53%;--bloom-delay:4.1s">🌷</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:5.7s">🏵️</div>
+            <div class="vine-flower" style="top:92%;--bloom-delay:7.2s">🌹</div>
+        </div>
+        <div class="vine vine--left-15">
+            <div class="vine-leaf" style="top:6%"></div>
+            <div class="vine-leaf" style="top:14%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:22%"></div>
+            <div class="vine-leaf" style="top:31%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:40%"></div>
+            <div class="vine-leaf" style="top:49%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:58%"></div>
+            <div class="vine-leaf" style="top:67%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:76%"></div>
+            <div class="vine-leaf" style="top:85%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:94%"></div>
+            <div class="vine-flower" style="top:10%;--bloom-delay:1.5s">🌸</div>
+            <div class="vine-flower" style="top:27%;--bloom-delay:3.1s">💐</div>
+            <div class="vine-flower" style="top:45%;--bloom-delay:4.7s">🌺</div>
+            <div class="vine-flower" style="top:64%;--bloom-delay:6.3s">💮</div>
+            <div class="vine-flower" style="top:82%;--bloom-delay:7.8s">🌼</div>
         </div>
 
-        <!-- Right side vines -->
+        <!-- Right side vines - 15 total creating entrance arch -->
         <div class="vine vine--right-1">
-            <div class="vine-leaf" style="top:12%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:28%"></div>
-            <div class="vine-leaf" style="top:45%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:60%"></div>
-            <div class="vine-leaf" style="top:78%;transform:scaleX(-1)"></div>
-            <div class="vine-flower" style="top:18%;--bloom-delay:0.5s">💐</div>
-            <div class="vine-flower" style="top:52%;--bloom-delay:2s">🌸</div>
-            <div class="vine-flower" style="top:85%;--bloom-delay:3.5s">🌺</div>
+            <div class="vine-leaf" style="top:20%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:40%"></div>
+            <div class="vine-leaf" style="top:65%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:85%"></div>
+            <div class="vine-flower" style="top:30%;--bloom-delay:0.5s">💐</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:2.5s">🌸</div>
         </div>
         <div class="vine vine--right-2">
-            <div class="vine-leaf" style="top:18%"></div>
-            <div class="vine-leaf" style="top:35%;transform:scaleX(-1)"></div>
-            <div class="vine-leaf" style="top:58%"></div>
-            <div class="vine-leaf" style="top:72%;transform:scaleX(-1)"></div>
-            <div class="vine-flower" style="top:25%;--bloom-delay:1s">🌼</div>
-            <div class="vine-flower" style="top:65%;--bloom-delay:2.5s">💮</div>
+            <div class="vine-leaf" style="top:15%"></div>
+            <div class="vine-leaf" style="top:28%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:42%"></div>
+            <div class="vine-leaf" style="top:58%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:72%"></div>
+            <div class="vine-leaf" style="top:88%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:22%;--bloom-delay:1s">🌼</div>
+            <div class="vine-flower" style="top:50%;--bloom-delay:2.5s">💮</div>
+            <div class="vine-flower" style="top:80%;--bloom-delay:4s">🌺</div>
         </div>
         <div class="vine vine--right-3">
+            <div class="vine-leaf" style="top:12%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:24%"></div>
+            <div class="vine-leaf" style="top:38%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:52%"></div>
+            <div class="vine-leaf" style="top:66%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-flower" style="top:18%;--bloom-delay:1.4s">🌷</div>
+            <div class="vine-flower" style="top:45%;--bloom-delay:3.2s">🏵️</div>
+            <div class="vine-flower" style="top:73%;--bloom-delay:4.8s">🌹</div>
+        </div>
+        <div class="vine vine--right-4">
+            <div class="vine-leaf" style="top:10%"></div>
             <div class="vine-leaf" style="top:22%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:35%"></div>
+            <div class="vine-leaf" style="top:48%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:62%"></div>
+            <div class="vine-leaf" style="top:75%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:88%"></div>
+            <div class="vine-flower" style="top:16%;--bloom-delay:0.8s">🌹</div>
+            <div class="vine-flower" style="top:42%;--bloom-delay:2.6s">🌸</div>
+            <div class="vine-flower" style="top:68%;--bloom-delay:4.2s">💐</div>
+        </div>
+        <div class="vine vine--right-5">
+            <div class="vine-leaf" style="top:8%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:18%"></div>
+            <div class="vine-leaf" style="top:30%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:42%"></div>
+            <div class="vine-leaf" style="top:55%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:68%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:14%;--bloom-delay:0.6s">🌺</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:2.2s">💐</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:3.8s">🌼</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:5.2s">🌷</div>
+        </div>
+        <div class="vine vine--right-6">
+            <div class="vine-leaf" style="top:7%"></div>
+            <div class="vine-leaf" style="top:16%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:26%"></div>
+            <div class="vine-leaf" style="top:37%;transform:scaleX(-1)"></div>
             <div class="vine-leaf" style="top:48%"></div>
+            <div class="vine-leaf" style="top:59%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:70%"></div>
+            <div class="vine-leaf" style="top:81%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:12%;--bloom-delay:1.6s">💮</div>
+            <div class="vine-flower" style="top:33%;--bloom-delay:3.2s">🌸</div>
+            <div class="vine-flower" style="top:55%;--bloom-delay:4.8s">🌺</div>
+            <div class="vine-flower" style="top:76%;--bloom-delay:6.2s">🏵️</div>
+        </div>
+        <div class="vine vine--right-7">
+            <div class="vine-leaf" style="top:6%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:14%"></div>
+            <div class="vine-leaf" style="top:23%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:32%"></div>
+            <div class="vine-leaf" style="top:42%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:52%"></div>
+            <div class="vine-leaf" style="top:62%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:72%"></div>
+            <div class="vine-leaf" style="top:82%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:10%;--bloom-delay:1.3s">🌼</div>
+            <div class="vine-flower" style="top:28%;--bloom-delay:2.8s">🌷</div>
+            <div class="vine-flower" style="top:47%;--bloom-delay:4.3s">💐</div>
+            <div class="vine-flower" style="top:67%;--bloom-delay:5.8s">🌹</div>
+            <div class="vine-flower" style="top:87%;--bloom-delay:7s">🌸</div>
+        </div>
+        <div class="vine vine--right-8">
+            <div class="vine-leaf" style="top:5%"></div>
+            <div class="vine-leaf" style="top:13%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:21%"></div>
+            <div class="vine-leaf" style="top:29%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:38%"></div>
+            <div class="vine-leaf" style="top:47%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:56%"></div>
+            <div class="vine-leaf" style="top:65%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:74%"></div>
+            <div class="vine-leaf" style="top:83%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:9%;--bloom-delay:1.9s">💮</div>
+            <div class="vine-flower" style="top:25%;--bloom-delay:3.4s">🌺</div>
+            <div class="vine-flower" style="top:42%;--bloom-delay:4.9s">🌼</div>
+            <div class="vine-flower" style="top:60%;--bloom-delay:6.4s">🏵️</div>
+            <div class="vine-flower" style="top:78%;--bloom-delay:7.8s">💐</div>
+        </div>
+        <div class="vine vine--right-9">
+            <div class="vine-leaf" style="top:18%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:32%"></div>
+            <div class="vine-leaf" style="top:48%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:64%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:25%;--bloom-delay:0.9s">🌷</div>
+            <div class="vine-flower" style="top:56%;--bloom-delay:2.9s">🌸</div>
+            <div class="vine-flower" style="top:88%;--bloom-delay:4.9s">💐</div>
+        </div>
+        <div class="vine vine--right-10">
+            <div class="vine-leaf" style="top:10%"></div>
+            <div class="vine-leaf" style="top:20%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:32%"></div>
+            <div class="vine-leaf" style="top:44%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:56%"></div>
             <div class="vine-leaf" style="top:68%;transform:scaleX(-1)"></div>
-            <div class="vine-flower" style="top:38%;--bloom-delay:1.4s">🌷</div>
-            <div class="vine-flower" style="top:75%;--bloom-delay:3.2s">🏵️</div>
+            <div class="vine-leaf" style="top:80%"></div>
+            <div class="vine-leaf" style="top:92%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:15%;--bloom-delay:1.9s">🌺</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:3.6s">💮</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:5.2s">🌼</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:6.8s">🌹</div>
+        </div>
+        <div class="vine vine--right-11">
+            <div class="vine-leaf" style="top:22%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:45%"></div>
+            <div class="vine-leaf" style="top:68%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:88%"></div>
+            <div class="vine-flower" style="top:32%;--bloom-delay:1.2s">🌷</div>
+            <div class="vine-flower" style="top:78%;--bloom-delay:3.5s">🌸</div>
+        </div>
+        <div class="vine vine--right-12">
+            <div class="vine-leaf" style="top:14%"></div>
+            <div class="vine-leaf" style="top:26%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:40%"></div>
+            <div class="vine-leaf" style="top:54%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:68%"></div>
+            <div class="vine-leaf" style="top:82%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:20%;--bloom-delay:0.8s">💐</div>
+            <div class="vine-flower" style="top:47%;--bloom-delay:2.5s">🌺</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:4.2s">💮</div>
+        </div>
+        <div class="vine vine--right-13">
+            <div class="vine-leaf" style="top:10%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:20%"></div>
+            <div class="vine-leaf" style="top:32%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:44%"></div>
+            <div class="vine-leaf" style="top:56%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:68%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:92%"></div>
+            <div class="vine-flower" style="top:16%;--bloom-delay:1.4s">🌼</div>
+            <div class="vine-flower" style="top:38%;--bloom-delay:3s">🌷</div>
+            <div class="vine-flower" style="top:62%;--bloom-delay:4.6s">🏵️</div>
+            <div class="vine-flower" style="top:86%;--bloom-delay:6.2s">🌹</div>
+        </div>
+        <div class="vine vine--right-14">
+            <div class="vine-leaf" style="top:7%"></div>
+            <div class="vine-leaf" style="top:16%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:26%"></div>
+            <div class="vine-leaf" style="top:36%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:47%"></div>
+            <div class="vine-leaf" style="top:58%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:69%"></div>
+            <div class="vine-leaf" style="top:80%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:91%"></div>
+            <div class="vine-flower" style="top:12%;--bloom-delay:1s">🌸</div>
+            <div class="vine-flower" style="top:32%;--bloom-delay:2.6s">💐</div>
+            <div class="vine-flower" style="top:53%;--bloom-delay:4.2s">🌺</div>
+            <div class="vine-flower" style="top:75%;--bloom-delay:5.8s">💮</div>
+            <div class="vine-flower" style="top:92%;--bloom-delay:7.3s">🌼</div>
+        </div>
+        <div class="vine vine--right-15">
+            <div class="vine-leaf" style="top:6%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:14%"></div>
+            <div class="vine-leaf" style="top:22%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:31%"></div>
+            <div class="vine-leaf" style="top:40%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:49%"></div>
+            <div class="vine-leaf" style="top:58%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:67%"></div>
+            <div class="vine-leaf" style="top:76%;transform:scaleX(-1)"></div>
+            <div class="vine-leaf" style="top:85%"></div>
+            <div class="vine-leaf" style="top:94%;transform:scaleX(-1)"></div>
+            <div class="vine-flower" style="top:10%;--bloom-delay:1.6s">🌷</div>
+            <div class="vine-flower" style="top:27%;--bloom-delay:3.2s">🏵️</div>
+            <div class="vine-flower" style="top:45%;--bloom-delay:4.8s">🌹</div>
+            <div class="vine-flower" style="top:64%;--bloom-delay:6.4s">🌸</div>
+            <div class="vine-flower" style="top:82%;--bloom-delay:7.9s">💐</div>
         </div>
     </div>
 
@@ -1498,6 +1686,7 @@
                 <div class="flower__line"><div class="flower__line__leaf flower__line__leaf--1"></div><div class="flower__line__leaf flower__line__leaf--2"></div><div class="flower__line__leaf flower__line__leaf--3"></div><div class="flower__line__leaf flower__line__leaf--4"></div></div>
             </div>
 
+            <!-- EXPANDED GRASS - 40 blades -->
             <div class="long-g long-g--0"><div class="grow-ans" style="--d:3s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--1"><div class="grow-ans" style="--d:3.2s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--2"><div class="grow-ans" style="--d:3.4s"><div class="leaf"></div></div></div>
@@ -1522,6 +1711,134 @@
             <div class="long-g long-g--21"><div class="grow-ans" style="--d:3.9s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--22"><div class="grow-ans" style="--d:3.3s"><div class="leaf"></div></div></div>
             <div class="long-g long-g--23"><div class="grow-ans" style="--d:4.1s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--24"><div class="grow-ans" style="--d:3.25s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--25"><div class="grow-ans" style="--d:3.75s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--26"><div class="grow-ans" style="--d:3.45s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--27"><div class="grow-ans" style="--d:4.05s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--28"><div class="grow-ans" style="--d:3.55s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--29"><div class="grow-ans" style="--d:3.85s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--30"><div class="grow-ans" style="--d:3.15s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--31"><div class="grow-ans" style="--d:3.95s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--32"><div class="grow-ans" style="--d:3.35s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--33"><div class="grow-ans" style="--d:4.15s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--34"><div class="grow-ans" style="--d:3.65s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--35"><div class="grow-ans" style="--d:3.05s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--36"><div class="grow-ans" style="--d:3.5s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--37"><div class="grow-ans" style="--d:4.25s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--38"><div class="grow-ans" style="--d:3.4s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--39"><div class="grow-ans" style="--d:3.6s"><div class="leaf"></div></div></div>
+            <!-- Additional 40 grass blades for full field effect -->
+            <div class="long-g long-g--40"><div class="grow-ans" style="--d:3.25s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--41"><div class="grow-ans" style="--d:3.45s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--42"><div class="grow-ans" style="--d:3.65s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--43"><div class="grow-ans" style="--d:3.85s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--44"><div class="grow-ans" style="--d:4.05s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--45"><div class="grow-ans" style="--d:3.15s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--46"><div class="grow-ans" style="--d:3.35s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--47"><div class="grow-ans" style="--d:3.55s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--48"><div class="grow-ans" style="--d:3.75s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--49"><div class="grow-ans" style="--d:3.95s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--50"><div class="grow-ans" style="--d:4.15s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--51"><div class="grow-ans" style="--d:3.28s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--52"><div class="grow-ans" style="--d:3.48s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--53"><div class="grow-ans" style="--d:3.68s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--54"><div class="grow-ans" style="--d:3.88s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--55"><div class="grow-ans" style="--d:4.08s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--56"><div class="grow-ans" style="--d:3.18s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--57"><div class="grow-ans" style="--d:3.38s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--58"><div class="grow-ans" style="--d:3.58s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--59"><div class="grow-ans" style="--d:3.78s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--60"><div class="grow-ans" style="--d:3.98s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--61"><div class="grow-ans" style="--d:4.18s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--62"><div class="grow-ans" style="--d:3.22s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--63"><div class="grow-ans" style="--d:3.42s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--64"><div class="grow-ans" style="--d:3.62s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--65"><div class="grow-ans" style="--d:3.82s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--66"><div class="grow-ans" style="--d:4.02s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--67"><div class="grow-ans" style="--d:3.12s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--68"><div class="grow-ans" style="--d:3.32s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--69"><div class="grow-ans" style="--d:3.52s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--70"><div class="grow-ans" style="--d:3.72s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--71"><div class="grow-ans" style="--d:3.92s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--72"><div class="grow-ans" style="--d:4.12s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--73"><div class="grow-ans" style="--d:3.26s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--74"><div class="grow-ans" style="--d:3.46s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--75"><div class="grow-ans" style="--d:3.66s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--76"><div class="grow-ans" style="--d:3.86s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--77"><div class="grow-ans" style="--d:4.06s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--78"><div class="grow-ans" style="--d:3.16s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--79"><div class="grow-ans" style="--d:3.36s"><div class="leaf"></div></div></div>
+            <!-- Additional 70 grass blades for LITERAL FIELD density -->
+            <div class="long-g long-g--80"><div class="grow-ans" style="--d:3.27s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--81"><div class="grow-ans" style="--d:3.47s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--82"><div class="grow-ans" style="--d:3.67s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--83"><div class="grow-ans" style="--d:3.87s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--84"><div class="grow-ans" style="--d:4.07s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--85"><div class="grow-ans" style="--d:3.17s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--86"><div class="grow-ans" style="--d:3.37s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--87"><div class="grow-ans" style="--d:3.57s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--88"><div class="grow-ans" style="--d:3.77s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--89"><div class="grow-ans" style="--d:3.97s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--90"><div class="grow-ans" style="--d:4.17s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--91"><div class="grow-ans" style="--d:3.24s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--92"><div class="grow-ans" style="--d:3.44s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--93"><div class="grow-ans" style="--d:3.64s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--94"><div class="grow-ans" style="--d:3.84s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--95"><div class="grow-ans" style="--d:4.04s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--96"><div class="grow-ans" style="--d:3.14s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--97"><div class="grow-ans" style="--d:3.34s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--98"><div class="grow-ans" style="--d:3.54s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--99"><div class="grow-ans" style="--d:3.74s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--100"><div class="grow-ans" style="--d:3.94s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--101"><div class="grow-ans" style="--d:4.14s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--102"><div class="grow-ans" style="--d:3.21s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--103"><div class="grow-ans" style="--d:3.41s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--104"><div class="grow-ans" style="--d:3.61s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--105"><div class="grow-ans" style="--d:3.81s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--106"><div class="grow-ans" style="--d:4.01s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--107"><div class="grow-ans" style="--d:3.11s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--108"><div class="grow-ans" style="--d:3.31s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--109"><div class="grow-ans" style="--d:3.51s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--110"><div class="grow-ans" style="--d:3.71s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--111"><div class="grow-ans" style="--d:3.91s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--112"><div class="grow-ans" style="--d:4.11s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--113"><div class="grow-ans" style="--d:3.28s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--114"><div class="grow-ans" style="--d:3.48s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--115"><div class="grow-ans" style="--d:3.68s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--116"><div class="grow-ans" style="--d:3.88s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--117"><div class="grow-ans" style="--d:4.08s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--118"><div class="grow-ans" style="--d:3.18s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--119"><div class="grow-ans" style="--d:3.38s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--120"><div class="grow-ans" style="--d:3.58s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--121"><div class="grow-ans" style="--d:3.78s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--122"><div class="grow-ans" style="--d:3.98s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--123"><div class="grow-ans" style="--d:4.18s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--124"><div class="grow-ans" style="--d:3.23s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--125"><div class="grow-ans" style="--d:3.43s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--126"><div class="grow-ans" style="--d:3.63s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--127"><div class="grow-ans" style="--d:3.83s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--128"><div class="grow-ans" style="--d:4.03s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--129"><div class="grow-ans" style="--d:3.13s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--130"><div class="grow-ans" style="--d:3.33s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--131"><div class="grow-ans" style="--d:3.53s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--132"><div class="grow-ans" style="--d:3.73s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--133"><div class="grow-ans" style="--d:3.93s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--134"><div class="grow-ans" style="--d:4.13s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--135"><div class="grow-ans" style="--d:3.26s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--136"><div class="grow-ans" style="--d:3.46s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--137"><div class="grow-ans" style="--d:3.66s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--138"><div class="grow-ans" style="--d:3.86s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--139"><div class="grow-ans" style="--d:4.06s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--140"><div class="grow-ans" style="--d:3.19s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--141"><div class="grow-ans" style="--d:3.39s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--142"><div class="grow-ans" style="--d:3.59s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--143"><div class="grow-ans" style="--d:3.79s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--144"><div class="grow-ans" style="--d:3.99s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--145"><div class="grow-ans" style="--d:4.19s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--146"><div class="grow-ans" style="--d:3.29s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--147"><div class="grow-ans" style="--d:3.49s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--148"><div class="grow-ans" style="--d:3.69s"><div class="leaf"></div></div></div>
+            <div class="long-g long-g--149"><div class="grow-ans" style="--d:3.89s"><div class="leaf"></div></div></div>
         </div>
 
         <div class="scroll-hint" onclick="openEnvelope()">
@@ -1536,137 +1853,72 @@
         <div class="close-envelope" onclick="closeEnvelope()"></div>
         <div class="envelope-wrapper">
             <div class="envelope" id="envelope">
-                <div class="envelope__back">
-                    <div class="envelope__pattern"></div>
-                </div>
+                <div class="envelope__back"></div>
                 <div class="envelope__flap"></div>
                 <div class="envelope__front"></div>
                 <div class="letter-paper">
-                    <div class="letter-paper-flourish letter-paper-flourish--tl"></div>
-                    <div class="letter-paper-flourish letter-paper-flourish--tr"></div>
-                    <div class="letter-paper-flourish letter-paper-flourish--bl"></div>
-                    <div class="letter-paper-flourish letter-paper-flourish--br"></div>
                     <div class="letter-paper__content">
-                        <!-- Floating rose petals -->
-                        <div class="floating-petal" style="left:10%; --fall-duration:15s; --fall-delay:0s; --sway:30px;">🌸</div>
-                        <div class="floating-petal" style="left:30%; --fall-duration:18s; --fall-delay:2s; --sway:-25px;">🌺</div>
-                        <div class="floating-petal" style="left:50%; --fall-duration:16s; --fall-delay:4s; --sway:20px;">🌹</div>
-                        <div class="floating-petal" style="left:70%; --fall-duration:17s; --fall-delay:6s; --sway:-30px;">💮</div>
-                        <div class="floating-petal" style="left:85%; --fall-duration:19s; --fall-delay:8s; --sway:25px;">🌼</div>
-                        <div class="floating-petal" style="left:20%; --fall-duration:20s; --fall-delay:10s; --sway:-20px;">🏵️</div>
-                        
-                        <!-- Decorative pressed flowers -->
-                        <div class="pressed-flower" style="top:8%; right:5%; --rotation:25deg;">🌸</div>
-                        <div class="pressed-flower" style="top:25%; left:3%; --rotation:-15deg;">🌺</div>
-                        <div class="pressed-flower" style="top:45%; right:4%; --rotation:35deg;">🌹</div>
-                        <div class="pressed-flower" style="top:65%; left:2%; --rotation:-25deg;">🌷</div>
-                        <div class="pressed-flower" style="top:85%; right:6%; --rotation:18deg;">💐</div>
-                        
-                        <!-- Mini wax seals -->
-                        <div class="mini-wax-seal" style="top:15%; left:8%;">💕</div>
-                        <div class="mini-wax-seal" style="top:38%; right:7%;">💖</div>
-                        <div class="mini-wax-seal" style="top:58%; left:6%;">💗</div>
-                        <div class="mini-wax-seal" style="top:78%; right:9%;">💝</div>
-                        
                         <div class="letter-paper__title">My palanggi, Charm Charm ♡</div>
                         
                         <div class="letter-paper__text">
-                            Uhmmmmm… saan ko mag-start hehehehe. First of all — palagi ko naman 'to sinasabi sayo —
-                            I'm so, <em>so</em>, very very veryyyy thankful na nakilala kita.
-                            You're the most loving, caring, and beautiful gurlll I've ever known in this wooorld hehehehe,
-                            and I hope na sana tatagal tayo... pwede ding forever nalang? Us? Pretty plssss 🥺
+                            Uhmmmmm… saan ko mag-start hehehehe. First of all — palagi ko naman 'to sinasabi sayo — I'm so, <em>so</em>, very very veryyyy thankful na nakilala kita. You're the most loving, caring, and beautiful gurlll I've ever known in this wooorld hehehehe, and I hope na sana tatagal tayo... pwede ding forever nalang? Us? Pretty plssss 🥺
                         </div>
 
                         <div class="letter-paper__text">
-                            By the way, as you can see sa taas, may bouquet of flowers hehe — yan yung nag-represent sa name mo mwehehehe.
-                            Let me explain them one by one, okay?
+                            By the way, as you can see sa taas, may bouquet of flowers hehe — yan yung nag-represent sa name mo mwehehehe. Let me explain them one by one, okay?
                         </div>
 
                         <div class="letter-paper__text">
-                            First is yung <strong style="color:#ff1493">Cherry Blossom</strong> — for <em>C</em>.
-                            Bakit yan?? Because nag-bobloom ka palagi sa paningin ko mwuuah.
-                            Palagi kang fresh, palagi kang blooming — like the most beautiful thing I never get tired of seeing. 🌸
+                            First is yung <strong>Cherry Blossom</strong> — for <em>C</em>. Bakit yan?? Because nag-bobloom ka palagi sa paningin ko mwuuah. Palagi kang fresh, palagi kang blooming — like the most beautiful thing I never get tired of seeing. 🌸
                         </div>
 
                         <div class="letter-paper__text">
-                            Second is <strong style="color:#d946ef">Hyacinth</strong> — for <em>H</em>.
-                            Idk, di ko alam yung flavor nayan HAHAHAHA jk.
-                            Yan yung napili ko because I feel love sayo — not just the word ha,
-                            yung real, actual thing you feel right here <em>(points at chest)</em>. That's you. 💜
+                            Second is <strong>Hyacinth</strong> — for <em>H</em>. Idk, di ko alam yung flavor nayan HAHAHAHA jk. Yan yung napili ko because I feel love sayo — not just the word ha, yung real, actual thing you feel right here <em>(points at chest)</em>. That's you. 💜
                         </div>
 
                         <div class="letter-paper__text">
-                            The third one is <strong style="color:#ff6b6b">Anemone</strong> — for <em>A</em>.
-                            I feel protected when I talk to you — parang nasa safe space ako.
-                            I'm so comfortable pag nasa call tayo, you knoooow? 🫶
+                            The third one is <strong>Anemone</strong> — for <em>A</em>. I feel protected when I talk to you — parang nasa safe space ako. I'm so comfortable pag nasa call tayo, you knoooow? 🫶
                         </div>
 
                         <div class="letter-paper__text">
-                            Next is yung 4th flower, <strong style="color:#dc143c">Rose</strong> — for <em>R</em>.
-                            Common siya, I knoooow, pero I don't care.
-                            Alam mo naman ata meaning nyan eh HAHAHAHAH — classic, timeless.
-                            That's exactly how I feel about you. 🌹
+                            Next is yung 4th flower, <strong>Rose</strong> — for <em>R</em>. Common siya, I knoooow, pero I don't care. Alam mo naman ata meaning nyan eh HAHAHAHAH — classic, timeless. That's exactly how I feel about you. 🌹
                         </div>
 
                         <div class="letter-paper__text">
-                            Next is <strong style="color:#4a90e2">Morning Glory</strong> — for <em>M</em>.
-                            Di ko din alam 'tong flavor nito HAHAHAHAHA.
-                            But yeah, nag-represent din 'to sayo because when I met you, parang nabuhay ulit ako —
-                            jk oa naman, pero legit — gusto ko maging in-love ulit for the first time.
-                            I want to risk again on love. And if it's for you? Gusto ko. Talagang gusto ko. 🌺
+                            Next is <strong>Morning Glory</strong> — for <em>M</em>. Di ko din alam 'tong flavor nito HAHAHAHAHA. But yeah, nag-represent din 'to sayo because when I met you, parang nabuhay ulit ako — jk oa naman, pero legit — gusto ko maging in-love ulit for the first time. I want to risk again on love. And if it's for you? Gusto ko. Talagang gusto ko. 🌺
                         </div>
 
                         <div class="letter-paper__text">
-                            The next one is <strong style="color:#888">Edelweiss</strong> — for <em>E</em>.
-                            Nag-represent sya ng loyal — ewan, di naman para sayo 'yan, sakin 'yan hehe.
-                            Naka-represent na loyal ako sayo. Patay na patay ako gruuuuuh.
-                            Love u, I worship kita mwuah. 🤍
+                            The next one is <strong>Edelweiss</strong> — for <em>E</em>. Nag-represent sya ng loyal — ewan, di naman para sayo 'yan, sakin 'yan hehe. Naka-represent na loyal ako sayo. Patay na patay ako gruuuuuh. Love u, I worship kita mwuah. 🤍
                         </div>
 
                         <div class="letter-paper__text">
-                            Next flower is <strong style="color:#ffd700">Lily</strong> — for <em>L</em>.
-                            It means purity — lahat ng sinasabi mo sakin is pureeee.
-                            Walang halong biro, and di ka rin marunong mag-lie, which is gusto ko sayo.
-                            Pure ka, totoong-totoo ka sa sarili mo. 🌼
+                            Next flower is <strong>Lily</strong> — for <em>L</em>. It means purity — lahat ng sinasabi mo sakin is pureeee. Walang halong biro, and di ka rin marunong mag-lie, which is gusto ko sayo. Pure ka, totoong-totoo ka sa sarili mo. 🌼
                         </div>
 
                         <div class="letter-paper__text">
-                            Next is <strong style="color:#9370db">Lavender</strong> — for <em>L</em>.
-                            Pinaka-favorite flower ko — and yung amoy ko hehehe 🪻.
-                            And also, nag-represent din 'to sayo because whenever we're in call, I feel so calm.
-                            Nawawala stress ko pagdating sayo, you know? Ikaw yung stress reliever ko.
-                            Pagkatapos sa school, sa mga happenings outside — ang special mo sakin.
-                            I swear I would <em>die</em> for you — oaaaa. 🫀
+                            Next is <strong>Lavender</strong> — for <em>L</em>. Pinaka-favorite flower ko — and yung amoy ko hehehe 🪻. And also, nag-represent din 'to sayo because whenever we're in call, I feel so calm. Nawawala stress ko pagdating sayo, you know? Ikaw yung stress reliever ko. Pagkatapos sa school, sa mga happenings outside — ang special mo sakin. I swear I would <em>die</em> for you — oaaaa. 🫀
                         </div>
 
                         <div class="letter-paper__text">
-                            Last flower is <strong style="color:#ff1493">Enchanted Bloom</strong> — for <em>E</em>.
-                            Yung flower daw na 'to nag-symbolize ng magical love — for example, love at first sight.
-                            Pero iba yung sakin eh —
-                            <em style="color:#ff1493">love at first jakol HAHAHAHHAHAA kupal ka boy!</em>
-                            But yeah, that unexpected, caught-you-off-guard kind of love?
-                            That's exactly what this is. That's exactly what you are to me. ✨
+                            Last flower is <strong>Enchanted Bloom</strong> — for <em>E</em>. Yung flower daw na 'to nag-symbolize ng magical love — for example, love at first sight. Pero iba yung sakin eh — <em>love at first jakol HAHAHAHHAHAA kupal ka boy!</em> But yeah, that unexpected, caught-you-off-guard kind of love? That's exactly what this is. That's exactly what you are to me. ✨
                         </div>
 
-                        <div style="height:2px;background:linear-gradient(to right,transparent,rgba(255,20,147,0.4) 20%,rgba(255,215,0,0.5) 50%,rgba(255,20,147,0.4) 80%,transparent);margin:30px 0;position:relative;box-shadow:0 0 10px rgba(255,215,0,0.3);">
-                            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:1.5rem;background:#fffef9;padding:0 15px;filter:drop-shadow(0 2px 8px rgba(255,105,180,0.4));">💝</div>
+                        <div class="divider"></div>
+
+                        <div class="letter-paper__text">
+                            Yan yung mga 9 letters na nag-represent sa pangalan mo. Ang accurate lahat kasi nafefeel ko sya — even 1 month palang tayo nag-uusap. Imagine that, Charm. 💕
                         </div>
 
                         <div class="letter-paper__text">
-                            Yan yung mga 9 letters na nag-represent sa pangalan mo.
-                            Ang accurate lahat kasi nafefeel ko sya — even 1 month palang tayo nag-uusap.
-                            Imagine that, Charm. 💕
+                            Sana pls pls pls, 'di ka magbago. Stay what you are. Same din sakin — I'll stay the same too, I promise. I hope magkita tayo soon. 🌸
                         </div>
 
-                        <div class="letter-paper__text">
-                            Sana pls pls pls, 'di ka magbago. Stay what you are.
-                            Same din sakin — I'll stay the same too, I promise.
-                            I hope magkita tayo soon. 🌸
-                        </div>
-
-                        <div class="letter-paper__text" style="margin-top:25px; font-style:italic; background:linear-gradient(135deg, rgba(255,215,0,0.08) 0%, rgba(255,105,180,0.08) 100%); padding:20px; border-radius:10px; border-left:4px solid #ffd700; box-shadow:0 4px 15px rgba(255,215,0,0.15); text-indent:0;">
-                            <span style="font-family:'Great Vibes',cursive; font-size:1.4em; color:#d4006e; filter:drop-shadow(0 2px 4px rgba(212,0,110,0.3));">Happy Valentine's Day, Charm Cha ✨</span><br>
-                            <span style="font-size:1.1em; color:#8b4513;">Ame palanggi, I love youuuuuuu 💕</span>
+                        <div class="highlight-box">
+                            <div class="letter-paper__text" style="margin:0; font-style:italic;">
+                                <span style="font-family:'Great Vibes',cursive; font-size:1.3em; color:#d4006e;">Happy Valentine's Day, Charm Cha ✨</span><br>
+                                <span style="color:#8b4513;">Ame palanggi, I love youuuuuuu 💕</span>
+                            </div>
                         </div>
 
                         <div class="letter-paper__signature">
@@ -1674,11 +1926,8 @@
                             your Blanco 💕
                         </div>
 
-                        <div style="text-align:center; margin-top:35px; padding:15px; background:linear-gradient(135deg, rgba(255,215,0,0.05), rgba(255,105,180,0.05)); border-radius:8px; position:relative;">
-                            <div style="font-family:'Cormorant Garamond',serif; font-size:0.95rem; color:#8b6914; font-style:italic; letter-spacing:1px;">
-                                📜 February 14 · forever and counting 📜
-                            </div>
-                            <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); font-size:1.5rem; filter:drop-shadow(0 2px 6px rgba(255,215,0,0.4));">💌</div>
+                        <div style="text-align:center; margin-top:30px; padding:12px; font-family:'Cormorant Garamond',serif; font-size:0.9rem; color:#999; font-style:italic;">
+                            📜 February 14 · forever and counting 📜
                         </div>
                     </div>
                 </div>
@@ -1699,7 +1948,6 @@
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 
-                // Random position around envelope center
                 const angle = (Math.PI * 2 * i) / sparkleCount;
                 const radius = 200 + Math.random() * 150;
                 const x = 50 + Math.cos(angle) * (radius / window.innerWidth * 100);
@@ -1714,21 +1962,14 @@
             }
         }
 
-        // Enhanced envelope animation functions
         function openEnvelope() {
             const container = document.getElementById('envelope-container');
             const envelope = document.getElementById('envelope');
             
-            // Remove closing class if present
             envelope.classList.remove('closing');
-            
-            // Create sparkles
             createSparkles();
-            
-            // Show container
             container.classList.add('active');
             
-            // Trigger envelope opening animation after envelope appears
             setTimeout(() => {
                 envelope.classList.add('opening');
             }, 1400);
@@ -1739,23 +1980,19 @@
             const envelope = document.getElementById('envelope');
             const sparklesContainer = document.getElementById('sparkles');
             
-            // Remove opening class and add closing class
             envelope.classList.remove('opening');
             envelope.classList.add('closing');
             
-            // After animations complete (letter goes down + flap closes), fade out container
             setTimeout(() => {
                 container.classList.remove('active');
                 
-                // Clean up after container fades out
                 setTimeout(() => {
                     envelope.classList.remove('closing');
                     sparklesContainer.innerHTML = '';
                 }, 800);
-            }, 4000); // 2.2s letter down + 1.8s flap close
+            }, 4000);
         }
 
-        // Close envelope with ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeEnvelope();
