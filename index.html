@@ -951,89 +951,86 @@
         .not-loaded *{animation-play-state:paused!important}
 
         /* ══════════════════════════════════════════════════════
-           MOBILE — FULLY IMMERSIVE GARDEN
-           ALL 9 flowers visible via horizontal scroll track.
-           Vines hug the full screen height on both sides.
-           Grass is lush and covers the entire base.
-           Flowers are large and close-up — no more tiny dots.
+           MOBILE — IMMERSIVE GARDEN  v4
+           • Flowers: horizontal scroll, well-spaced, not cramped
+           • Vines: spread across FULL left/right edges, breathing room
+           • Grass: lush blades visible at the base
+           • "a letter for you" button: always fixed + visible
         ══════════════════════════════════════════════════════ */
 
-        /* ── Swipe hint indicator ── */
-        .swipe-hint {
-            display:none;
-        }
+        /* swipe hint hidden by default (desktop) */
+        .swipe-hint { display:none; }
 
         @media(max-width:768px){
 
             /* ── HEADER ── */
             .header {
-                top:18px;
+                top:20px;
                 width:100%;
-                z-index:100;
+                padding:0 5vw;
+                z-index:150;
             }
             .header h1 {
-                font-size:clamp(1.8rem,7vw,3rem);
-                letter-spacing:5px;
+                font-size:clamp(1.6rem,6.5vw,2.8rem);
+                letter-spacing:4px;
             }
             .header .subtitle {
-                font-size:clamp(0.65rem,2.5vw,0.95rem);
+                font-size:clamp(0.6rem,2.2vw,0.9rem);
                 letter-spacing:2px;
             }
 
-            /* ── VINES — full opacity, thicker, full screen sides ── */
+            /* ── VINES
+                Only 6 vines per side, spread across 0-18% of screen width.
+                Gives them room to breathe and actually be seen.
+            ── */
             .vines-container {
-                opacity:0.85;
+                opacity:0.9;
                 z-index:2;
             }
-            .vine {
-                width:5px;
-            }
-            .vine-leaf {
-                width:26px;
-                height:38px;
-            }
-            .vine-flower {
-                font-size:1.1rem;
-            }
-            /* Spread vines wider so they're visible alongside the flowers */
-            .vine--left-1  { left:0%;   height:100%; }
-            .vine--left-2  { left:1.5%; height:100%; }
-            .vine--left-3  { left:3%;   height:95%;  }
-            .vine--left-4  { left:4.5%; height:90%;  }
-            .vine--left-5  { left:6%;   height:85%;  }
-            .vine--left-6  { left:7.5%; height:80%;  }
-            .vine--left-7  { left:9%;   height:75%;  }
-            .vine--left-8  { left:10.5%;height:70%;  }
-            .vine--left-9  { left:12%;  height:65%;  }
-            .vine--left-10 { left:13.5%;height:60%;  }
-            .vine--left-11 { left:0.8%; height:95%;  }
-            .vine--left-12 { left:2.5%; height:88%;  }
-            .vine--left-13 { left:5%;   height:78%;  }
-            .vine--left-14 { left:8%;   height:68%;  }
-            .vine--left-15 { left:11%;  height:58%;  }
+            .vine { width:4px; }
+            .vine-leaf { width:20px; height:30px; }
+            .vine-flower { font-size:0.95rem; }
 
-            .vine--right-1  { right:0%;   height:100%; }
-            .vine--right-2  { right:1.5%; height:100%; }
-            .vine--right-3  { right:3%;   height:95%;  }
-            .vine--right-4  { right:4.5%; height:90%;  }
-            .vine--right-5  { right:6%;   height:85%;  }
-            .vine--right-6  { right:7.5%; height:80%;  }
-            .vine--right-7  { right:9%;   height:75%;  }
-            .vine--right-8  { right:10.5%;height:70%;  }
-            .vine--right-9  { right:12%;  height:65%;  }
-            .vine--right-10 { right:13.5%;height:60%;  }
-            .vine--right-11 { right:0.8%; height:95%;  }
-            .vine--right-12 { right:2.5%; height:88%;  }
-            .vine--right-13 { right:5%;   height:78%;  }
-            .vine--right-14 { right:8%;   height:68%;  }
-            .vine--right-15 { right:11%;  height:58%;  }
+            /* Left side — 6 evenly spread vines, hide the rest */
+            .vine--left-1  { left:0%;  height:100%; display:block; }
+            .vine--left-2  { left:2%;  height:96%;  display:block; }
+            .vine--left-3  { left:4%;  height:90%;  display:block; }
+            .vine--left-4  { left:7%;  height:82%;  display:block; }
+            .vine--left-5  { left:10%; height:72%;  display:block; }
+            .vine--left-6  { left:14%; height:60%;  display:block; }
+            .vine--left-7  { display:none; }
+            .vine--left-8  { display:none; }
+            .vine--left-9  { display:none; }
+            .vine--left-10 { display:none; }
+            .vine--left-11 { left:1%;  height:92%;  display:block; }
+            .vine--left-12 { left:3%;  height:85%;  display:block; }
+            .vine--left-13 { display:none; }
+            .vine--left-14 { display:none; }
+            .vine--left-15 { display:none; }
 
-            /* ── GARDEN SCENE — enable horizontal scroll ── */
+            /* Right side — mirror */
+            .vine--right-1  { right:0%;  height:100%; display:block; }
+            .vine--right-2  { right:2%;  height:96%;  display:block; }
+            .vine--right-3  { right:4%;  height:90%;  display:block; }
+            .vine--right-4  { right:7%;  height:82%;  display:block; }
+            .vine--right-5  { right:10%; height:72%;  display:block; }
+            .vine--right-6  { right:14%; height:60%;  display:block; }
+            .vine--right-7  { display:none; }
+            .vine--right-8  { display:none; }
+            .vine--right-9  { display:none; }
+            .vine--right-10 { display:none; }
+            .vine--right-11 { right:1%;  height:92%;  display:block; }
+            .vine--right-12 { right:3%;  height:85%;  display:block; }
+            .vine--right-13 { display:none; }
+            .vine--right-14 { display:none; }
+            .vine--right-15 { display:none; }
+
+            /* ── GARDEN SCENE — scrollable track ── */
             .garden-scene {
                 overflow-x:auto;
                 overflow-y:hidden;
                 -webkit-overflow-scrolling:touch;
-                scroll-snap-type:x mandatory;
+                scroll-snap-type:x proximity;
                 scrollbar-width:none;
                 align-items:flex-end;
                 height:100vh;
@@ -1041,9 +1038,11 @@
             }
             .garden-scene::-webkit-scrollbar { display:none; }
 
-            /* ── FLOWERS CONTAINER — horizontal ribbon ── */
+            /* ── FLOWERS CONTAINER
+                Wide flex row — flowers sit side by side with generous gaps.
+                Left/right padding = vine zone buffer (16vw each side).
+            ── */
             .flowers {
-                /* Switch from absolute to a wide flex row */
                 position:relative;
                 width:max-content;
                 min-width:100vw;
@@ -1052,134 +1051,140 @@
                 flex-direction:row;
                 align-items:flex-end;
                 justify-content:flex-start;
-                /* NO transform scale — flowers are natively large */
                 transform:none;
-                padding: 0 18vw 0 18vw; /* side padding = vine width buffer */
-                gap:0;
+                /* 16vw each side leaves room for vines */
+                padding:0 16vw;
+                gap:6vw; /* generous breathing room between flowers */
             }
 
-            /* ── INDIVIDUAL FLOWERS — reposition from absolute to relative flow ── */
-            /* Each flower gets a natural slot in the flex row */
+            /* ── INDIVIDUAL FLOWERS ── */
             .flower {
                 position:relative !important;
                 left:auto !important;
-                bottom:0 !important;
                 bottom:8vmin !important;
                 flex-shrink:0;
-                width:18vw;
+                /* each flower occupies a comfortable slot */
+                width:10vw;
                 transform-origin:bottom center;
-                scroll-snap-align:center;
-                margin:0 1vw;
+                scroll-snap-align:start;
+                margin:0;
             }
 
-            /* Restore individual sway animations */
-            .flower--c  { animation:moving-flower-1 4s ease-in-out infinite !important; }
+            /* Sway animations */
+            .flower--c  { animation:moving-flower-1 4s   ease-in-out infinite !important; }
             .flower--h  { animation:moving-flower-2 4.2s ease-in-out infinite !important; }
             .flower--a  { animation:moving-flower-3 3.8s ease-in-out infinite !important; }
             .flower--r  { animation:moving-flower-1 4.4s ease-in-out infinite !important; }
-            .flower--m  { animation:moving-flower-2 4s ease-in-out infinite !important; }
+            .flower--m  { animation:moving-flower-2 4s   ease-in-out infinite !important; }
             .flower--e1 { animation:moving-flower-3 3.9s ease-in-out infinite !important; }
             .flower--l1 { animation:moving-flower-1 4.1s ease-in-out infinite !important; }
             .flower--l2 { animation:moving-flower-2 4.3s ease-in-out infinite !important; }
             .flower--e2 { animation:moving-flower-3 3.7s ease-in-out infinite !important; }
 
-            /* Scale up petal & stem sizes using mobile-friendly vmin */
+            /* Petals and stems — sized to feel close-up but not overwhelming */
             .flower__leaf {
-                width:14vmin !important;
-                height:20vmin !important;
+                width:9vmin !important;
+                height:13vmin !important;
             }
             .flower__line {
-                width:2.5vmin !important;
-                height:62vmin !important;
+                width:1.8vmin !important;
+                height:52vmin !important;
             }
             .flower__white-circle {
-                width:16vmin !important;
-                height:7vmin !important;
-                left:-7vmin !important;
-                top:-6vmin !important;
+                width:10vmin !important;
+                height:4.5vmin !important;
+                left:-4.5vmin !important;
+                top:-3.5vmin !important;
             }
             .flower__light {
-                width:2vmin !important;
-                height:2vmin !important;
+                width:1.5vmin !important;
+                height:1.5vmin !important;
             }
 
-            /* Labels stay above flowers */
-            .flower__label {
-                white-space:nowrap;
-            }
+            /* Labels */
+            .flower__label { white-space:nowrap; }
             .flower__label-letter {
-                font-size:clamp(1.3rem,4vmin,2.4rem);
+                font-size:clamp(1.1rem,3.5vmin,2rem);
             }
             .flower__label-name {
-                font-size:clamp(0.55rem,1.8vmin,1rem);
+                font-size:clamp(0.5rem,1.5vmin,0.85rem);
             }
 
-            /* ── GRASS — show ALL blades, cover full base ── */
-            /* Grass is positioned inside .flowers — it stays visible */
+            /* ── GRASS
+                Keep all blades, use absolute positioning relative to .flowers.
+                Spread them across the full scroll width naturally.
+            ── */
             .long-g {
-                display:block !important; /* override any hide rules */
-                bottom:10vmin;
+                display:block !important;
+                bottom:8vmin;
             }
-            /* Make the leaf blades taller and lusher on mobile */
             .leaf {
-                --w:12vmin !important;
-                --h:36vmin !important;
+                --w:10vmin !important;
+                --h:30vmin !important;
             }
 
-            /* ── SCROLL BUTTON — visible letter button ── */
+            /* ── "A LETTER FOR YOU" BUTTON
+                Fixed to bottom of viewport so it's ALWAYS visible
+                regardless of scroll position. Override the opacity animation
+                to force-show it.
+            ── */
             .scroll-hint {
                 position:fixed !important;
-                bottom:22px;
-                left:50%;
-                transform:translateX(-50%);
-                z-index:200;
-                padding:13px 28px;
-                font-size:0.8rem;
-                backdrop-filter:blur(14px);
-                background:linear-gradient(135deg, rgba(255,20,147,0.2), rgba(255,105,180,0.2));
-                border:2px solid rgba(212,0,110,0.4);
-                border-radius:50px;
-                box-shadow:0 4px 20px rgba(255,105,180,0.3);
+                bottom:20px !important;
+                left:50% !important;
+                transform:translateX(-50%) !important;
+                z-index:9000 !important;
+                padding:14px 32px !important;
+                opacity:1 !important;
+                animation:none !important;
+                background:linear-gradient(135deg, rgba(255,20,147,0.25), rgba(255,105,180,0.25)) !important;
+                border:2px solid rgba(212,0,110,0.5) !important;
+                border-radius:50px !important;
+                backdrop-filter:blur(16px) !important;
+                box-shadow:0 6px 28px rgba(255,105,180,0.4), 0 2px 8px rgba(0,0,0,0.15) !important;
+                pointer-events:all !important;
+                white-space:nowrap !important;
             }
-            .scroll-hint span { font-size:0.8rem; }
+            .scroll-hint span {
+                font-size:0.82rem !important;
+                color:#c0005a !important;
+                letter-spacing:2px !important;
+            }
 
-            /* ── SWIPE HINT — show a little arrow indicator ── */
+            /* ── SWIPE HINT ── */
             .swipe-hint {
                 display:flex;
                 position:fixed;
-                right:20px;
-                top:50%;
-                transform:translateY(-50%);
+                right:16px;
+                bottom:90px;
                 flex-direction:column;
                 align-items:center;
                 gap:4px;
-                z-index:200;
+                z-index:8999;
                 opacity:0;
-                animation:swipe-appear 1s 6s ease-out forwards;
+                animation:swipe-appear 1.2s 7s ease-out forwards;
                 pointer-events:none;
             }
             @keyframes swipe-appear {
-                0%   { opacity:0; transform:translateY(-50%) translateX(10px); }
-                30%  { opacity:1; transform:translateY(-50%) translateX(0); }
-                80%  { opacity:1; }
-                100% { opacity:0.4; transform:translateY(-50%); }
+                0%   { opacity:0; transform:translateX(8px); }
+                40%  { opacity:1; transform:translateX(0); }
+                100% { opacity:0.5; }
             }
             .swipe-hint__arrow {
-                font-size:1.6rem;
-                animation:swipe-bounce 1.4s ease-in-out infinite;
+                font-size:1.4rem;
+                animation:swipe-bounce 1.3s ease-in-out infinite;
             }
             @keyframes swipe-bounce {
                 0%,100% { transform:translateX(0); }
-                50%     { transform:translateX(6px); }
+                50%     { transform:translateX(5px); }
             }
             .swipe-hint__text {
                 font-family:'Cormorant Garamond',serif;
                 font-style:italic;
-                font-size:0.65rem;
+                font-size:0.6rem;
                 color:#d4006e;
                 letter-spacing:1px;
                 writing-mode:vertical-rl;
-                text-orientation:mixed;
             }
 
             /* ── ENVELOPE ── */
@@ -1193,125 +1198,130 @@
             .letter-paper__title   { font-size:2rem; }
         }
 
-        /* ─────────────────────────────────────────
-           SMALL PHONE ≤480px — same treatment,
-           slightly tighter flower width
-        ───────────────────────────────────────── */
+        /* ─────────────────────────────────
+           SMALL PHONE ≤480px
+        ───────────────────────────────── */
         @media(max-width:480px){
             .header h1 {
-                font-size:clamp(1.5rem,8vw,2.4rem);
-                letter-spacing:4px;
+                font-size:clamp(1.4rem,7.5vw,2.2rem);
+                letter-spacing:3px;
             }
             .header .subtitle {
-                font-size:clamp(0.6rem,2.8vw,0.85rem);
+                font-size:clamp(0.55rem,2.8vw,0.8rem);
             }
 
-            /* Slightly narrower flower slots on small phones */
+            .flowers {
+                gap:8vw !important;
+                padding:0 18vw !important;
+            }
             .flower {
-                width:22vw !important;
-                margin:0 0.5vw !important;
+                width:11vw !important;
             }
-
-            /* Bigger stems so they reach full height */
             .flower__line {
-                height:70vmin !important;
+                height:55vmin !important;
             }
 
-            .vine { width:4px; }
-            .vine-leaf { width:22px; height:32px; }
-            .vine-flower { font-size:0.95rem; }
+            /* Vine sizing for small screens */
+            .vine { width:3.5px; }
+            .vine-leaf { width:18px; height:27px; }
+            .vine-flower { font-size:0.85rem; }
 
-            /* Keep all vines on small screens */
-            .vine--left-1  { left:0%;   height:100%; }
-            .vine--left-2  { left:1.2%; height:100%; }
-            .vine--left-3  { left:2.4%; height:95%;  }
-            .vine--left-4  { left:3.6%; height:90%;  }
-            .vine--left-5  { left:5%;   height:85%;  }
-            .vine--left-6  { left:6.2%; height:80%;  }
-            .vine--left-7  { left:7.5%; height:72%;  }
-            .vine--left-8  { left:9%;   height:65%;  }
-            .vine--left-9  { left:10%;  height:58%;  }
-            .vine--left-10 { left:11.5%;height:52%;  }
-            .vine--left-11 { left:0.6%; height:92%;  }
-            .vine--left-12 { left:2%;   height:82%;  }
-            .vine--left-13 { left:4.2%; height:72%;  }
-            .vine--left-14 { left:6.8%; height:62%;  }
-            .vine--left-15 { left:9%;   height:52%;  }
-
-            .vine--right-1  { right:0%;   height:100%; }
-            .vine--right-2  { right:1.2%; height:100%; }
-            .vine--right-3  { right:2.4%; height:95%;  }
-            .vine--right-4  { right:3.6%; height:90%;  }
-            .vine--right-5  { right:5%;   height:85%;  }
-            .vine--right-6  { right:6.2%; height:80%;  }
-            .vine--right-7  { right:7.5%; height:72%;  }
-            .vine--right-8  { right:9%;   height:65%;  }
-            .vine--right-9  { right:10%;  height:58%;  }
-            .vine--right-10 { right:11.5%;height:52%;  }
-            .vine--right-11 { right:0.6%; height:92%;  }
-            .vine--right-12 { right:2%;   height:82%;  }
-            .vine--right-13 { right:4.2%; height:72%;  }
-            .vine--right-14 { right:6.8%; height:62%;  }
-            .vine--right-15 { right:9%;   height:52%;  }
+            /* Tighter vine spread for narrow screens */
+            .vine--left-1  { left:0%;  height:100%; }
+            .vine--left-2  { left:1.5%;height:95%;  }
+            .vine--left-3  { left:3%;  height:88%;  }
+            .vine--left-4  { left:5.5%;height:78%;  }
+            .vine--left-5  { left:8%;  height:68%;  }
+            .vine--left-6  { left:11%; height:56%;  }
+            .vine--left-11 { left:0.8%;height:90%;  }
+            .vine--left-12 { left:2.5%;height:82%;  }
+            .vine--right-1  { right:0%;  height:100%; }
+            .vine--right-2  { right:1.5%;height:95%;  }
+            .vine--right-3  { right:3%;  height:88%;  }
+            .vine--right-4  { right:5.5%;height:78%;  }
+            .vine--right-5  { right:8%;  height:68%;  }
+            .vine--right-6  { right:11%; height:56%;  }
+            .vine--right-11 { right:0.8%;height:90%;  }
+            .vine--right-12 { right:2.5%;height:82%;  }
 
             .scroll-hint {
-                bottom:18px;
-                padding:11px 22px;
+                bottom:16px !important;
+                padding:12px 26px !important;
             }
-            .scroll-hint span { font-size:0.74rem; }
+            .scroll-hint span { font-size:0.76rem !important; }
 
             .envelope-wrapper {
-                width:92vw;
-                height:calc(92vw * 0.7);
+                width:93vw;
+                height:calc(93vw * 0.7);
             }
             .letter-paper__content { padding:28px 22px; }
-            .letter-paper__title   { font-size:1.75rem; }
+            .letter-paper__title   { font-size:1.7rem; }
         }
 
-        /* ─────────────────────────────────────────
+        /* ─────────────────────────────────
            LANDSCAPE PHONE
-        ───────────────────────────────────────── */
-        @media(max-height:500px) and (orientation:landscape) {
+        ───────────────────────────────── */
+        @media(max-height:500px) and (orientation:landscape){
             .garden-scene {
                 overflow-x:auto;
                 -webkit-overflow-scrolling:touch;
+                scroll-snap-type:x proximity;
             }
             .flowers {
                 position:relative !important;
-                width:max-content;
-                height:100vh;
-                display:flex;
-                flex-direction:row;
-                align-items:flex-end;
+                width:max-content !important;
+                min-width:100vw !important;
+                height:100vh !important;
+                display:flex !important;
+                flex-direction:row !important;
+                align-items:flex-end !important;
                 transform:none !important;
-                padding:0 15vw;
-                gap:0;
+                padding:0 14vw !important;
+                gap:5vw !important;
             }
             .flower {
                 position:relative !important;
                 left:auto !important;
-                flex-shrink:0;
-                width:16vw;
-                margin:0 0.8vw;
-                bottom:0 !important;
+                flex-shrink:0 !important;
+                width:8vw !important;
+                bottom:6vmin !important;
             }
-            .flower__line { height:45vmin !important; }
-            .flower--c  { animation:moving-flower-1 4s ease-in-out infinite !important; }
+            .flower__line { height:38vmin !important; }
+            .flower__leaf { width:7vmin !important; height:10vmin !important; }
+            .flower--c  { animation:moving-flower-1 4s   ease-in-out infinite !important; }
             .flower--h  { animation:moving-flower-2 4.2s ease-in-out infinite !important; }
             .flower--a  { animation:moving-flower-3 3.8s ease-in-out infinite !important; }
             .flower--r  { animation:moving-flower-1 4.4s ease-in-out infinite !important; }
-            .flower--m  { animation:moving-flower-2 4s ease-in-out infinite !important; }
+            .flower--m  { animation:moving-flower-2 4s   ease-in-out infinite !important; }
             .flower--e1 { animation:moving-flower-3 3.9s ease-in-out infinite !important; }
             .flower--l1 { animation:moving-flower-1 4.1s ease-in-out infinite !important; }
             .flower--l2 { animation:moving-flower-2 4.3s ease-in-out infinite !important; }
             .flower--e2 { animation:moving-flower-3 3.7s ease-in-out infinite !important; }
-
-            .header { top:10px; }
-            .header h1 { font-size:1.3rem; letter-spacing:4px; }
-            .header .subtitle { font-size:0.6rem; }
-            .scroll-hint { bottom:8px; padding:8px 18px; }
             .vine { width:3px; }
+            .vine--left-1  { left:0%;  height:100%; display:block; }
+            .vine--left-2  { left:2%;  height:90%;  display:block; }
+            .vine--left-3  { left:4%;  height:78%;  display:block; }
+            .vine--left-4  { left:7%;  height:65%;  display:block; }
+            .vine--left-5  { display:none; }
+            .vine--left-6  { display:none; }
+            .vine--left-11 { left:1%;  height:85%;  display:block; }
+            .vine--left-12 { display:none; }
+            .vine--right-1  { right:0%;  height:100%; display:block; }
+            .vine--right-2  { right:2%;  height:90%;  display:block; }
+            .vine--right-3  { right:4%;  height:78%;  display:block; }
+            .vine--right-4  { right:7%;  height:65%;  display:block; }
+            .vine--right-5  { display:none; }
+            .vine--right-6  { display:none; }
+            .vine--right-11 { right:1%;  height:85%;  display:block; }
+            .vine--right-12 { display:none; }
             .long-g { display:block !important; }
+            .header { top:8px; }
+            .header h1 { font-size:1.2rem; letter-spacing:3px; }
+            .header .subtitle { font-size:0.55rem; }
+            .scroll-hint {
+                bottom:10px !important;
+                padding:8px 18px !important;
+            }
         }
     </style>
 </head>
@@ -2034,31 +2044,42 @@
     <script>
         setTimeout(() => { document.body.classList.remove('not-loaded'); }, 100);
 
-        // On mobile: scroll the garden scene to center (middle flower) on load
+        // On mobile: show the letter button immediately + center on middle flower
         function initMobileScroll() {
             if (window.innerWidth <= 768) {
-                const scene = document.querySelector('.garden-scene');
+                const scene  = document.querySelector('.garden-scene');
                 const flowers = document.querySelector('.flowers');
+                const btn    = document.querySelector('.scroll-hint');
+
+                // Force the letter button visible right away on mobile
+                if (btn) {
+                    btn.style.opacity = '1';
+                    btn.style.animation = 'none';
+                    btn.style.pointerEvents = 'all';
+                }
+
+                // After layout paints, scroll to center (middle flower = M)
                 if (scene && flowers) {
-                    // After flowers render, scroll to center
                     requestAnimationFrame(() => {
-                        const scrollCenter = (flowers.scrollWidth - scene.clientWidth) / 2;
-                        scene.scrollLeft = scrollCenter;
+                        setTimeout(() => {
+                            const scrollCenter = (flowers.scrollWidth - scene.clientWidth) / 2;
+                            scene.scrollLeft = scrollCenter;
+                        }, 100);
                     });
                 }
-                // Hide swipe hint after first user scroll
+
+                // Fade out swipe hint after user first scrolls
                 const swipeHint = document.getElementById('swipe-hint');
-                if (swipeHint) {
+                if (swipeHint && scene) {
                     scene.addEventListener('scroll', () => {
                         swipeHint.style.opacity = '0';
-                        swipeHint.style.transition = 'opacity 0.5s ease';
+                        swipeHint.style.transition = 'opacity 0.4s ease';
                     }, { once: true });
                 }
             }
         }
 
-        // Wait for fonts + layout to settle
-        setTimeout(initMobileScroll, 300);
+        setTimeout(initMobileScroll, 200);
 
         function createSparkles() {
             const sparklesContainer = document.getElementById('sparkles');
