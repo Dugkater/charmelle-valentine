@@ -1260,10 +1260,16 @@
                 max-height:350px;
             }
 
+            /* Center flowers container vertically like desktop */
+            .flowers {
+                align-items:center;
+                padding-bottom:0;
+            }
+
             /* Better flower positioning for mobile */
             .flower {
                 transform:scale(0.55)!important;
-                bottom:5vmin!important;
+                bottom:auto!important;
             }
             
             .flower--c{left:calc(50% - 40vmin)}
@@ -1284,7 +1290,7 @@
                 font-size:clamp(0.5rem,1.6vmin,0.85rem);
             }
 
-            /* Adjust grass for mobile */
+            /* Adjust grass for mobile - keep at bottom */
             .long-g {
                 bottom:10vmin;
                 transform:scale(0.5)!important;
@@ -1310,9 +1316,15 @@
         }
 
         @media(max-width:480px){
+            /* Center flowers container */
+            .flowers {
+                align-items:center;
+                padding-bottom:0;
+            }
+
             .flower {
                 transform:scale(0.4)!important;
-                bottom:3vmin!important;
+                bottom:auto!important;
             }
 
             .flower--c{left:calc(50% - 42vmin)}
@@ -1349,9 +1361,12 @@
 
         /* Landscape mobile fix */
         @media(max-height:500px) and (orientation:landscape) {
+            .flowers {
+                align-items:center;
+            }
             .flower {
                 transform:scale(0.35)!important;
-                bottom:2vmin!important;
+                bottom:auto!important;
             }
             .header {
                 top:15px;
@@ -1361,6 +1376,10 @@
             }
             .header .subtitle {
                 font-size:0.7rem;
+            }
+            .scroll-hint {
+                bottom:10px;
+                padding:8px 18px;
             }
         }
     </style>
